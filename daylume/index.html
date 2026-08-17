@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daylume — Light assistant on your wrist</title>
+<meta name="description" content="Daylume is an on-device golden hour &amp; sun tracking assistant for Apple Watch. Works offline. No subscription, no data collection.">
+<style>
+  :root{
+    --bg:#0b0b14; --card:#161622; --text:#f3f0ea; --sec:#a9a5b8;
+    --gold:#f5aa40; --gold2:#ffd685; --blue:#73a6ff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:linear-gradient(180deg,#0b0b14 0%,#141024 55%,#2a1830 85%,#4a2430 100%);
+       color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       min-height:100vh;line-height:1.6}
+  .wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px}
+  .lang{text-align:right;margin-bottom:8px}
+  .lang button{background:none;border:1px solid #3a3550;color:var(--sec);border-radius:14px;
+       padding:4px 12px;margin-left:6px;cursor:pointer;font-size:13px}
+  .lang button.on{color:var(--gold2);border-color:var(--gold)}
+  .icon{width:96px;height:96px;border-radius:22px;display:block;margin:18px auto 20px;
+       box-shadow:0 8px 40px rgba(245,170,64,.35)}
+  h1{text-align:center;font-size:2.2rem;letter-spacing:.5px}
+  .tag{text-align:center;color:var(--gold2);margin:6px 0 34px;font-size:1.05rem}
+  .card{background:rgba(22,22,34,.75);border:1px solid #2a2740;border-radius:16px;
+       padding:22px 24px;margin:14px 0}
+  .card h2{font-size:1.05rem;color:var(--gold2);margin-bottom:8px}
+  .card p{color:var(--sec);font-size:.95rem}
+  .footer{text-align:center;color:#6f6a80;font-size:.8rem;margin-top:40px}
+  .footer a{color:var(--sec)}
+  .badge{display:block;text-align:center;margin:26px 0 6px;color:var(--sec);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="lang">
+    <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
+    <button id="btn-tr" onclick="setLang('tr')">TR</button>
+    <button id="btn-de" onclick="setLang('de')">DE</button>
+    <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+  </div>
+
+  <svg class="icon" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1c1442"/><stop offset=".55" stop-color="#7a3454"/>
+        <stop offset=".66" stop-color="#e87a2c"/><stop offset=".661" stop-color="#171026"/>
+        <stop offset="1" stop-color="#0d0a18"/>
+      </linearGradient>
+      <radialGradient id="sun" cx=".5" cy=".66" r=".3">
+        <stop offset="0" stop-color="#fff4c8"/><stop offset="1" stop-color="#ffbe5a" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="96" height="96" rx="21" fill="url(#sky)"/>
+    <rect width="96" height="96" rx="21" fill="url(#sun)"/>
+    <path d="M18 63 A34 34 0 0 1 78 63" fill="none" stroke="#ffeecb" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="69" cy="43" r="3.6" fill="#fff8e6"/>
+    <circle cx="48" cy="63" r="12" fill="#ffd685"/>
+    <rect x="10" y="62.5" width="76" height="2.4" fill="#171026"/>
+  </svg>
+
+  <h1>Daylume</h1>
+  <p class="tag" data-en="The light won't wait. Be ready."
+     data-tr="Işık beklemez. Hazır ol."
+     data-de="Das Licht wartet nicht. Seien Sie bereit."
+     data-ja="光は待ってくれません。備えましょう。">The light won't wait. Be ready.</p>
+
+  <div class="card">
+    <h2 data-en="What is Daylume?" data-tr="Daylume nedir?"
+        data-de="Was ist Daylume?" data-ja="Daylumeとは">What is Daylume?</h2>
+    <p data-en="A light assistant that lives on your Apple Watch. Golden hour and blue hour countdowns, a live sun &amp; moon compass, a day planner for any date, moon phases and tonight's astro-darkness window — with a gentle tap on your wrist before the light turns. Every calculation runs offline on the watch, and by default the app makes no network requests at all. No subscription, ever."
+       data-tr="Apple Watch'unda yaşayan bir ışık asistanı. Altın saat ve mavi saat geri sayımları, canlı güneş-ay pusulası, herhangi bir tarih için gün planlayıcı, ay evreleri ve bu gecenin astronomik karanlık penceresi — ışık dönmeden önce bileğine nazik bir dokunuşla. Tüm hesaplamalar saatin üzerinde, çevrimdışı yapılır ve uygulama varsayılan olarak hiçbir ağ isteği yapmaz. Abonelik yok, asla."
+       data-de="Ein Lichtassistent, der auf Ihrer Apple Watch lebt. Countdowns für die goldene und die blaue Stunde, ein Live-Kompass für Sonne &amp; Mond, ein Tagesplaner für jedes Datum, Mondphasen und das heutige Fenster der astronomischen Dunkelheit — mit einem sanften Tippen am Handgelenk, bevor das Licht wechselt. Jede Berechnung läuft offline auf der Uhr, und ab Werk stellt die App überhaupt keine Netzwerkanfragen. Kein Abo, niemals."
+       data-ja="Apple Watchの中に住む光のアシスタントです。ゴールデンアワーとブルーアワーのカウントダウン、太陽と月のライブコンパス、任意の日付の一日プランナー、月相、そして今夜の天文薄明後の暗い時間帯 — 光が変わる前に、手首をそっとタップしてお知らせします。すべての計算は時計の上でオフラインに実行され、初期状態ではネットワーク通信を一切行いません。サブスクリプションは、ずっとありません。">
+    A light assistant that lives on your Apple Watch. Golden hour and blue hour countdowns, a live sun &amp; moon compass, a day planner for any date, moon phases and tonight's astro-darkness window — with a gentle tap on your wrist before the light turns. Every calculation runs offline on the watch, and by default the app makes no network requests at all. No subscription, ever.</p>
+  </div>
+
+  <div class="card">
+    <h2 data-en="Support" data-tr="Destek" data-de="Support" data-ja="サポート">Support</h2>
+    <p data-en="Questions, feature requests or a bug? Email us — we read everything:"
+       data-tr="Soru, özellik isteği ya da hata mı? E-posta gönder — hepsini okuyoruz:"
+       data-de="Fragen, Funktionswünsche oder ein Fehler? Schreiben Sie uns — wir lesen alles:"
+       data-ja="ご質問、ご要望、不具合のご報告はメールでどうぞ。すべて目を通しています。">
+       Questions, feature requests or a bug? Email us — we read everything:</p>
+    <p style="margin-top:8px"><a href="mailto:brkekahraman@icloud.com" style="color:var(--gold2)">brkekahraman@icloud.com</a></p>
+  </div>
+
+  <div class="card">
+    <h2 data-en="FAQ" data-tr="SSS" data-de="FAQ" data-ja="よくある質問">FAQ</h2>
+    <p data-en="• Does it need an iPhone? No — Daylume is a standalone watch app.&#10;• Does it work offline? Yes — every sun/moon calculation is done on the watch and your last location is remembered. By default Daylume makes no network requests at all; the one thing it can send is the optional place-name lookup to Apple's own geocoder (Settings &gt; Location, off by default).&#10;• Which watches? Apple Watch with watchOS 10 or later. The compass view uses built-in compass hardware (Series 5+).&#10;• Subscription? Never. One purchase, yours forever."
+       data-tr="• iPhone gerekir mi? Hayır — Daylume bağımsız bir saat uygulamasıdır.&#10;• Çevrimdışı çalışır mı? Evet — tüm güneş/ay hesapları saatte yapılır ve son konumun hatırlanır. Daylume varsayılan olarak hiçbir ağ isteği yapmaz; gönderebildiği tek şey, Apple'ın kendi coğrafi kodlayıcısına giden isteğe bağlı yer-adı sorgusudur (Ayarlar &gt; Konum, varsayılan kapalı).&#10;• Hangi saatler? watchOS 10 veya üzeri Apple Watch. Pusula görünümü yerleşik pusula donanımını kullanır (Series 5+).&#10;• Abonelik? Asla. Bir kez satın al, ömür boyu senin."
+       data-de="• Wird ein iPhone benötigt? Nein — Daylume ist eine eigenständige Watch-App.&#10;• Funktioniert es offline? Ja — jede Sonnen- und Mondberechnung läuft auf der Uhr, und Ihr letzter Standort wird gemerkt. Ab Werk stellt Daylume überhaupt keine Netzwerkanfragen; das Einzige, was es senden kann, ist die optionale Ortsnamen-Abfrage an Apples eigenen Geocoder (Einstellungen &gt; Standort, ab Werk aus).&#10;• Welche Uhren? Apple Watch mit watchOS 10 oder neuer. Die Kompassansicht nutzt den eingebauten Kompass (Series 5+).&#10;• Abo? Niemals. Einmal kaufen, für immer Ihres."
+       data-ja="• iPhoneは必要ですか？ いいえ — Daylumeは単独で動作するWatchアプリです。&#10;• オフラインでも動きますか？ はい — 太陽と月の計算はすべて時計の中で行われ、最後の位置情報は記憶されます。初期状態ではネットワーク通信を一切行いません。送信しうる唯一のものは、任意の地名検索（設定 &gt; 位置情報、初期状態はオフ）でApple自身のジオコーダーへ送られる座標だけです。&#10;• 対応する機種は？ watchOS 10以降のApple Watch。コンパス表示は内蔵のコンパス（Series 5以降）を使用します。&#10;• サブスクリプションは？ ありません。一度の購入で、ずっとあなたのものです。"
+       style="white-space:pre-line">• Does it need an iPhone? No — Daylume is a standalone watch app.
+• Does it work offline? Yes — every sun/moon calculation is done on the watch and your last location is remembered. By default Daylume makes no network requests at all; the one thing it can send is the optional place-name lookup to Apple's own geocoder (Settings &gt; Location, off by default).
+• Which watches? Apple Watch with watchOS 10 or later. The compass view uses built-in compass hardware (Series 5+).
+• Subscription? Never. One purchase, yours forever.</p>
+  </div>
+
+  <span class="badge" data-en="Privacy: Daylume collects no data. None."
+        data-tr="Gizlilik: Daylume hiçbir veri toplamaz. Hiç."
+        data-de="Datenschutz: Daylume erfasst keine Daten. Keine."
+        data-ja="プライバシー：Daylumeはデータを一切収集しません。ひとつも。">Privacy: Daylume collects no data. None.</span>
+
+  <div class="footer">
+    <a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası"
+       data-de="Datenschutzerklärung" data-ja="プライバシーポリシー">Privacy Policy</a>
+    &nbsp;·&nbsp; © 2026 Berke Kahraman
+  </div>
+</div>
+<script>
+// data-en / data-tr içeriği YAZAR TARAFINDAN yazılır ve HTML içerebilir
+// (örn. gizlilik politikasına giden bir <a>). Eski sürüm `el.textContent`
+// atıyordu: metin geçiyordu ama İÇİNDEKİ İŞARETLEME SESSİZCE SİLİNİYORDU —
+// bir bağlantı eklendiği anda kaybolurdu ve hiçbir hata görünmezdi.
+// Doğrusu innerHTML'dir. Güvenlik notu: bu değerler kullanıcı girdisi
+// değildir, depodaki statik HTML'dendir; XSS yüzeyi yoktur. Bir gün
+// kullanıcı girdisi buraya bağlanırsa bu satır tekrar düşünülmelidir.
+function setLang(l){
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var v = el.getAttribute('data-' + l);
+    if (v === null) return;          // o dilde karşılığı yoksa olduğu gibi bırak
+    el.innerHTML = v;
+  });
+  document.getElementById('btn-en').classList.toggle('on', l==='en');
+  document.getElementById('btn-tr').classList.toggle('on', l==='tr');
+  document.getElementById('btn-de').classList.toggle('on', l==='de');
+  document.getElementById('btn-ja').classList.toggle('on', l==='ja');
+  document.documentElement.lang = l;
+}
+var nav = (navigator.language||'').toLowerCase();
+if (nav.startsWith('tr')) setLang('tr');
+else if (nav.startsWith('de')) setLang('de');
+else if (nav.startsWith('ja')) setLang('ja');
+</script>
+</body>
+</html>

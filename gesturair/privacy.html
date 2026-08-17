@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GesturAir — Privacy Policy / Gizlilik Politikası</title>
+<meta name="description" content="GesturAir privacy policy — what stays on your watch, what does not, and your rights under the GDPR and KVKK.">
+<style>
+body{background:#0b0b14;color:#f3f0ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding:44px 24px 80px}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.15rem;color:#8aa2ff;margin:34px 0 10px;border-top:1px solid #23203a;padding-top:22px}
+h3{font-size:1rem;color:#e6e2f2;margin:20px 0 4px}
+p,li{color:#b9b5c8;font-size:.95rem}
+a{color:#8aa2ff}
+.back{font-size:.85rem}
+.sum{background:#14131f;border:1px solid #2a2740;border-left:3px solid #8aa2ff;border-radius:12px;padding:14px 18px;margin:18px 0}
+.sum p{margin:0 0 8px} .sum p:last-child{margin:0}
+.addr{background:#14131f;border:1px solid #2a2740;border-radius:12px;padding:12px 16px;font-size:.9rem;color:#d6d2e4}
+.lang{font-size:.85rem;color:#6f6a80;margin:0 0 18px}
+code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:#d6d2e4}
+.foot{margin-top:38px;color:#6f6a80;font-size:.8rem;border-top:1px solid #23203a;padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="index.html">← GesturAir</a></p>
+  <div class="sum" style="border-left-color:#f0d9a8;background:#241d10;border-color:#5a4620">
+  <p><b>Status: GesturAir is not available on the App Store.</b> The app is not
+  published and was not submitted. It was designed around the watch acting as a
+  Bluetooth LE peripheral, and watchOS does not support that role, so the app
+  does not build against the watchOS SDK. The transport layer is being
+  redesigned; no release date is promised. This policy is kept online because
+  its URL is referenced elsewhere, and it describes the app as it was built — if
+  the transport changes, the policy will be rewritten before anything ships.</p>
+  <p lang="tr"><b>Durum: GesturAir App Store'da yayında değil.</b> Uygulama
+  yayınlanmıyor ve gönderilmedi. Tasarımı saatin Bluetooth LE peripheral
+  rolünde çalışmasına dayanıyordu; watchOS bu rolü desteklemediği için uygulama
+  watchOS SDK'sına karşı derlenmiyor. Taşıyıcı katman yeniden tasarlanıyor;
+  yayın tarihi sözü verilmiyor. Bu politika, adresine başka yerlerden atıf
+  yapıldığı için yayında bırakıldı ve uygulamayı geliştirildiği hâliyle
+  anlatır — taşıyıcı değişirse, yayından önce politika yeniden yazılacaktır.</p>
+  </div>
+  <h1>Privacy Policy / Gizlilik Politikası</h1>
+  <p class="lang"><em>Last updated / Son güncelleme: August 1, 2026 · 1 Ağustos 2026</em><br>
+  English below, Türkçesi aşağıda. Both versions say the same thing; if they
+  ever differ, the English text is the reference. / İki sürüm aynı şeyi söyler;
+  bir farklılık olursa İngilizce metin esas alınır.</p>
+
+  <h2 id="en" style="border-top:none;padding-top:0">English</h2>
+  <div class="sum">
+  <p><strong>GesturAir collects no data. None. When it recognises a gesture it broadcasts exactly one ASCII byte over local Bluetooth to the computer you paired it with — and never touches the internet.</strong></p>
+  </div>
+
+  <h3>Motion</h3>
+  <p>Accelerometer and gyroscope readings are used only while the app is open on
+  your wrist, and are classified on the watch. Raw motion is never stored and
+  never sent anywhere.</p>
+  <h3>What the Bluetooth link sends</h3>
+  <p>When a gesture is recognised, GesturAir broadcasts exactly <em>one ASCII
+  byte</em> over local Bluetooth LE — <code>N</code> (next), <code>P</code>
+  (previous) or <code>T</code> (black screen). Nothing else is ever transmitted:
+  no location, no identity, no device list, no file. The link is local radio
+  between your watch and the computer you paired it with, it only runs while the
+  app is in the foreground, and it never touches the internet.</p>
+  <h3>The receiver page</h3>
+  <p>The free receiver at
+  <a href="https://berkemd.github.io/wristsuite/receiver/">berkemd.github.io/wristsuite/receiver/</a>
+  is one static HTML page. It has no server, no accounts, no cookies and no
+  storage. Your deck is read inside your own browser with the File API and is
+  never uploaded. Its one external dependency is the pdf.js renderer (pinned
+  version, loaded from cdnjs.cloudflare.com) and it is fetched only when you
+  actually open a PDF; if that CDN is blocked, everything except PDF rendering
+  still works. Loading a script from a CDN means that CDN sees your IP address
+  and browser user-agent, as it would for any web page — we receive nothing from
+  it and set no cookie of our own.</p>
+
+
+  <h2 id="who-en">Who is responsible</h2>
+  <p><strong>Berke Kahraman</strong> — an individual sole trader registered in
+  Türkiye (<em>şahıs firması</em>) — develops and publishes GesturAir. He is the
+  <em>data controller</em> for the purposes of the EU/UK General Data Protection
+  Regulation and the <em>veri sorumlusu</em> under Turkish Law No. 6698 on the
+  Protection of Personal Data (KVKK).</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>This is a one-person business, so there is no data protection officer and
+  no EU representative; privacy mail is read and answered by the developer
+  personally, usually within a few days.</p>
+
+  <h2 id="basis-en">Legal basis for anything that happens</h2>
+  <ul>
+    <li><strong>Whatever GesturAir keeps on your watch</strong> — we are not
+    processing it, because it never reaches us. It sits in your device, under
+    your control, and is gone when you delete the app. There is no legal basis
+    to state for us, because there is no processing by us.</li>
+    <li><strong>Motion permission</strong> — granted by you in the system
+    prompt, revocable at any time in Settings; consent, GDPR Art. 6(1)(a) /
+    KVKK Art. 5(1). Motion is classified on the watch and never reaches us.</li>
+    <li><strong>If you email us</strong> — we process your address and whatever
+    you write, in order to answer you. Legal basis: GDPR Art. 6(1)(b) (steps
+    taken at your request) and Art. 6(1)(f) (our legitimate interest in
+    supporting the people who bought the app). Under KVKK, Art. 5(2)(c) and
+    5(2)(f).</li>
+    <li><strong>Your purchase</strong> — the sale is a contract between you and
+    Apple. Apple is the merchant of record and its own controller; we receive
+    no name, address, email or payment detail from it, only anonymous sales
+    totals in App Store Connect.</li>
+  </ul>
+  <p>There is no automated decision-making and no profiling of any kind, in the
+  sense of GDPR Art. 22 or KVKK Art. 11(g).</p>
+
+  <h2 id="rights-en">Your rights</h2>
+  <p>Under the GDPR (Articles 15–22) and KVKK (Article 11) you have the right
+  to ask us for: <strong>access</strong> to any personal data we hold about you;
+  <strong>rectification</strong> of anything inaccurate; <strong>erasure</strong>;
+  <strong>restriction</strong> of processing; <strong>portability</strong> of data
+  you gave us, in a machine-readable form; and to <strong>object</strong> to
+  processing based on legitimate interests. Where you gave consent — for example
+  a permission prompt — you can <strong>withdraw it at any time</strong>, without
+  affecting anything done before. KVKK Art. 11 additionally gives you the right
+  to learn whether your data is processed, to be told the purpose, to learn the
+  third parties it is transferred to, and to claim compensation for damage
+  caused by unlawful processing.</p>
+  <p><strong>How to exercise them:</strong> email
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> and say what you want. We reply within one
+  month (GDPR Art. 12(3)); KVKK applications are answered within 30 days under
+  the Communiqué on the Procedures and Principles of Application to the Data
+  Controller. There is no charge.</p>
+  <p><strong>In practice, for most of it you do not need us.</strong> The data
+  GesturAir works with lives on your watch. Delete it in the app, revoke a
+  permission in Settings, or delete the app — and it is gone. We could not
+  retrieve, restore or hand it over even if you asked us to, because we never
+  had a copy.</p>
+
+  <h2 id="complain-en">Complaining about us</h2>
+  <p>Tell us first if you can — it is usually faster. But you do not have to,
+  and you always have the right to complain to a supervisory authority:</p>
+  <ul>
+    <li><strong>Türkiye:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+    <li><strong>EU / EEA:</strong> the data protection authority of the country
+    where you live, work, or where you think the problem happened — the list is
+    at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>United Kingdom:</strong> the Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+  </ul>
+
+  <h2 id="retention-en">How long anything is kept</h2>
+  <ul>
+    <li><strong>On your watch:</strong> for as long as you keep it there. GesturAir
+    does not expire or auto-delete your content; deleting the app removes its
+    container and everything in it.</li>
+    <li><strong>Support email:</strong> kept only as long as we need it to deal
+    with your message, and deleted within 12 months at the latest — unless a law
+    requires us to keep a specific record longer (for example Turkish tax and
+    commercial bookkeeping rules, if your message relates to a purchase).</li>
+    <li><strong>Everything else:</strong> nothing, because there is nothing. We
+    run no database, keep no backup of your content, and write no log file that
+    contains your data.</li>
+  </ul>
+
+  <h2 id="transfer-en">International transfers</h2>
+  <ul>
+    <li>We do not transfer your data anywhere, because we do not receive it.</li>
+    <li><strong>Email is the one exception.</strong> If you write to us, your
+    message reaches us in <strong>Türkiye</strong> — outside the EEA and the UK,
+    and Türkiye has no EU adequacy decision. That transfer happens because you
+    chose to contact us and is necessary to answer you (GDPR Art. 49(1)(b)). We
+    use it for nothing else and pass it to nobody.</li>
+    <li><strong>The receiver web page</strong> fetches the pdf.js renderer from
+    cdnjs.cloudflare.com when you open a PDF. Cloudflare operates that CDN
+    globally and will see your IP address and user-agent, as any CDN would. We
+    receive nothing from it.</li>
+  </ul>
+
+  <h2 id="children-en">Children</h2>
+  <p>GesturAir is rated 4+ and is not directed at children in particular. It
+  collects nothing from anyone, children included, so no parental consent
+  mechanism is needed or offered.</p>
+
+  <h2 id="changes-en">Changes to this policy</h2>
+  <p>If this policy changes, the new version is published at this address
+  <em>before</em> it takes effect, and the date at the top changes with it. We
+  do not change it retroactively.</p>
+
+  <h2 id="contact-en">Contact</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <h2 id="tr">Türkçe</h2>
+  <div class="sum">
+  <p><strong>GesturAir hiçbir veri toplamaz. Hiç. Bir hareket tanıdığında, eşleştirdiğin bilgisayara yerel Bluetooth üzerinden tam olarak tek bir ASCII bayt yayınlar — ve internete hiç çıkmaz.</strong></p>
+  </div>
+
+  <h3>Hareket</h3>
+  <p>İvmeölçer ve jiroskop yalnızca uygulama bileğinde açıkken okunur ve saatin
+  üzerinde sınıflandırılır. Ham hareket verisi saklanmaz ve hiçbir yere
+  gönderilmez.</p>
+  <h3>Bluetooth bağlantısı ne gönderir</h3>
+  <p>Bir hareket tanındığında GesturAir yerel Bluetooth LE üzerinden tam olarak
+  <em>tek bir ASCII bayt</em> yayınlar: <code>N</code> (sonraki), <code>P</code>
+  (önceki) ya da <code>T</code> (ekranı karart). Başka hiçbir şey iletilmez:
+  konum yok, kimlik yok, cihaz listesi yok, dosya yok. Bağlantı, saatinle
+  eşleştirdiğin bilgisayar arasındaki yerel radyodur; yalnızca uygulama ön
+  plandayken çalışır ve internete hiç çıkmaz.</p>
+  <h3>Alıcı sayfası</h3>
+  <p><a href="https://berkemd.github.io/wristsuite/receiver/">berkemd.github.io/wristsuite/receiver/</a>
+  adresindeki ücretsiz alıcı tek bir statik HTML sayfasıdır. Sunucusu, hesabı,
+  çerezi ve deposu yoktur. Sunumun kendi tarayıcının içinde File API ile okunur,
+  hiçbir yere yüklenmez. Tek dış bağımlılığı pdf.js çizicisidir (sürümü
+  sabitlenmiş, cdnjs.cloudflare.com'dan) ve yalnızca gerçekten bir PDF açtığında
+  indirilir; o CDN engelliyse PDF çizimi dışındaki her şey çalışmaya devam eder.
+  Bir betiği CDN'den yüklemek, herhangi bir web sayfasında olduğu gibi, o CDN'in
+  IP adresini ve tarayıcı bilgini görmesi demektir — bize oradan hiçbir şey
+  gelmez ve kendi çerezimizi koymayız.</p>
+
+
+  <h2 id="who-tr">Veri sorumlusu kim</h2>
+  <p>GesturAir uygulamasını <strong>Berke Kahraman</strong> — Türkiye'de kayıtlı bir
+  <em>şahıs firması</em> — geliştirir ve yayımlar. 6698 sayılı Kişisel Verilerin
+  Korunması Kanunu (KVKK) anlamında <em>veri sorumlusu</em>, AB/BK Genel Veri
+  Koruma Tüzüğü (GDPR) anlamında <em>veri denetleyicisi</em> odur. Bu metin aynı
+  zamanda KVKK m.10 kapsamındaki aydınlatma yükümlülüğünü yerine getirir.</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>Tek kişilik bir işletme olduğu için veri koruma görevlisi ve AB temsilcisi
+  yoktur; gizlilik yazışmalarını geliştirici bizzat okur ve genellikle birkaç
+  gün içinde yanıtlar.</p>
+
+  <h2 id="basis-tr">Hukuki dayanak</h2>
+  <ul>
+    <li><strong>GesturAir'in saatinde tuttuğu her şey</strong> — bunu biz
+    <em>işlemiyoruz</em>, çünkü bize hiç ulaşmıyor. Veri senin cihazında, senin
+    denetiminde durur ve uygulamayı sildiğinde gider. Bizim tarafımızda bir
+    işleme olmadığı için belirtilecek bir hukuki sebep de yoktur.</li>
+    <li><strong>Hareket izni</strong> — sistem isteminde sen verirsin,
+    Ayarlar'dan istediğin an geri alırsın; bu rızadır (KVKK m.5/1, GDPR
+    m.6(1)(a)). Hareket saatin üzerinde sınıflandırılır ve bize hiç
+    ulaşmaz.</li>
+    <li><strong>Bize e-posta yazarsan</strong> — sana yanıt verebilmek için
+    adresini ve yazdıklarını işleriz. Dayanak: KVKK m.5/2-(c) (sözleşmenin
+    kurulması veya ifasıyla doğrudan ilgili olma) ve m.5/2-(f) (meşru menfaat);
+    GDPR karşılığı m.6(1)(b) ve m.6(1)(f).</li>
+    <li><strong>Satın alman</strong> — satış sözleşmesi seninle Apple
+    arasındadır. Kayıtlı satıcı Apple'dır ve kendi veri sorumlusudur; bize adın,
+    adresin, e-postan ya da ödeme bilgin ulaşmaz — App Store Connect'te yalnız
+    kimliksiz satış toplamlarını görürüz.</li>
+  </ul>
+  <p>Hiçbir otomatik karar verme ve hiçbir profilleme yoktur (KVKK m.11/1-(g),
+  GDPR m.22).</p>
+
+  <h2 id="rights-tr">İlgili kişi olarak haklarım</h2>
+  <p>KVKK m.11 ve GDPR m.15–22 uyarınca şunları isteyebilirsin: kişisel
+  verinin <strong>işlenip işlenmediğini öğrenme</strong> ve işlenmişse buna
+  ilişkin <strong>bilgi talep etme</strong>; işlenme <strong>amacını</strong> ve
+  amacına uygun kullanılıp kullanılmadığını öğrenme; yurt içinde veya yurt
+  dışında verinin <strong>aktarıldığı üçüncü kişileri</strong> bilme; eksik veya
+  yanlış işlenmişse <strong>düzeltilmesini</strong>; şartları oluşmuşsa
+  <strong>silinmesini veya yok edilmesini</strong>; işlemenin
+  <strong>kısıtlanmasını</strong>; verdiğin verilerin makine tarafından
+  okunabilir biçimde sana ya da başka bir sorumluya
+  <strong>taşınmasını</strong>; meşru menfaate dayalı işlemeye
+  <strong>itiraz etmeyi</strong>; ve kanuna aykırı işleme sebebiyle zarara
+  uğradıysan <strong>zararın giderilmesini</strong>. Rızaya dayanan bir şey
+  varsa — örneğin bir izin ekranı — rızanı <strong>istediğin an geri
+  alabilirsin</strong>; bu, öncesinde yapılanları etkilemez.</p>
+  <p><strong>Nasıl kullanılır:</strong> <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>
+  adresine ne istediğini yaz. Başvuruna, Veri Sorumlusuna Başvuru Usul ve
+  Esasları Hakkında Tebliğ uyarınca en geç <strong>30 gün</strong> içinde
+  (GDPR kapsamında en geç bir ay içinde) ücretsiz olarak yanıt veririz.</p>
+  <p><strong>Aslında çoğu için bize ihtiyacın yok.</strong> GesturAir'in çalıştığı
+  veri saatinin üzerindedir. Uygulama içinden sil, Ayarlar'dan izni geri al ya
+  da uygulamayı kaldır — gider. İstesen bile geri getiremeyiz, veremeyiz;
+  çünkü bir kopyası bizde hiç olmadı.</p>
+
+  <h2 id="complain-tr">Şikâyet hakkı</h2>
+  <p>Mümkünse önce bize yaz — genelde en hızlısı budur. Ama zorunlu değildir;
+  her zaman bir denetim makamına şikâyette bulunma hakkın vardır:</p>
+  <ul>
+    <li><strong>Türkiye:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a> (KVKK m.14: önce veri
+    sorumlusuna başvurulur, yanıt yetersizse ya da 30 gün içinde yanıt
+    verilmezse Kurul'a şikâyet edilir)</li>
+    <li><strong>AB / AEA:</strong> yaşadığın, çalıştığın ya da sorunun
+    yaşandığını düşündüğün ülkenin veri koruma otoritesi — liste:
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>Birleşik Krallık:</strong> Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+  </ul>
+
+  <h2 id="retention-tr">Saklama süreleri</h2>
+  <ul>
+    <li><strong>Saatinde:</strong> sen orada tuttuğun sürece. GesturAir içeriğini
+    kendiliğinden silmez; uygulamayı kaldırdığında konteyneri ve içindeki her
+    şey birlikte silinir.</li>
+    <li><strong>Destek e-postası:</strong> yalnız mesajını sonuçlandırmak için
+    gereken süre boyunca saklanır ve en geç <strong>12 ay</strong> içinde
+    silinir — bir kanun daha uzun saklamayı zorunlu kılmadıkça (örneğin mesajın
+    bir satın almayla ilgiliyse vergi ve ticari defter mevzuatı).</li>
+    <li><strong>Geri kalan her şey:</strong> yok, çünkü hiçbir şey yok.
+    Veritabanı çalıştırmıyoruz, içeriğinin yedeğini tutmuyoruz ve içinde verin
+    geçen bir günlük dosyası yazmıyoruz.</li>
+  </ul>
+
+  <h2 id="transfer-tr">Yurt dışına aktarım</h2>
+  <ul>
+    <li>Verini hiçbir yere aktarmıyoruz, çünkü bize hiç ulaşmıyor.</li>
+    <li><strong>Tek istisna e-postadır.</strong> Bize yazarsan mesajın
+    <strong>Türkiye'ye</strong> ulaşır; Türkiye AEA ve BK dışındadır ve AB
+    yeterlilik kararı yoktur. Bu aktarım, sen bizimle iletişim kurmayı seçtiğin
+    için gerçekleşir ve sana yanıt verebilmek için gereklidir (GDPR m.49(1)(b);
+    KVKK m.9 kapsamında açık rızana dayanan aktarım). Başka hiçbir amaçla
+    kullanılmaz, kimseye verilmez.</li>
+    <li><strong>Alıcı web sayfası</strong>, bir PDF açtığında pdf.js çizicisini
+    cdnjs.cloudflare.com'dan indirir. Cloudflare bu CDN'i küresel olarak işletir
+    ve — herhangi bir CDN gibi — IP adresini ve tarayıcı bilgini görür. Bize
+    oradan hiçbir şey gelmez.</li>
+  </ul>
+
+  <h2 id="children-tr">Çocuklar</h2>
+  <p>GesturAir 4+ yaş derecelidir ve özellikle çocuklara yönelik değildir. Çocuklar
+  dahil hiç kimseden veri toplamadığı için ebeveyn onayı mekanizması ne gerekir
+  ne de sunulur.</p>
+
+  <h2 id="changes-tr">Politika değişirse</h2>
+  <p>Bu politika değişirse yeni sürüm, yürürlüğe girmeden <em>önce</em> bu
+  adreste yayımlanır ve yukarıdaki tarih güncellenir. Geriye dönük değişiklik
+  yapılmaz.</p>
+
+  <h2 id="contact-tr">İletişim</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <p class="foot">© 2026 Berke Kahraman · Ayvalı Mah. Afra Cad. No: 3F,
+  İç Kapı No: 104, 06010 Keçiören / Ankara, Türkiye ·
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+</div>
+</body>
+</html>

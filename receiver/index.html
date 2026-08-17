@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GesturAir Receiver — present a PDF from your wrist</title>
+<meta name="description" content="Free browser presenter for GesturAir. Open your deck as a PDF and drive it from the keyboard or mouse. Nothing is uploaded — the file never leaves your computer. The Apple Watch link is on hold: watchOS does not support the Bluetooth peripheral role.">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<style>
+  :root{
+    --bg:#0b0b14; --ink:#f3f0ea; --card:#161622; --line:#2a2740;
+    --muted:#a9a5b8; --dim:#7c86ab; --accent:#8aa2ff; --ok:#59d980; --warn:#f5a623; --bad:#ff7a7a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6}
+  .wrap{max-width:980px;margin:0 auto;padding:38px 22px 72px}
+  h1{margin:0;font-size:1.9rem}
+  h2{font-size:1rem;margin:0 0 10px;letter-spacing:.02em;color:var(--ink)}
+  .tag{color:var(--accent);margin:6px 0 22px}
+  a{color:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:14px 0}
+  .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  button{background:#2a2740;color:var(--ink);border:1px solid #3a365a;border-radius:11px;padding:9px 16px;font:inherit;font-size:.92rem;cursor:pointer}
+  button:hover{border-color:var(--accent)}
+  button.primary{background:var(--accent);border-color:var(--accent);color:#0b0b14;font-weight:600}
+  button.mini{padding:4px 11px;font-size:.82rem;border-radius:9px}
+  button[disabled]{opacity:.45;cursor:not-allowed}
+  .banner{border-radius:14px;padding:12px 16px;margin:0 0 14px;font-size:.9rem;border:1px solid}
+  .banner.warn{background:#241d10;border-color:#5a4620;color:#f0d9a8}
+  .banner.note-status{background:#241d10;border-color:#5a4620;color:#f0d9a8;display:block}
+  .banner.note-status b{color:#fff3d6}
+  .banner.note-status a{color:#f0d9a8}
+  .banner.note-status p{margin:0 0 10px}
+  .banner.note-status p:last-child{margin:0}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.cols{grid-template-columns:1fr}}
+  dl.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:.9rem}
+  dl.kv dt{color:var(--dim)}
+  dl.kv dd{margin:0;color:var(--muted);word-break:break-word}
+  #linkState{font-weight:600}
+  .s-idle{color:var(--muted)} .s-busy{color:var(--warn)} .s-ok{color:var(--ok)} .s-bad{color:var(--bad)}
+  .gesture{display:flex;align-items:center;gap:14px;margin:2px 0 12px}
+  .glyph{width:64px;height:64px;flex:0 0 64px;display:flex;align-items:center;justify-content:center;
+         font-size:1.9rem;font-weight:800;background:#0f0f1c;border:1px solid var(--line);border-radius:16px;color:var(--accent)}
+  .glyph.flash{animation:flash .45s ease-out}
+  @keyframes flash{0%{background:var(--accent);color:#0b0b14;border-color:var(--accent)}100%{background:#0f0f1c;color:var(--accent);border-color:var(--line)}}
+  .glabel{font-size:1.15rem;font-weight:600}
+  .gmeta{font-size:.82rem;color:var(--dim)}
+  /* padding-bottom reserves the status strip so it never covers the deck;
+     in full screen the strip floats over the slide instead (and hides itself). */
+  #stage{position:relative;background:#000;border:1px solid var(--line);border-radius:16px;overflow:hidden;
+         aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;padding-bottom:34px}
+  #stage:fullscreen{border:0;border-radius:0;aspect-ratio:auto;width:100vw;height:100vh;padding-bottom:0}
+  #stage:fullscreen #stageBar{opacity:0}
+  #stage:fullscreen:hover #stageBar{opacity:1}
+  #canvas{max-width:100%;max-height:100%;display:none}
+  #stage.loaded #canvas{display:block}
+  #stage.loaded #empty{display:none}
+  #empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+         gap:8px;text-align:center;padding:20px;color:var(--muted);font-size:.9rem}
+  #empty b{color:var(--ink);font-size:1.02rem;font-weight:600}
+  #empty small{color:var(--dim)}
+  body.dragging #stage{border-color:var(--accent)}
+  .zone{position:absolute;top:0;bottom:0;cursor:pointer;opacity:0;transition:opacity .15s;
+        display:flex;align-items:center;font-size:2rem;color:#fff;text-shadow:0 0 12px #000;padding:0 14px}
+  .zone:hover{opacity:.65}
+  #zPrev{left:0;width:28%;justify-content:flex-start}
+  #zNext{right:0;width:72%;justify-content:flex-end}
+  #black{position:absolute;inset:0;background:#000;display:none;align-items:flex-end;justify-content:center;
+         padding-bottom:18px;cursor:pointer;z-index:5}
+  #black.on{display:flex}
+  #black span{color:#1c1c1c;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+  /* Solid strip rather than a gradient: the deck underneath is usually white,
+     and a gradient turned the status text unreadable. */
+  #stageBar{position:absolute;left:0;right:0;bottom:0;z-index:4;display:flex;gap:12px;align-items:center;
+            padding:7px 14px;background:rgba(7,7,16,.86);font-size:.82rem;
+            color:#d7d3e6;transition:opacity .2s}
+  #counter{font-variant-numeric:tabular-nums;font-weight:700;color:#fff}
+  #deckName{color:#9a95ad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+  #stageLink{color:#7c86ab;white-space:nowrap}
+  .note{font-size:.86rem;color:var(--muted)}
+  .note.dim{color:var(--dim);font-size:.8rem}
+  ul.keys{list-style:none;padding:0;margin:0;font-size:.86rem;color:var(--muted)}
+  ul.keys li{margin:3px 0}
+  kbd{background:#0f0f1c;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;
+      padding:1px 7px;font:inherit;font-size:.8rem;color:var(--ink)}
+  .foot{margin-top:30px;color:#6f6a80;font-size:.82rem;line-height:1.7}
+  .foot a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>GesturAir Receiver</h1>
+<p class="tag">Open your deck here and present. Keyboard and mouse drive it today; the watch link is on hold.</p>
+
+<div class="banner note-status">
+<p><b>The Apple Watch link does not work right now.</b> The GesturAir watch app is not published, and the watch
+cannot connect to this page: it was designed to advertise a Bluetooth LE GATT service, and watchOS does not support
+the Bluetooth peripheral role — only the central role. A browser is a central too, and two centrals cannot connect
+to each other, so there is no way to patch around it from this page. The transport is being redesigned; no date is
+promised. <b>Everything else on this page works.</b> Use it as a PDF presenter driven by the keyboard, the click
+zones, or the N / P / T buttons below — your file is still read locally and still never uploaded.
+<a href="https://berkemd.github.io/wristsuite/gesturair/">Status note</a></p>
+<p lang="tr"><b>Apple Watch bağlantısı şu anda çalışmıyor.</b> GesturAir saat uygulaması yayınlanmıyor ve saat bu
+sayfaya bağlanamıyor: tasarımı bir Bluetooth LE GATT servisi yayınlamaya dayanıyordu, watchOS ise Bluetooth
+peripheral rolünü desteklemiyor — yalnızca central rolünü destekliyor. Tarayıcı da central olduğundan ve iki central
+birbirine bağlanamadığından, bunu bu sayfadan yamayla çözmek mümkün değil. Taşıyıcı katman yeniden tasarlanıyor;
+tarih sözü verilmiyor. <b>Sayfanın geri kalanı çalışıyor.</b> Klavye, tıklama bölgeleri ya da aşağıdaki N / P / T
+düğmeleriyle sürülen bir PDF sunucusu olarak kullanabilirsin — dosyan yine yalnızca tarayıcında okunur ve hiçbir
+yere yüklenmez. <a href="https://berkemd.github.io/wristsuite/gesturair/">Durum notu</a></p>
+</div>
+
+<div id="warn" class="banner warn" hidden></div>
+
+<div class="card">
+  <div class="bar">
+    <button id="connect" class="primary">Connect watch</button>
+    <button id="open">Open deck (PDF or images)</button>
+    <button id="fs" disabled>Full screen</button>
+    <span class="note dim" id="deckStatus">No deck loaded — gestures still show below.</span>
+  </div>
+  <input id="file" type="file" accept="application/pdf,image/*" multiple hidden>
+</div>
+
+<div id="stage">
+  <canvas id="canvas"></canvas>
+  <div id="empty">
+    <b>Drop a PDF here, or click “Open deck”.</b>
+    <span>Export Keynote / PowerPoint / Google Slides to PDF first. Image files (PNG&nbsp;/&nbsp;JPEG) work too — they are sorted by file name.</span>
+    <small>The file is read locally in your browser with the File API. Nothing is uploaded, nothing is stored.</small>
+  </div>
+  <div class="zone" id="zPrev" title="Previous">‹</div>
+  <div class="zone" id="zNext" title="Next">›</div>
+  <div id="black"><span>Screen paused — twist again, or press B</span></div>
+  <div id="stageBar">
+    <span id="counter">— / —</span>
+    <span id="deckName"></span>
+    <span id="stageLink" class="note dim">watch: not connected</span>
+  </div>
+</div>
+
+<div class="cols">
+  <div class="card">
+    <h2>Live gesture</h2>
+    <div class="gesture">
+      <div class="glyph" id="glyph">—</div>
+      <div>
+        <div class="glabel" id="gLabel">Waiting for a gesture</div>
+        <div class="gmeta" id="gMeta">Nothing received yet</div>
+      </div>
+    </div>
+    <dl class="kv">
+      <dt>Link</dt><dd><span id="linkState" class="s-idle">Not connected</span></dd>
+      <dt>Device</dt><dd id="devName">—</dd>
+      <dt>Notifications</dt><dd id="subState">Not subscribed</dd>
+      <dt>Gestures</dt><dd id="gCount">0 received this session</dd>
+    </dl>
+    <div class="bar" style="margin-top:12px">
+      <span class="note dim">Try it without a watch:</span>
+      <button class="mini" data-sim="N">N · next</button>
+      <button class="mini" data-sim="P">P · previous</button>
+      <button class="mini" data-sim="T">T · black</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Keyboard &amp; mouse fallback</h2>
+    <ul class="keys">
+      <li><kbd>→</kbd> <kbd>Space</kbd> <kbd>Page&nbsp;Down</kbd> — next page (same as a forward flick)</li>
+      <li><kbd>←</kbd> <kbd>Page&nbsp;Up</kbd> — previous page (same as a back flick)</li>
+      <li><kbd>B</kbd> — black screen on/off (same as a twist)</li>
+      <li><kbd>F</kbd> — full screen on/off</li>
+      <li><kbd>Esc</kbd> — leave full screen, or clear the black screen</li>
+      <li><kbd>Home</kbd> <kbd>End</kbd> — first / last page</li>
+      <li>Click the right side of the deck for next, the left edge for previous.</li>
+    </ul>
+    <p class="note" style="margin-bottom:0">A next/previous also lifts the black screen, so you never advance blind.
+    The screen-wake lock is requested while a deck is open, so the display should not sleep mid-talk.</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>What this page can and cannot drive</h2>
+  <p class="note" style="margin-top:0">
+    This page <b>is</b> the presenter: it renders your deck itself, so a gesture always lands on the slide you are
+    looking at. It cannot drive Keynote, PowerPoint, Google Slides or any other app or browser tab — a web page is not
+    allowed to send key presses outside itself, and that is a browser security rule, not a setting.
+    <b>Export your deck to PDF and open it here instead</b> (Keynote: File → Export To → PDF; PowerPoint: File → Export → PDF;
+    Google Slides: File → Download → PDF). The PDF is read locally with the File API and rendered on this page —
+    it is never uploaded, and there is no server anywhere in the chain. If you would rather keep presenting from your own
+    software, leave this page open on a second screen and use the live gesture panel as a monitor.
+  </p>
+  <p class="note dim" style="margin-bottom:0">
+    Rendering uses pdf.js 4.10.38 loaded from cdnjs.cloudflare.com, fetched only when you open a PDF.
+  </p>
+</div>
+
+<div class="card">
+  <h2>About the Bluetooth section / <span lang="tr">Bluetooth bölümü hakkında</span></h2>
+  <p class="note" style="margin-top:0">
+    <b>“Connect watch” cannot reach an Apple Watch today.</b> The button and the Web Bluetooth code below it are left
+    in place, but there is nothing on the watch side to connect to: an Apple Watch cannot act as a Bluetooth LE
+    peripheral, so it cannot advertise the GATT service this page looks for. That is a watchOS platform limit, not a
+    setting you can change and not something a browser flag fixes — the browser is a BLE central as well, and two
+    centrals cannot form a connection. The GesturAir watch app is therefore not published, and its transport layer is
+    being redesigned; no release date is promised here.
+  </p>
+  <p class="note">
+    <b>What still works:</b> this page remains a working PDF presenter. Open a deck, then use the keyboard shortcuts
+    above, click the left and right zones of the slide, or press the <kbd>N</kbd> / <kbd>P</kbd> / <kbd>T</kbd>
+    buttons in the live gesture panel. Your file is read locally with the File API and is never uploaded.
+  </p>
+  <p class="note" lang="tr">
+    <b>“Connect watch” bugün bir Apple Watch'a ulaşamaz.</b> Düğme ve altındaki Web Bluetooth kodu yerinde bırakıldı,
+    ama saat tarafında bağlanılacak bir şey yok: Apple Watch, Bluetooth LE peripheral rolünde çalışamaz, dolayısıyla
+    bu sayfanın aradığı GATT servisini yayınlayamaz. Bu bir watchOS platform sınırıdır; değiştirilebilir bir ayar
+    değildir ve tarayıcı bayrağıyla da çözülmez — tarayıcı da BLE central'dır ve iki central birbirine bağlanamaz.
+    Bu yüzden GesturAir saat uygulaması yayınlanmıyor, taşıyıcı katmanı yeniden tasarlanıyor; burada yayın tarihi
+    sözü verilmiyor. <b>Çalışan kısım:</b> sayfa çalışır bir PDF sunucusu olarak kalıyor. Sunumunu aç, sonra
+    yukarıdaki klavye kısayollarını, slaytın sol/sağ tıklama bölgelerini ya da canlı jest panelindeki
+    <kbd>N</kbd> / <kbd>P</kbd> / <kbd>T</kbd> düğmelerini kullan. Dosyan File API ile yalnızca tarayıcında okunur ve
+    hiçbir yere yüklenmez.
+  </p>
+  <p class="note dim" style="margin-bottom:0">
+    For the record, when a watch could connect: Web Bluetooth needs Chrome, Edge, Opera or Brave on macOS, Windows,
+    Linux or ChromeOS — Safari and Firefox do not implement it — and the page must be served over HTTPS for Bluetooth
+    to be offered at all.
+  </p>
+</div>
+
+<p class="foot">
+  GesturAir for Apple Watch ·
+  <a href="https://berkemd.github.io/wristsuite/gesturair/">Support</a> ·
+  <a href="https://berkemd.github.io/wristsuite/gesturair/privacy.html">Privacy</a><br>
+  © 2026 Berke Kahraman · <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>
+</p>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---------------------------------------------------------------------
+  // GesturAir wire protocol: one ASCII byte per gesture on characteristic
+  // 7a3b0002-… of service 7a3b0001-…  N = next, P = previous, T = twist.
+  // The watch answers a read with "0" when it has not sent anything yet.
+  // ---------------------------------------------------------------------
+  var SERVICE = '7a3b0001-9c41-4e8e-b5d2-6f1a2c3d4e5f';
+  var CHAR    = '7a3b0002-9c41-4e8e-b5d2-6f1a2c3d4e5f';
+  var PDFJS   = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/';
+
+  var GESTURES = { N: 'Next', P: 'Previous', T: 'Black screen' };
+  var MAX_RECONNECT = 5;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var els = {
+    warn: $('warn'), connect: $('connect'), open: $('open'), fs: $('fs'), file: $('file'),
+    deckStatus: $('deckStatus'), stage: $('stage'), canvas: $('canvas'),
+    black: $('black'), counter: $('counter'), deckName: $('deckName'), stageLink: $('stageLink'),
+    glyph: $('glyph'), gLabel: $('gLabel'), gMeta: $('gMeta'), linkState: $('linkState'),
+    devName: $('devName'), subState: $('subState'), gCount: $('gCount')
+  };
+
+  var state = {
+    page: 1, blackout: false, gestureCount: 0, lastGesture: null, lastAt: null,
+    link: 'idle', subscribed: false, deviceName: null
+  };
+  var deck = null;            // { kind, count, name, page(n) }
+  var renderTask = null;      // in-flight pdf.js RenderTask
+  var renderToken = 0;        // guards against out-of-order async renders
+  var pdfjsLib = null;
+  var wakeLock = null;
+
+  // ------------------------------------------------------------------ UI --
+
+  var LINK_TEXT = {
+    idle: ['Not connected', 's-idle'],
+    requesting: ['Choosing a device…', 's-busy'],
+    connecting: ['Connecting…', 's-busy'],
+    connected: ['Connected', 's-ok'],
+    reconnecting: ['Reconnecting…', 's-busy'],
+    cancelled: ['Cancelled — no device chosen', 's-idle'],
+    lost: ['Disconnected — press Connect watch', 's-bad'],
+    failed: ['Connection failed', 's-bad'],
+    unsupported: ['Web Bluetooth unavailable', 's-bad']
+  };
+
+  function setLink(kind, detail) {
+    state.link = kind;
+    var t = LINK_TEXT[kind] || LINK_TEXT.idle;
+    els.linkState.textContent = detail ? t[0] + ' — ' + detail : t[0];
+    els.linkState.className = t[1];
+    els.stageLink.textContent = 'watch: ' + (kind === 'connected' ? 'connected'
+      : kind === 'reconnecting' ? 'reconnecting…' : 'not connected');
+    els.devName.textContent = state.deviceName || '—';
+    els.subState.textContent = state.subscribed ? 'Subscribed (notify)' : 'Not subscribed';
+    els.connect.textContent = kind === 'connected' ? 'Disconnect' : 'Connect watch';
+  }
+
+  function setDeckStatus(msg) { els.deckStatus.textContent = msg; }
+
+  function updatePageUI() {
+    if (!deck) { els.counter.textContent = '— / —'; return; }
+    els.counter.textContent = state.page + ' / ' + deck.count;
+  }
+
+  function showGesture(code, note) {
+    var label = GESTURES[code];
+    state.lastGesture = code;
+    state.lastAt = new Date();
+    state.gestureCount += 1;
+    els.glyph.textContent = code;
+    els.gLabel.textContent = label;
+    els.gMeta.textContent = state.lastAt.toLocaleTimeString() + (note ? ' · ' + note : '');
+    els.gCount.textContent = state.gestureCount + ' received this session';
+    els.glyph.classList.remove('flash');
+    void els.glyph.offsetWidth;                       // restart the CSS animation
+    els.glyph.classList.add('flash');
+  }
+
+  // ------------------------------------------------------------- gestures --
+
+  function clamp(n, lo, hi) { return n < lo ? lo : (n > hi ? hi : n); }
+
+  function setBlackout(on) {
+    state.blackout = !!on;
+    els.black.classList.toggle('on', state.blackout);
+  }
+
+  function step(delta) {
+    if (state.blackout) setBlackout(false);           // never advance blind
+    if (!deck) return;
+    var target = clamp(state.page + delta, 1, deck.count);
+    if (target !== state.page) { state.page = target; render(); }
+    updatePageUI();
+  }
+
+  function goTo(n) {
+    if (!deck) return;
+    var target = clamp(n, 1, deck.count);
+    if (target !== state.page) { state.page = target; render(); }
+    updatePageUI();
+  }
+
+  /**
+   * The one place a gesture becomes an action. Everything — Bluetooth
+   * notifications, the on-page test buttons, the keyboard and the click zones —
+   * funnels through here, so what you see in the panel is exactly what moved
+   * the deck.
+   *
+   * @param {string} code   single ASCII character: N, P or T
+   * @param {object} [opts] {source: string, apply: boolean}
+   * @returns {boolean} true when the byte was a recognised gesture
+   */
+  function applyGesture(code, opts) {
+    opts = opts || {};
+    var g = (typeof code === 'string' && code.length ? code.charAt(0) : '').toUpperCase();
+    if (!Object.prototype.hasOwnProperty.call(GESTURES, g)) {
+      els.gMeta.textContent = 'Link OK — no gesture sent yet';
+      return false;
+    }
+    showGesture(g, opts.source);
+    // opts.apply === false is used by the priming read on connect: the watch
+    // replays its last byte, and replaying it would skip a page you never
+    // gestured for.
+    if (opts.apply !== false) {
+      if (g === 'N') step(1);
+      else if (g === 'P') step(-1);
+      else setBlackout(!state.blackout);
+    }
+    document.dispatchEvent(new CustomEvent('gesturair:gesture', {
+      detail: { code: g, page: state.page, blackout: state.blackout }
+    }));
+    return true;
+  }
+
+  // --------------------------------------------------------------- render --
+
+  function stageBox() {
+    // Content box only: clientWidth/Height include padding, and the bottom
+    // padding is the space reserved for the status strip.
+    var cs = window.getComputedStyle(els.stage);
+    var w = els.stage.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    var h = els.stage.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    return { w: Math.max(1, w), h: Math.max(1, h) };
+  }
+
+  function render() {
+    var token = ++renderToken;
+    // The `loaded` class is what reveals the canvas and hides the drop hint;
+    // clearing an inline display would just fall back to the `display:none`
+    // rule on #canvas.
+    els.stage.classList.toggle('loaded', !!deck);
+    if (!deck) return;
+    if (renderTask) { try { renderTask.cancel(); } catch (e) { /* already done */ } renderTask = null; }
+    return deck.page(state.page).then(function (drawer) {
+      if (token !== renderToken) return;
+      return drawer(token);
+    })['catch'](function (err) {
+      if (token !== renderToken || (err && err.name === 'RenderingCancelledException')) return;
+      setDeckStatus('Could not render page ' + state.page + ': ' + (err && err.message ? err.message : err));
+    });
+  }
+
+  function fit(w, h) {
+    var box = stageBox();
+    var dpr = window.devicePixelRatio || 1;
+    var scale = Math.min(box.w / w, box.h / h);
+    var cw = Math.max(1, Math.floor(w * scale));
+    var ch = Math.max(1, Math.floor(h * scale));
+    els.canvas.style.width = cw + 'px';
+    els.canvas.style.height = ch + 'px';
+    els.canvas.width = Math.max(1, Math.floor(cw * dpr));
+    els.canvas.height = Math.max(1, Math.floor(ch * dpr));
+    return { cssW: cw, cssH: ch, scale: scale * dpr };
+  }
+
+  // ----------------------------------------------------------- deck: pdf ---
+
+  function ensurePdfJs() {
+    if (pdfjsLib) return Promise.resolve(pdfjsLib);
+    // Loaded on demand, so a blocked CDN never takes the gesture panel or the
+    // Bluetooth link down with it.
+    return import(PDFJS + 'pdf.min.mjs').then(function (mod) {
+      mod.GlobalWorkerOptions.workerSrc = PDFJS + 'pdf.worker.min.mjs';
+      pdfjsLib = mod;
+      return mod;
+    });
+  }
+
+  function loadPdf(file) {
+    setDeckStatus('Reading ' + file.name + '…');
+    return file.arrayBuffer().then(function (buf) {
+      return ensurePdfJs().then(function (lib) {
+        return lib.getDocument({ data: new Uint8Array(buf) }).promise;
+      });
+    }).then(function (doc) {
+      deck = {
+        kind: 'pdf',
+        count: doc.numPages,
+        name: file.name,
+        page: function (n) {
+          return doc.getPage(n).then(function (pg) {
+            return function (token) {
+              var base = pg.getViewport({ scale: 1 });
+              var box = fit(base.width, base.height);
+              var vp = pg.getViewport({ scale: box.scale });
+              renderTask = pg.render({ canvasContext: els.canvas.getContext('2d'), viewport: vp });
+              return renderTask.promise.then(function () {
+                if (token === renderToken) renderTask = null;
+              });
+            };
+          });
+        }
+      };
+      afterDeckLoad(doc.numPages + ' page' + (doc.numPages === 1 ? '' : 's'));
+    })['catch'](function (err) {
+      deck = null;
+      render();
+      updatePageUI();
+      var m = (err && err.message) ? err.message : String(err);
+      if (/Failed to fetch|dynamically imported module|NetworkError/i.test(m)) {
+        m = 'the pdf.js renderer could not be downloaded (offline, or a network policy blocks cdnjs.cloudflare.com)';
+      }
+      setDeckStatus('Could not open that PDF — ' + m);
+    });
+  }
+
+  // -------------------------------------------------------- deck: images ---
+
+  function loadImages(files) {
+    files = files.slice().sort(function (a, b) {
+      return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' });
+    });
+    var urls = files.map(function (f) { return URL.createObjectURL(f); });
+    var cache = {};
+    deck = {
+      kind: 'images',
+      count: files.length,
+      name: files.length === 1 ? files[0].name : files.length + ' images',
+      page: function (n) {
+        var url = urls[n - 1];
+        var p = cache[url] || (cache[url] = new Promise(function (res, rej) {
+          var img = new Image();
+          img.onload = function () { res(img); };
+          img.onerror = function () { rej(new Error('image could not be decoded')); };
+          img.src = url;
+        }));
+        return p.then(function (img) {
+          return function () {
+            var box = fit(img.naturalWidth || 1, img.naturalHeight || 1);
+            var ctx = els.canvas.getContext('2d');
+            ctx.clearRect(0, 0, els.canvas.width, els.canvas.height);
+            ctx.drawImage(img, 0, 0, els.canvas.width, els.canvas.height);
+          };
+        });
+      }
+    };
+    afterDeckLoad(files.length + ' image' + (files.length === 1 ? '' : 's'));
+    return Promise.resolve();
+  }
+
+  function afterDeckLoad(what) {
+    state.page = 1;
+    setBlackout(false);
+    els.deckName.textContent = deck.name;
+    els.fs.disabled = false;
+    setDeckStatus(deck.name + ' — ' + what + ' ready. Press F for full screen.');
+    updatePageUI();
+    requestWakeLock();
+    render();
+  }
+
+  function loadFiles(list) {
+    var files = Array.prototype.slice.call(list || []);
+    if (!files.length) return;
+    var pdf = null, imgs = [];
+    files.forEach(function (f) {
+      if (!pdf && (f.type === 'application/pdf' || /\.pdf$/i.test(f.name))) pdf = f;
+      else if (/^image\//.test(f.type) || /\.(png|jpe?g|gif|webp|bmp|avif)$/i.test(f.name)) imgs.push(f);
+    });
+    if (pdf) return loadPdf(pdf);
+    if (imgs.length) return loadImages(imgs);
+    setDeckStatus('Unsupported file — choose a PDF, or a set of image files.');
+  }
+
+  // ------------------------------------------------- fullscreen / wakelock --
+
+  function toggleFullscreen() {
+    if (document.fullscreenElement) {
+      if (document.exitFullscreen) document.exitFullscreen();
+    } else if (els.stage.requestFullscreen) {
+      els.stage.requestFullscreen()['catch'](function () { /* denied — ignore */ });
+    }
+  }
+
+  function requestWakeLock() {
+    if (!navigator.wakeLock || wakeLock) return;
+    navigator.wakeLock.request('screen').then(function (lock) {
+      wakeLock = lock;
+      lock.addEventListener('release', function () { wakeLock = null; });
+    })['catch'](function () { wakeLock = null; });   // not fatal: unsupported or hidden tab
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && deck) requestWakeLock();
+  });
+
+  // ----------------------------------------------------------- bluetooth ---
+
+  var device = null, characteristic = null, reconnects = 0, wantConnection = false;
+
+  function onNotify(event) {
+    var v = event.target.value;
+    if (v && v.byteLength >= 1) applyGesture(String.fromCharCode(v.getUint8(0)), { source: 'watch' });
+  }
+
+  function attach(dev) {
+    setLink('connecting');
+    return dev.gatt.connect()
+      .then(function (server) { return server.getPrimaryService(SERVICE); })
+      .then(function (service) { return service.getCharacteristic(CHAR); })
+      .then(function (ch) {
+        characteristic = ch;
+        ch.removeEventListener('characteristicvaluechanged', onNotify);
+        ch.addEventListener('characteristicvaluechanged', onNotify);
+        return ch.startNotifications();
+      })
+      .then(function (ch) {
+        state.subscribed = true;
+        reconnects = 0;
+        setLink('connected');
+        // Priming read: proves the characteristic really answers before the
+        // first flick. Displayed, never applied — see applyGesture().
+        return ch.readValue().then(function (v) {
+          if (v && v.byteLength >= 1) {
+            applyGesture(String.fromCharCode(v.getUint8(0)), { source: 'last value on connect', apply: false });
+          }
+        })['catch'](function () { /* read is optional */ });
+      });
+  }
+
+  function onDisconnected() {
+    state.subscribed = false;
+    characteristic = null;
+    if (!wantConnection) { setLink('idle'); return; }
+    scheduleReconnect();
+  }
+
+  function scheduleReconnect() {
+    if (reconnects >= MAX_RECONNECT) {
+      setLink('lost', 'gave up after ' + MAX_RECONNECT + ' attempts');
+      wantConnection = false;
+      return;
+    }
+    reconnects += 1;
+    var delay = Math.min(16000, 500 * Math.pow(2, reconnects - 1));   // 0.5s → 8s, capped
+    setLink('reconnecting', 'attempt ' + reconnects + ' of ' + MAX_RECONNECT + ' in ' + Math.round(delay / 1000) + 's');
+    setTimeout(function () {
+      if (!wantConnection || !device) return;
+      setLink('reconnecting', 'attempt ' + reconnects + ' of ' + MAX_RECONNECT);
+      attach(device)['catch'](function () { if (wantConnection) scheduleReconnect(); });
+    }, delay);
+  }
+
+  function connect() {
+    if (!navigator.bluetooth) {
+      setLink('unsupported');
+      return;
+    }
+    wantConnection = true;
+    setLink('requesting');
+    navigator.bluetooth.requestDevice({ filters: [{ services: [SERVICE] }], optionalServices: [SERVICE] })
+      .then(function (dev) {
+        device = dev;
+        state.deviceName = dev.name || 'GesturAir';
+        dev.removeEventListener('gattserverdisconnected', onDisconnected);
+        dev.addEventListener('gattserverdisconnected', onDisconnected);
+        reconnects = 0;
+        return attach(dev);
+      })['catch'](function (err) {
+        var name = err && err.name;
+        if (name === 'NotFoundError') {          // chooser dismissed, or nothing advertising
+          wantConnection = false;
+          setLink('cancelled', 'is GesturAir open on the watch?');
+        } else if (name === 'SecurityError' && location.protocol === 'file:') {
+          wantConnection = false;
+          setLink('failed', 'Web Bluetooth needs an https:// page, not a local file');
+        } else if (wantConnection && device) {
+          scheduleReconnect();
+        } else {
+          wantConnection = false;
+          setLink('failed', (err && err.message) ? err.message : String(err));
+        }
+      });
+  }
+
+  function disconnect() {
+    wantConnection = false;
+    state.subscribed = false;
+    try { if (device && device.gatt && device.gatt.connected) device.gatt.disconnect(); } catch (e) { /* ignore */ }
+    setLink('idle');
+  }
+
+  // -------------------------------------------------------------- wiring ---
+
+  els.connect.addEventListener('click', function () {
+    if (state.link === 'connected') disconnect(); else connect();
+  });
+  els.open.addEventListener('click', function () { els.file.click(); });
+  els.file.addEventListener('change', function () { loadFiles(els.file.files); els.file.value = ''; });
+  els.fs.addEventListener('click', toggleFullscreen);
+  els.black.addEventListener('click', function () { setBlackout(false); });
+  $('zNext').addEventListener('click', function () { applyGesture('N', { source: 'click' }); });
+  $('zPrev').addEventListener('click', function () { applyGesture('P', { source: 'click' }); });
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-sim]'), function (b) {
+    b.addEventListener('click', function () {
+      applyGesture(b.getAttribute('data-sim'), { source: 'test button' });
+    });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Spacebar') { applyGesture('N', { source: 'keyboard' }); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { applyGesture('P', { source: 'keyboard' }); }
+    else if (k === 'b' || k === 'B') { applyGesture('T', { source: 'keyboard' }); }
+    else if (k === 'f' || k === 'F') { toggleFullscreen(); }
+    else if (k === 'Home') { goTo(1); }
+    else if (k === 'End') { goTo(deck ? deck.count : 1); }
+    else if (k === 'Escape') { if (!document.fullscreenElement) setBlackout(false); return; }
+    else { return; }
+    e.preventDefault();
+  });
+
+  ['dragenter', 'dragover'].forEach(function (n) {
+    document.addEventListener(n, function (e) { e.preventDefault(); document.body.classList.add('dragging'); });
+  });
+  ['dragleave', 'drop'].forEach(function (n) {
+    document.addEventListener(n, function (e) { e.preventDefault(); document.body.classList.remove('dragging'); });
+  });
+  document.addEventListener('drop', function (e) {
+    if (e.dataTransfer && e.dataTransfer.files) loadFiles(e.dataTransfer.files);
+  });
+
+  var resizeTimer = null;
+  function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { if (deck) render(); }, 120);
+  }
+  window.addEventListener('resize', onResize);
+  document.addEventListener('fullscreenchange', function () {
+    els.fs.textContent = document.fullscreenElement ? 'Leave full screen' : 'Full screen';
+    onResize();
+  });
+
+  // ---------------------------------------------------------------- boot ---
+
+  if (!navigator.bluetooth) {
+    els.warn.hidden = false;
+    els.warn.innerHTML = '<b>This browser has no Web Bluetooth,</b> so the watch cannot connect here. ' +
+      'Use Chrome, Edge, Opera or Brave on macOS, Windows, Linux or ChromeOS — Safari and Firefox do not implement it. ' +
+      (location.protocol === 'file:' ? 'A local <code>file://</code> page cannot use it either; open the published page over https. ' : '') +
+      'Everything else on this page — opening a deck, the keyboard, full screen — still works.';
+    els.connect.disabled = true;
+    setLink('unsupported');
+  } else {
+    setLink('idle');
+  }
+  updatePageUI();
+
+  // Test / debug hook. Same entry point the Bluetooth notification handler
+  // uses, so a synthetic gesture exercises the real path.
+  window.GesturAir = {
+    version: '2.0',
+    applyGesture: applyGesture,
+    snapshot: function () {
+      return {
+        page: state.page,
+        pageCount: deck ? deck.count : 0,
+        deckKind: deck ? deck.kind : null,
+        blackout: state.blackout,
+        link: state.link,
+        lastGesture: state.lastGesture,
+        gestureCount: state.gestureCount
+      };
+    }
+  };
+})();
+</script>
+</body>
+</html>

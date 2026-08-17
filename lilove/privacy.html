@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiLove — Privacy Policy / Gizlilik Politikası</title>
+<meta name="description" content="LiLove privacy policy — what an account holds, what leaves your device, who processes it, and your rights under the GDPR and the KVKK.">
+<style>
+body{background:#0b0b14;color:#f3f0ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding:44px 24px 80px}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.15rem;color:#c084fc;margin:34px 0 10px;border-top:1px solid #23203a;padding-top:22px}
+h3{font-size:1rem;color:#e6e2f2;margin:20px 0 4px}
+p,li{color:#b9b5c8;font-size:.95rem}
+a{color:#c084fc}
+.back{font-size:.85rem}
+.sum{background:#14131f;border:1px solid #2a2740;border-left:3px solid #c084fc;border-radius:12px;padding:14px 18px;margin:18px 0}
+.sum p{margin:0 0 8px} .sum p:last-child{margin:0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+th,td{border:1px solid #2a2740;padding:8px 10px;text-align:left;color:#b9b5c8;vertical-align:top}
+th{color:#e6e2f2;background:#14131f}
+code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:#d6d2e4}
+.lang{font-size:.85rem;color:#6f6a80;margin:0 0 18px}
+.foot{margin-top:38px;color:#6f6a80;font-size:.8rem;border-top:1px solid #23203a;padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="index.html">← LiLove</a> · <a href="support.html">Support / Destek</a></p>
+  <h1>Privacy Policy / Gizlilik Politikası</h1>
+  <p class="lang"><em>Last updated / Son güncelleme: 17 August 2026 · 17 Ağustos 2026</em><br>
+  English first, Türkçesi aşağıda. If the two ever differ, the English text is the reference. /
+  İki metin farklılık gösterirse İngilizce metin esas alınır.</p>
+
+  <h2 id="en" style="border-top:none;padding-top:0">English</h2>
+  <div class="sum">
+  <p><strong>LiLove is an account-based, server-backed app. It is not an offline app and we do not describe it as one.</strong> Your habits, goals, tasks and notes are stored in our database so that they survive a lost phone and appear on any device you sign in from. This page says exactly what that means.</p>
+  </div>
+
+  <h3>You need an account</h3>
+  <p>LiLove requires you to create an account or sign in with Apple or Google before you can use it. Without a signed-in session the app cannot show you anything, because your content lives on the server, not on the handset.</p>
+
+  <h3>What we hold</h3>
+  <table>
+    <tr><th>Category</th><th>Examples</th><th>Why</th></tr>
+    <tr><td>Account</td><td>email address, password (stored only as a salted hash), or your Apple / Google sign-in identifier</td><td>to let you sign in and to recover access</td></tr>
+    <tr><td>Profile (all optional)</td><td>display name, first and last name, avatar image, bio, timezone, language, theme</td><td>to render your profile and schedule reminders in your own time zone</td></tr>
+    <tr><td>Your content</td><td>habit names, goal titles and steps, task names, note text, moods, streak history, completion times</td><td>this <em>is</em> the product</td></tr>
+    <tr><td>Coach conversations</td><td>the message you type and the reply</td><td>to answer you, and to keep the thread readable</td></tr>
+    <tr><td>Purchases</td><td>App Store transaction identifiers, subscription tier and status, coin balance and coin transaction history</td><td>to unlock what you paid for and to prevent a purchase being credited twice</td></tr>
+    <tr><td>Diagnostics</td><td>crash reports, coarse product-usage events, push notification token</td><td>to find crashes and to deliver reminders you asked for</td></tr>
+  </table>
+  <p>Some optional profile fields exist in the data model (phone number, website, company, job title, location, social links) because the profile screen offers them. They are <strong>never required</strong>; leave them empty and nothing is stored in them.</p>
+
+  <h3>The coach reads what you write</h3>
+  <p><strong>We want to be blunt about this, because an earlier draft of our own store text got it wrong.</strong> When you ask the coach something, the message you typed is sent to our server and forwarded to our AI provider (OpenAI) to generate a reply. If you use voice, the audio is transcribed by the same provider. The coach is not a local model and it does not work on numbers alone.</p>
+  <p>Do not type anything into the coach that you would not be willing to have processed by a third-party AI service. Habits, goals and tasks you never ask the coach about are not sent to the AI provider — only what a coach request contains is.</p>
+
+  <h3>Who processes data on our behalf</h3>
+  <table>
+    <tr><th>Processor</th><th>What it sees</th></tr>
+    <tr><td>Our application server and database</td><td>everything listed above</td></tr>
+    <tr><td>OpenAI</td><td>coach messages and replies; voice audio if you use voice</td></tr>
+    <tr><td>Firebase Authentication (Google)</td><td>sign-in identifiers</td></tr>
+    <tr><td>Apple / Google Sign in</td><td>the identifier they issue for you; Apple's Hide My Email address if you choose it</td></tr>
+    <tr><td>Sentry</td><td>crash reports and the technical context around a crash</td></tr>
+    <tr><td>PostHog</td><td>product-usage events (which screens are opened, which features are used)</td></tr>
+    <tr><td>Apple (App Store)</td><td>the payment itself; Apple is the merchant of record for in-app purchases and we never see your card</td></tr>
+    <tr><td>Expo push service</td><td>the device token needed to deliver a notification</td></tr>
+  </table>
+  <p>We do not sell your data, we do not share it with advertisers, and LiLove contains no advertising SDK and no advertising identifier.</p>
+
+  <h3>Coins</h3>
+  <p>Coins are a consumable in-app purchase spent inside LiLove on avatar items. They are not money, cannot be withdrawn or transferred, and have no value outside the app. Apple handles the payment; we record only that a given App Store transaction was credited, so that the same purchase is never credited twice.</p>
+
+  <h3>How long we keep it</h3>
+  <p>Your content stays until you delete it or delete your account. Deleting your account removes your profile, your content and your coach history from our database; anonymous, aggregated counts (for example "how many habits were completed last week across all users") may remain because they no longer identify anyone. Crash and usage records are kept for at most 90 days.</p>
+
+  <h3>Your rights</h3>
+  <p>Under the GDPR (EU/UK) and the KVKK (Türkiye) you may ask us for a copy of your data, ask us to correct it, ask us to delete it, or object to processing. Write to <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> and we will answer within 30 days. You can also delete your account from inside the app at any time, which is the fastest route.</p>
+
+  <h3>Children</h3>
+  <p>LiLove is not directed at children under 13 and we do not knowingly create accounts for them.</p>
+
+  <h3>Changes</h3>
+  <p>If this policy changes materially we will update the date at the top and note the change on this page. We will not quietly widen what we collect.</p>
+
+  <h2 id="tr">Türkçe</h2>
+  <div class="sum">
+  <p><strong>LiLove hesap gerektiren, sunucu tabanlı bir uygulamadır. Çevrimdışı bir uygulama değildir ve öyle olduğunu söylemiyoruz.</strong> Alışkanlıkların, hedeflerin, görevlerin ve notların veritabanımızda saklanır; telefonun kaybolsa bile durur ve giriş yaptığın her cihazda görünür.</p>
+  </div>
+  <h3>Hesap zorunlu</h3>
+  <p>LiLove'ı kullanmak için hesap açman ya da Apple veya Google ile giriş yapman gerekir. İçeriğin sunucuda durduğu için, giriş yapılmamış bir oturumda uygulama sana hiçbir şey gösteremez.</p>
+  <h3>Neleri tutuyoruz</h3>
+  <p>Hesap bilgileri (e-posta, parolanın yalnızca tuzlanmış özeti, ya da Apple/Google giriş kimliğin); isteğe bağlı profil alanları; <strong>yazdığın her şey</strong> — alışkanlık adları, hedefler ve adımları, görev adları, not metni, ruh hâli kayıtları, seri geçmişi; koç yazışmaların; satın alma kayıtları (App Store işlem kimliği, abonelik durumu, jeton bakiyesi); çökme raporları ve kaba kullanım olayları; bildirim için cihaz jetonu.</p>
+  <h3>Koç yazdıklarını okur</h3>
+  <p><strong>Bunu açıkça yazıyoruz, çünkü kendi mağaza metnimizin eski bir taslağı bunu yanlış anlatıyordu.</strong> Koça bir şey sorduğunda yazdığın mesaj sunucumuza, oradan da yapay zekâ sağlayıcımıza (OpenAI) gider. Sesli kullanırsan ses kaydı aynı sağlayıcıda yazıya çevrilir. Koç cihazda çalışan bir model değildir ve yalnızca sayılarla çalışmaz. Koça, üçüncü taraf bir yapay zekâ hizmetinde işlenmesini istemeyeceğin hiçbir şeyi yazma.</p>
+  <h3>Bizim adımıza kimler işliyor</h3>
+  <p>Uygulama sunucumuz ve veritabanı; OpenAI (koç mesajları, ses); Firebase Authentication; Apple ve Google ile giriş; Sentry (çökme); PostHog (kullanım olayları); Apple (ödemenin kendisi — kart bilgini hiç görmeyiz); Expo (bildirim jetonu). Verini satmıyoruz, reklamverenle paylaşmıyoruz; uygulamada reklam SDK'sı ve reklam kimliği yok.</p>
+  <h3>Jetonlar</h3>
+  <p>Jetonlar uygulama içinde harcanan tüketilebilir bir satın almadır. Para değildir, çekilemez, devredilemez ve uygulama dışında bir değeri yoktur.</p>
+  <h3>Saklama ve haklarınız</h3>
+  <p>İçeriğin sen silene ya da hesabını kapatana kadar durur. Hesap silme profilini, içeriğini ve koç geçmişini veritabanından kaldırır. Çökme ve kullanım kayıtları en fazla 90 gün tutulur. KVKK ve GDPR kapsamında verine erişme, düzeltme, silme ve işlemeye itiraz haklarına sahipsin: <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> — 30 gün içinde yanıtlıyoruz. En hızlı yol uygulama içinden hesabı silmek.</p>
+
+  <p class="foot">LiLove · brkekahraman@icloud.com · This page is the privacy policy referenced by the LiLove App Store listing.</p>
+</div>
+</body>
+</html>
