@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodewatch — Privacy Policy</title>
+<meta name="description" content="Rodewatch watches your anchor swing circle and taps your wrist the moment it drags — plus race starts and MOB, all on-device. Privacy policy.">
+<link rel="canonical" href="https://berkemd.github.io/wristsuite/rodewatch/privacy.html">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rodewatch">
+<meta property="og:title" content="Rodewatch — Privacy Policy">
+<meta property="og:url" content="https://berkemd.github.io/wristsuite/rodewatch/privacy.html">
+<meta property="og:description" content="Rodewatch watches your anchor swing circle and taps your wrist the moment it drags — plus race starts and MOB, all on-device. Privacy policy.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rodewatch — Privacy Policy">
+<meta name="twitter:description" content="Rodewatch watches your anchor swing circle and taps your wrist the moment it drags — plus race starts and MOB, all on-device. Privacy policy.">
+<style>
+body{background:#0b0b14;color:#f3f0ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding:44px 24px 80px}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.15rem;color:#3ee0f8;margin:34px 0 10px;border-top:1px solid #23203a;padding-top:22px}
+h3{font-size:1rem;color:#e6e2f2;margin:20px 0 4px}
+p,li{color:#b9b5c8;font-size:.95rem}
+a{color:#3ee0f8}
+.back{font-size:.85rem}
+.sum{background:#14131f;border:1px solid #2a2740;border-left:3px solid #3ee0f8;border-radius:12px;padding:14px 18px;margin:18px 0}
+.sum p{margin:0 0 8px} .sum p:last-child{margin:0}
+.addr{background:#14131f;border:1px solid #2a2740;border-radius:12px;padding:12px 16px;font-size:.9rem;color:#d6d2e4}
+.lang{font-size:.85rem;color:#6f6a80;margin:0 0 18px}
+code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:#d6d2e4}
+.foot{margin-top:38px;color:#6f6a80;font-size:.8rem;border-top:1px solid #23203a;padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="index.html">← Rodewatch</a></p>
+  <h1>Privacy Policy / Gizlilik Politikası</h1>
+  <p class="lang"><em>Last updated / Son güncelleme: August 1, 2026 · 1 Ağustos 2026</em><br>
+  English below, Türkçesi aşağıda, Deutsch weiter unten, 日本語は最後にあります。
+  All four versions say the same thing; if they ever differ, the English text is
+  the reference. /
+  Dört sürüm aynı şeyi söyler; bir farklılık olursa İngilizce metin esas alınır. /
+  Alle vier Fassungen sagen dasselbe; sollten sie je voneinander abweichen, ist
+  der englische Text maßgeblich. /
+  4つの版は同じ内容です。相違が生じた場合は英語版を基準とします。</p>
+
+  <h2 id="en" style="border-top:none;padding-top:0">English</h2>
+  <div class="sum">
+  <p><strong>Rodewatch collects no data. None. It watches your anchor with continuous GPS all night, on the watch, and tells nobody — there is no network code in the app at all.</strong></p>
+  </div>
+
+  <h3>What Rodewatch asks for</h3>
+  <ul>
+    <li><strong>Precise location</strong>
+    (<code>NSLocationWhenInUseUsageDescription</code>), with
+    <strong>continuous</strong> updates and no distance filter while the anchor
+    watch is armed, plus background location for the same period. An anchor-drag
+    alarm that stops when the screen goes off is not an anchor-drag alarm;
+    dragging is measured in tens of metres, so the fix has to be precise and
+    uninterrupted. Background delivery is enabled only while the watch is armed
+    and switched off again when you disarm it.</li>
+    <li><strong>Health (HealthKit)</strong> — for one narrow reason, below.</li>
+    <li><strong>Notifications</strong>, including time-sensitive ones, so the
+    drag alarm can break through a Focus mode. Scheduled locally; there is no
+    push server.</li>
+  </ul>
+  <h3>HealthKit: write-only, and only a workout session</h3>
+  <p>A <strong>sailing workout session</strong> is the mechanism watchOS
+  provides for staying alive with the screen off — which is the whole product.
+  Rodewatch requests permission to write <em>workout type</em> and
+  <strong>nothing else</strong>, and requests <strong>no read access at
+  all</strong>: the code passes an empty read set. It does not read your heart
+  rate or any other health data, and it writes no health samples of its own.
+  The <code>NSHealthUpdateUsageDescription</code> string exists only because
+  HealthKit requires the key to be present.</p>
+  <h3>What is stored, and where</h3>
+  <ul>
+    <li>In the app group shared with the complication: an anchor snapshot —
+    alarm state, current distance from the anchor, the radius you set, and a
+    timestamp — and the race timer, so a restart does not lose your countdown.
+    <strong>No coordinates.</strong></li>
+    <li>Your settings: default radius, how many consecutive confirming fixes
+    trigger the alarm, feet or metres, and the start-sequence length.</li>
+    <li><strong>The anchor position and the man-overboard mark are held in
+    memory only</strong>, for the life of the session. They are not written to
+    disk and cannot be recovered afterwards.</li>
+  </ul>
+  <h3>Network use: none, at all</h3>
+  <p>Rodewatch contains no networking code of any kind — no HTTP client, no
+  sockets, no chart download, no iCloud sync, no analytics, no third-party SDK,
+  and no AIS or fleet-tracking feature. Your position is never broadcast,
+  shared or published. There is no optional switch that changes this.</p>
+
+
+  <h2 id="who-en">Who is responsible</h2>
+  <p><strong>Berke Kahraman</strong> — an individual sole trader registered in
+  Türkiye (<em>şahıs firması</em>) — develops and publishes Rodewatch. He is the
+  <em>data controller</em> for the purposes of the EU/UK General Data Protection
+  Regulation and the <em>veri sorumlusu</em> under Turkish Law No. 6698 on the
+  Protection of Personal Data (KVKK).</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>This is a one-person business, so there is no data protection officer and
+  no EU representative; privacy mail is read and answered by the developer
+  personally, usually within a few days.</p>
+
+  <h2 id="basis-en">Legal basis for anything that happens</h2>
+  <ul>
+    <li><strong>Whatever Rodewatch keeps on your watch</strong> — we are not
+    processing it, because it never reaches us. It sits in your device, under
+    your control, and is gone when you delete the app. There is no legal basis
+    to state for us, because there is no processing by us.</li>
+    <li><strong>Location and Health permissions</strong> — granted by you in a
+    system prompt, revocable at any time in Settings; consent, GDPR
+    Art. 6(1)(a), and Art. 9(2)(a) explicit consent for the health-data
+    permission the workout session requires. Under KVKK, health data is
+    <em>özel nitelikli</em> and rests on explicit consent under Art. 6(2). The
+    data still never reaches us.</li>
+    <li><strong>If you email us</strong> — we process your address and whatever
+    you write, in order to answer you. Legal basis: GDPR Art. 6(1)(b) (steps
+    taken at your request) and Art. 6(1)(f) (our legitimate interest in
+    supporting the people who bought the app). Under KVKK, Art. 5(2)(c) and
+    5(2)(f).</li>
+    <li><strong>Your purchase</strong> — the sale is a contract between you and
+    Apple. Apple is the merchant of record and its own controller; we receive
+    no name, address, email or payment detail from it, only anonymous sales
+    totals in App Store Connect.</li>
+  </ul>
+  <p>There is no automated decision-making and no profiling of any kind, in the
+  sense of GDPR Art. 22 or KVKK Art. 11(g).</p>
+
+  <h2 id="rights-en">Your rights</h2>
+  <p>Under the GDPR (Articles 15–22) and KVKK (Article 11) you have the right
+  to ask us for: <strong>access</strong> to any personal data we hold about you;
+  <strong>rectification</strong> of anything inaccurate; <strong>erasure</strong>;
+  <strong>restriction</strong> of processing; <strong>portability</strong> of data
+  you gave us, in a machine-readable form; and to <strong>object</strong> to
+  processing based on legitimate interests. Where you gave consent — for example
+  a permission prompt — you can <strong>withdraw it at any time</strong>, without
+  affecting anything done before. KVKK Art. 11 additionally gives you the right
+  to learn whether your data is processed, to be told the purpose, to learn the
+  third parties it is transferred to, and to claim compensation for damage
+  caused by unlawful processing.</p>
+  <p><strong>How to exercise them:</strong> email
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> and say what you want. We reply within one
+  month (GDPR Art. 12(3)); KVKK applications are answered within 30 days under
+  the Communiqué on the Procedures and Principles of Application to the Data
+  Controller. There is no charge.</p>
+  <p><strong>In practice, for most of it you do not need us.</strong> The data
+  Rodewatch works with lives on your watch. Delete it in the app, revoke a
+  permission in Settings, or delete the app — and it is gone. We could not
+  retrieve, restore or hand it over even if you asked us to, because we never
+  had a copy.</p>
+
+  <h2 id="complain-en">Complaining about us</h2>
+  <p>Tell us first if you can — it is usually faster. But you do not have to,
+  and you always have the right to complain to a supervisory authority:</p>
+  <ul>
+    <li><strong>Türkiye:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+    <li><strong>EU / EEA:</strong> the data protection authority of the country
+    where you live, work, or where you think the problem happened — the list is
+    at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>United Kingdom:</strong> the Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+  </ul>
+
+  <h2 id="retention-en">How long anything is kept</h2>
+  <ul>
+    <li><strong>On your watch:</strong> for as long as you keep it there. Rodewatch
+    does not expire or auto-delete your content; deleting the app removes its
+    container and everything in it.</li>
+    <li><strong>Support email:</strong> kept only as long as we need it to deal
+    with your message, and deleted within 12 months at the latest — unless a law
+    requires us to keep a specific record longer (for example Turkish tax and
+    commercial bookkeeping rules, if your message relates to a purchase).</li>
+    <li><strong>Everything else:</strong> nothing, because there is nothing. We
+    run no database, keep no backup of your content, and write no log file that
+    contains your data.</li>
+  </ul>
+
+  <h2 id="transfer-en">International transfers</h2>
+  <ul>
+    <li>We do not transfer your data anywhere, because we do not receive it.</li>
+    <li><strong>Email is the one exception.</strong> If you write to us, your
+    message reaches us in <strong>Türkiye</strong> — outside the EEA and the UK,
+    and Türkiye has no EU adequacy decision. That transfer happens because you
+    chose to contact us and is necessary to answer you (GDPR Art. 49(1)(b)). We
+    use it for nothing else and pass it to nobody.</li>
+
+  </ul>
+
+  <h2 id="children-en">Children</h2>
+  <p>Rodewatch is rated 4+ and is not directed at children in particular. It
+  collects nothing from anyone, children included, so no parental consent
+  mechanism is needed or offered.</p>
+
+  <h2 id="changes-en">Changes to this policy</h2>
+  <p>If this policy changes, the new version is published at this address
+  <em>before</em> it takes effect, and the date at the top changes with it. We
+  do not change it retroactively.</p>
+
+  <h2 id="contact-en">Contact</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <h2 id="tr">Türkçe</h2>
+  <div class="sum">
+  <p><strong>Rodewatch hiçbir veri toplamaz. Hiç. Demirini bütün gece kesintisiz GPS ile izler; bunu saatin üzerinde yapar ve kimseye söylemez — uygulamada hiç ağ kodu yoktur.</strong></p>
+  </div>
+
+  <h3>Rodewatch ne istiyor</h3>
+  <ul>
+    <li><strong>Hassas konum</strong>
+    (<code>NSLocationWhenInUseUsageDescription</code>) — demir nöbeti açıkken
+    <strong>kesintisiz</strong> güncelleme, mesafe filtresi olmadan, ve aynı süre
+    boyunca arka planda konum. Ekran kapanınca duran bir demir taraması alarmı,
+    demir taraması alarmı değildir; tarama onlarca metreyle ölçülür, yani konum
+    hem hassas hem kesintisiz olmak zorundadır. Arka plan teslimi yalnız nöbet
+    açıkken devrededir; nöbeti kapattığında kapatılır.</li>
+    <li><strong>Sağlık (HealthKit)</strong> — tek ve dar bir sebeple; aşağıda.</li>
+    <li><strong>Bildirimler</strong>, zaman duyarlı olanlar dahil — tarama
+    alarmı Odak modunu delebilsin diye. Yerel planlanır; push sunucusu
+    yoktur.</li>
+  </ul>
+  <h3>HealthKit: yalnız yazma, o da sadece antrenman seansı</h3>
+  <p><strong>Yelken antrenman seansı</strong>, watchOS'un ekran kapalıyken hayatta
+  kalmak için sunduğu mekanizmadır — ürünün tamamı da budur. Rodewatch
+  <em>antrenman türü</em> yazma izni ister, <strong>başka hiçbir şey</strong>; ve
+  <strong>hiçbir okuma izni istemez</strong>: kod okuma kümesini boş gönderir.
+  Nabzını ya da başka bir sağlık verini okumaz, kendi adına hiçbir sağlık örneği
+  yazmaz. <code>NSHealthUpdateUsageDescription</code> metni yalnızca HealthKit bu
+  anahtarın bulunmasını zorunlu kıldığı için vardır.</p>
+  <h3>Ne saklanıyor, nerede</h3>
+  <ul>
+    <li>Komplikasyonla paylaşılan uygulama grubunda: bir demir anlık görüntüsü —
+    alarm durumu, demire olan güncel mesafe, senin belirlediğin yarıçap ve bir
+    zaman damgası — ve yarış sayacı, yeniden başlatma geri sayımını
+    kaybetmesin diye. <strong>Koordinat yok.</strong></li>
+    <li>Ayarların: varsayılan yarıçap, alarmı tetikleyecek arka arkaya doğrulama
+    sayısı, fit mi metre mi, ve başlangıç dizisi süresi.</li>
+    <li><strong>Demir noktası ve denize adam düştü işareti yalnızca bellekte
+    tutulur</strong>, seans süresince. Diske yazılmaz ve sonradan geri
+    getirilemez.</li>
+  </ul>
+  <h3>Ağ kullanımı: hiç yok</h3>
+  <p>Rodewatch'ta hiçbir türde ağ kodu yoktur — HTTP istemcisi yok, soket yok,
+  harita indirme yok, iCloud eşitlemesi yok, analitik yok, üçüncü taraf SDK yok,
+  AIS ya da filo takibi özelliği yok. Konumun asla yayınlanmaz, paylaşılmaz.
+  Bunu değiştirecek isteğe bağlı bir anahtar da yoktur.</p>
+
+
+  <h2 id="who-tr">Veri sorumlusu kim</h2>
+  <p>Rodewatch uygulamasını <strong>Berke Kahraman</strong> — Türkiye'de kayıtlı bir
+  <em>şahıs firması</em> — geliştirir ve yayımlar. 6698 sayılı Kişisel Verilerin
+  Korunması Kanunu (KVKK) anlamında <em>veri sorumlusu</em>, AB/BK Genel Veri
+  Koruma Tüzüğü (GDPR) anlamında <em>veri denetleyicisi</em> odur. Bu metin aynı
+  zamanda KVKK m.10 kapsamındaki aydınlatma yükümlülüğünü yerine getirir.</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>Tek kişilik bir işletme olduğu için veri koruma görevlisi ve AB temsilcisi
+  yoktur; gizlilik yazışmalarını geliştirici bizzat okur ve genellikle birkaç
+  gün içinde yanıtlar.</p>
+
+  <h2 id="basis-tr">Hukuki dayanak</h2>
+  <ul>
+    <li><strong>Rodewatch'in saatinde tuttuğu her şey</strong> — bunu biz
+    <em>işlemiyoruz</em>, çünkü bize hiç ulaşmıyor. Veri senin cihazında, senin
+    denetiminde durur ve uygulamayı sildiğinde gider. Bizim tarafımızda bir
+    işleme olmadığı için belirtilecek bir hukuki sebep de yoktur.</li>
+    <li><strong>Konum ve Sağlık izinleri</strong> — sistem isteminde sen
+    verirsin, Ayarlar'dan istediğin an geri alırsın; bu rızadır (GDPR
+    m.6(1)(a); antrenman seansının gerektirdiği sağlık izni için m.9(2)(a) açık
+    rıza). KVKK'da sağlık verisi <em>özel nitelikli</em>dir ve m.6/2 uyarınca
+    açık rızaya dayanır. Veri yine de bize hiç ulaşmaz.</li>
+    <li><strong>Bize e-posta yazarsan</strong> — sana yanıt verebilmek için
+    adresini ve yazdıklarını işleriz. Dayanak: KVKK m.5/2-(c) (sözleşmenin
+    kurulması veya ifasıyla doğrudan ilgili olma) ve m.5/2-(f) (meşru menfaat);
+    GDPR karşılığı m.6(1)(b) ve m.6(1)(f).</li>
+    <li><strong>Satın alman</strong> — satış sözleşmesi seninle Apple
+    arasındadır. Kayıtlı satıcı Apple'dır ve kendi veri sorumlusudur; bize adın,
+    adresin, e-postan ya da ödeme bilgin ulaşmaz — App Store Connect'te yalnız
+    kimliksiz satış toplamlarını görürüz.</li>
+  </ul>
+  <p>Hiçbir otomatik karar verme ve hiçbir profilleme yoktur (KVKK m.11/1-(g),
+  GDPR m.22).</p>
+
+  <h2 id="rights-tr">İlgili kişi olarak haklarım</h2>
+  <p>KVKK m.11 ve GDPR m.15–22 uyarınca şunları isteyebilirsin: kişisel
+  verinin <strong>işlenip işlenmediğini öğrenme</strong> ve işlenmişse buna
+  ilişkin <strong>bilgi talep etme</strong>; işlenme <strong>amacını</strong> ve
+  amacına uygun kullanılıp kullanılmadığını öğrenme; yurt içinde veya yurt
+  dışında verinin <strong>aktarıldığı üçüncü kişileri</strong> bilme; eksik veya
+  yanlış işlenmişse <strong>düzeltilmesini</strong>; şartları oluşmuşsa
+  <strong>silinmesini veya yok edilmesini</strong>; işlemenin
+  <strong>kısıtlanmasını</strong>; verdiğin verilerin makine tarafından
+  okunabilir biçimde sana ya da başka bir sorumluya
+  <strong>taşınmasını</strong>; meşru menfaate dayalı işlemeye
+  <strong>itiraz etmeyi</strong>; ve kanuna aykırı işleme sebebiyle zarara
+  uğradıysan <strong>zararın giderilmesini</strong>. Rızaya dayanan bir şey
+  varsa — örneğin bir izin ekranı — rızanı <strong>istediğin an geri
+  alabilirsin</strong>; bu, öncesinde yapılanları etkilemez.</p>
+  <p><strong>Nasıl kullanılır:</strong> <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>
+  adresine ne istediğini yaz. Başvuruna, Veri Sorumlusuna Başvuru Usul ve
+  Esasları Hakkında Tebliğ uyarınca en geç <strong>30 gün</strong> içinde
+  (GDPR kapsamında en geç bir ay içinde) ücretsiz olarak yanıt veririz.</p>
+  <p><strong>Aslında çoğu için bize ihtiyacın yok.</strong> Rodewatch'in çalıştığı
+  veri saatinin üzerindedir. Uygulama içinden sil, Ayarlar'dan izni geri al ya
+  da uygulamayı kaldır — gider. İstesen bile geri getiremeyiz, veremeyiz;
+  çünkü bir kopyası bizde hiç olmadı.</p>
+
+  <h2 id="complain-tr">Şikâyet hakkı</h2>
+  <p>Mümkünse önce bize yaz — genelde en hızlısı budur. Ama zorunlu değildir;
+  her zaman bir denetim makamına şikâyette bulunma hakkın vardır:</p>
+  <ul>
+    <li><strong>Türkiye:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a> (KVKK m.14: önce veri
+    sorumlusuna başvurulur, yanıt yetersizse ya da 30 gün içinde yanıt
+    verilmezse Kurul'a şikâyet edilir)</li>
+    <li><strong>AB / AEA:</strong> yaşadığın, çalıştığın ya da sorunun
+    yaşandığını düşündüğün ülkenin veri koruma otoritesi — liste:
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>Birleşik Krallık:</strong> Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+  </ul>
+
+  <h2 id="retention-tr">Saklama süreleri</h2>
+  <ul>
+    <li><strong>Saatinde:</strong> sen orada tuttuğun sürece. Rodewatch içeriğini
+    kendiliğinden silmez; uygulamayı kaldırdığında konteyneri ve içindeki her
+    şey birlikte silinir.</li>
+    <li><strong>Destek e-postası:</strong> yalnız mesajını sonuçlandırmak için
+    gereken süre boyunca saklanır ve en geç <strong>12 ay</strong> içinde
+    silinir — bir kanun daha uzun saklamayı zorunlu kılmadıkça (örneğin mesajın
+    bir satın almayla ilgiliyse vergi ve ticari defter mevzuatı).</li>
+    <li><strong>Geri kalan her şey:</strong> yok, çünkü hiçbir şey yok.
+    Veritabanı çalıştırmıyoruz, içeriğinin yedeğini tutmuyoruz ve içinde verin
+    geçen bir günlük dosyası yazmıyoruz.</li>
+  </ul>
+
+  <h2 id="transfer-tr">Yurt dışına aktarım</h2>
+  <ul>
+    <li>Verini hiçbir yere aktarmıyoruz, çünkü bize hiç ulaşmıyor.</li>
+    <li><strong>Tek istisna e-postadır.</strong> Bize yazarsan mesajın
+    <strong>Türkiye'ye</strong> ulaşır; Türkiye AEA ve BK dışındadır ve AB
+    yeterlilik kararı yoktur. Bu aktarım, sen bizimle iletişim kurmayı seçtiğin
+    için gerçekleşir ve sana yanıt verebilmek için gereklidir (GDPR m.49(1)(b);
+    KVKK m.9 kapsamında açık rızana dayanan aktarım). Başka hiçbir amaçla
+    kullanılmaz, kimseye verilmez.</li>
+
+  </ul>
+
+  <h2 id="children-tr">Çocuklar</h2>
+  <p>Rodewatch 4+ yaş derecelidir ve özellikle çocuklara yönelik değildir. Çocuklar
+  dahil hiç kimseden veri toplamadığı için ebeveyn onayı mekanizması ne gerekir
+  ne de sunulur.</p>
+
+  <h2 id="changes-tr">Politika değişirse</h2>
+  <p>Bu politika değişirse yeni sürüm, yürürlüğe girmeden <em>önce</em> bu
+  adreste yayımlanır ve yukarıdaki tarih güncellenir. Geriye dönük değişiklik
+  yapılmaz.</p>
+
+  <h2 id="contact-tr">İletişim</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <h2 id="de">Deutsch</h2>
+  <div class="sum">
+  <p><strong>Rodewatch erfasst keine Daten. Keine. Die App überwacht Ihren Anker die ganze Nacht mit durchgehendem GPS, auf der Uhr, und erzählt es niemandem — in der App steckt überhaupt kein Netzwerkcode.</strong></p>
+  </div>
+
+  <h3>Worum Rodewatch bittet</h3>
+  <ul>
+    <li><strong>Genauer Standort</strong>
+    (<code>NSLocationWhenInUseUsageDescription</code>), mit
+    <strong>durchgehenden</strong> Aktualisierungen und ohne Distanzfilter,
+    solange die Ankerwache scharf ist, dazu Standort im Hintergrund für
+    denselben Zeitraum. Ein Ankeralarm, der aufhört, sobald das Display ausgeht,
+    ist kein Ankeralarm; ein Rutschen wird in Zehnermetern gemessen, also muss die
+    Ortung genau und ununterbrochen sein. Die Zustellung im Hintergrund ist nur
+    aktiv, solange die Wache scharf ist, und wird beim Beenden wieder
+    abgeschaltet.</li>
+    <li><strong>Gesundheit (HealthKit)</strong> — aus einem einzigen, eng
+    begrenzten Grund, siehe unten.</li>
+    <li><strong>Mitteilungen</strong>, einschließlich zeitkritischer, damit der
+    Ankeralarm einen Fokus durchbrechen kann. Lokal geplant; es gibt keinen
+    Push-Server.</li>
+  </ul>
+  <h3>HealthKit: nur schreibend, und nur eine Trainingssitzung</h3>
+  <p>Eine <strong>Segel-Trainingssitzung</strong> ist der Mechanismus, den
+  watchOS vorsieht, um bei ausgeschaltetem Display aktiv zu bleiben — und genau
+  das ist das ganze Produkt. Rodewatch bittet um die Berechtigung, den
+  <em>Trainingstyp</em> zu schreiben, und um <strong>nichts sonst</strong>, und
+  fordert <strong>überhaupt keinen Lesezugriff</strong> an: Der Code übergibt
+  eine leere Lesemenge. Die App liest weder Ihre Herzfrequenz noch andere
+  Gesundheitsdaten und schreibt keine eigenen Gesundheitsdatensätze. Die
+  Zeichenkette <code>NSHealthUpdateUsageDescription</code> existiert nur, weil
+  HealthKit das Vorhandensein des Schlüssels verlangt.</p>
+  <h3>Was gespeichert wird, und wo</h3>
+  <ul>
+    <li>In der mit der Komplikation geteilten App-Gruppe: eine
+    Ankermomentaufnahme — Alarmzustand, aktuelle Entfernung zum Anker, der von
+    Ihnen eingestellte Radius und ein Zeitstempel — sowie der Rennzeitnehmer,
+    damit ein Neustart Ihren Countdown nicht verliert.
+    <strong>Keine Koordinaten.</strong></li>
+    <li>Ihre Einstellungen: Standardradius, wie viele aufeinanderfolgende
+    bestätigende Ortungen den Alarm auslösen, Fuß oder Meter und die Länge der
+    Startsequenz.</li>
+    <li><strong>Die Ankerposition und die Mann-über-Bord-Markierung liegen
+    ausschließlich im Arbeitsspeicher</strong>, für die Dauer der Sitzung. Sie
+    werden nicht auf den Datenträger geschrieben und können danach nicht
+    wiederhergestellt werden.</li>
+  </ul>
+  <h3>Netzwerknutzung: überhaupt keine</h3>
+  <p>Rodewatch enthält keinerlei Netzwerkcode — keinen HTTP-Client, keine
+  Sockets, keinen Seekarten-Download, keine iCloud-Synchronisierung, keine
+  Analyse, kein SDK von Dritten und keine AIS- oder Flotten-Tracking-Funktion.
+  Ihre Position wird nie gesendet, geteilt oder veröffentlicht. Es gibt keinen
+  optionalen Schalter, der daran etwas ändert.</p>
+
+  <h2 id="who-de">Wer ist verantwortlich</h2>
+  <p><strong>Berke Kahraman</strong> — ein in der Türkei eingetragener
+  Einzelunternehmer (<em>şahıs firması</em>) — entwickelt und veröffentlicht
+  Rodewatch. Er ist der <em>Verantwortliche</em> im Sinne der
+  Datenschutz-Grundverordnung der EU und des Vereinigten Königreichs (DSGVO) und
+  <em>veri sorumlusu</em> nach dem türkischen Gesetz Nr. 6698 zum Schutz
+  personenbezogener Daten (KVKK).</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>Dies ist ein Ein-Personen-Unternehmen; es gibt daher weder einen
+  Datenschutzbeauftragten noch einen Vertreter in der EU. Datenschutzpost liest
+  und beantwortet der Entwickler persönlich, in der Regel innerhalb weniger
+  Tage.</p>
+
+  <h2 id="basis-de">Rechtsgrundlage für alles, was geschieht</h2>
+  <ul>
+    <li><strong>Alles, was Rodewatch auf Ihrer Uhr behält</strong> — wir
+    verarbeiten es nicht, denn es erreicht uns nie. Es liegt auf Ihrem Gerät,
+    unter Ihrer Kontrolle, und ist fort, sobald Sie die App löschen. Für uns ist
+    keine Rechtsgrundlage anzugeben, weil bei uns keine Verarbeitung
+    stattfindet.</li>
+    <li><strong>Berechtigungen für Standort und Gesundheit</strong> — von
+    Ihnen in einem Systemdialog erteilt, jederzeit in den Einstellungen
+    widerrufbar; Einwilligung, Art. 6 Abs. 1 lit. a DSGVO, und ausdrückliche
+    Einwilligung nach Art. 9 Abs. 2 lit. a DSGVO für die
+    Gesundheitsdaten-Berechtigung, die die Trainingssitzung erfordert. Nach KVKK
+    sind Gesundheitsdaten <em>özel nitelikli</em> und beruhen auf der
+    ausdrücklichen Einwilligung nach Art. 6 Abs. 2. Die Daten erreichen uns
+    trotzdem nie.</li>
+    <li><strong>Wenn Sie uns schreiben</strong> — dann verarbeiten wir Ihre
+    Adresse und das, was Sie schreiben, um Ihnen zu antworten. Rechtsgrundlage:
+    Art. 6 Abs. 1 lit. b DSGVO (Maßnahmen auf Ihre Anfrage hin) und
+    Art. 6 Abs. 1 lit. f DSGVO (unser berechtigtes Interesse, die Menschen zu
+    unterstützen, die die App gekauft haben). Nach KVKK Art. 5 Abs. 2 lit. c und
+    lit. f.</li>
+    <li><strong>Ihr Kauf</strong> — der Kaufvertrag besteht zwischen Ihnen und
+    Apple. Apple ist Händler (merchant of record) und eigener Verantwortlicher;
+    wir erhalten von Apple weder Namen noch Anschrift, E-Mail-Adresse oder
+    Zahlungsdaten, sondern in App Store Connect nur anonyme Verkaufssummen.</li>
+  </ul>
+  <p>Es findet keine automatisierte Entscheidungsfindung und kein Profiling
+  statt, im Sinne von Art. 22 DSGVO oder KVKK Art. 11 lit. g.</p>
+
+  <h2 id="rights-de">Ihre Rechte</h2>
+  <p>Nach der DSGVO (Art. 15–22) und dem KVKK (Art. 11) haben Sie uns gegenüber
+  das Recht auf: <strong>Auskunft</strong> über die personenbezogenen Daten, die
+  wir über Sie verarbeiten; <strong>Berichtigung</strong> unrichtiger Daten;
+  <strong>Löschung</strong>; <strong>Einschränkung der Verarbeitung</strong>;
+  <strong>Datenübertragbarkeit</strong> der von Ihnen bereitgestellten Daten in
+  einem maschinenlesbaren Format; und auf <strong>Widerspruch</strong> gegen
+  eine Verarbeitung, die auf berechtigten Interessen beruht. Soweit Sie eine
+  Einwilligung erteilt haben — etwa in einem Berechtigungsdialog —, können Sie
+  diese <strong>jederzeit widerrufen</strong>, ohne dass die Rechtmäßigkeit der
+  bis dahin erfolgten Verarbeitung berührt wird. KVKK Art. 11 gibt Ihnen
+  zusätzlich das Recht, zu erfahren, ob Ihre Daten verarbeitet werden, den Zweck
+  zu erfahren, die Dritten zu erfahren, an die sie übermittelt werden, und
+  Ersatz für Schäden aus einer rechtswidrigen Verarbeitung zu verlangen.</p>
+  <p><strong>So üben Sie sie aus:</strong> Schreiben Sie an
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> und sagen Sie, was Sie möchten. Wir
+  antworten innerhalb eines Monats (Art. 12 Abs. 3 DSGVO); KVKK-Anträge werden
+  nach dem Kommuniqué über die Verfahren und Grundsätze der Antragstellung beim
+  Verantwortlichen innerhalb von 30 Tagen beantwortet. Es entstehen Ihnen keine
+  Kosten.</p>
+  <p><strong>In der Praxis brauchen Sie uns für das meiste davon nicht.</strong>
+  Die Daten, mit denen Rodewatch arbeitet, liegen auf Ihrer Uhr. Löschen Sie sie in
+  der App, widerrufen Sie eine Berechtigung in den Einstellungen, oder löschen
+  Sie die App — und sie sind fort. Wir könnten sie selbst auf Ihre Bitte hin
+  weder abrufen noch wiederherstellen oder herausgeben, weil wir nie eine Kopie
+  hatten.</p>
+
+  <h2 id="complain-de">Beschwerde über uns</h2>
+  <p>Sagen Sie es möglichst zuerst uns — das geht meistens schneller. Sie müssen
+  das aber nicht, und Sie haben jederzeit das <strong>Beschwerderecht bei einer
+  Aufsichtsbehörde</strong>:</p>
+  <ul>
+    <li><strong>EU / EWR:</strong> die Datenschutz-Aufsichtsbehörde des Landes,
+    in dem Sie leben oder arbeiten oder in dem der mutmaßliche Verstoß
+    stattgefunden hat — in Deutschland die oder der Landesbeauftragte für den
+    Datenschutz Ihres Bundeslandes, in Österreich die Datenschutzbehörde. Die
+    vollständige Liste steht bei
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>Vereinigtes Königreich:</strong> das Information Commissioner's
+    Office — <a href="https://ico.org.uk/">ico.org.uk</a></li>
+    <li><strong>Türkei:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+  </ul>
+
+  <h2 id="retention-de">Wie lange etwas aufbewahrt wird</h2>
+  <ul>
+    <li><strong>Auf Ihrer Uhr:</strong> so lange, wie Sie es dort behalten.
+    Rodewatch lässt Ihre Inhalte nicht verfallen und löscht sie nicht von selbst;
+    beim Löschen der App verschwindet ihr Container mit allem darin.</li>
+    <li><strong>Support-E-Mail:</strong> nur so lange, wie wir sie zur
+    Bearbeitung Ihrer Nachricht brauchen, und spätestens nach
+    <strong>12 Monaten</strong> gelöscht — es sei denn, ein Gesetz verpflichtet
+    uns, einen bestimmten Beleg länger aufzubewahren (etwa das türkische Steuer-
+    und Handelsbuchführungsrecht, wenn Ihre Nachricht einen Kauf betrifft).</li>
+    <li><strong>Alles andere:</strong> nichts, weil es nichts gibt. Wir
+    betreiben keine Datenbank, führen keine Sicherung Ihrer Inhalte und
+    schreiben keine Protokolldatei, in der Ihre Daten vorkommen.</li>
+  </ul>
+
+  <h2 id="transfer-de">Übermittlungen in Drittländer</h2>
+  <ul>
+    <li>Wir übermitteln Ihre Daten nirgendwohin, weil wir sie nicht
+    erhalten.</li>
+    <li><strong>Die einzige Ausnahme ist E-Mail.</strong> Wenn Sie uns
+    schreiben, erreicht Ihre Nachricht uns in der <strong>Türkei</strong> —
+    außerhalb des EWR und des Vereinigten Königreichs, und für die Türkei gibt
+    es keinen EU-Angemessenheitsbeschluss. Diese Übermittlung findet statt, weil
+    Sie sich entschieden haben, uns zu kontaktieren, und sie ist erforderlich,
+    um Ihnen zu antworten (Art. 49 Abs. 1 lit. b DSGVO). Wir verwenden sie für
+    nichts anderes und geben sie an niemanden weiter.</li>
+  </ul>
+
+  <h2 id="children-de">Kinder</h2>
+  <p>Rodewatch ist mit 4+ eingestuft und richtet sich nicht besonders an Kinder. Die
+  App erfasst von niemandem etwas, Kinder eingeschlossen, sodass kein
+  Mechanismus für eine elterliche Einwilligung nötig ist oder angeboten
+  wird.</p>
+
+  <h2 id="changes-de">Änderungen dieser Erklärung</h2>
+  <p>Ändert sich diese Datenschutzerklärung, wird die neue Fassung
+  <em>vor</em> ihrem Inkrafttreten unter dieser Adresse veröffentlicht, und das
+  Datum oben ändert sich mit. Rückwirkend wird nichts geändert.</p>
+
+  <h2 id="contact-de">Kontakt</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+    <h2 id="ja">日本語</h2>
+  <div class="sum">
+  <p><strong>Rodewatchは個人情報を一切収集しません。ひとつもです。一晩中、連続したGPSで錨泊を監視しますが、その処理はすべて時計の中で行われ、どこにも知らせません — アプリにはネットワークのコードがそもそも入っていません。</strong></p>
+  </div>
+
+  <h3>Rodewatchが求める許可</h3>
+  <ul>
+    <li><strong>正確な位置情報</strong>
+    （<code>NSLocationWhenInUseUsageDescription</code>）。錨泊監視が有効な間は、
+    距離フィルターなしで<strong>連続して</strong>更新し、同じ期間はバックグラウンドでも
+    位置情報を受け取ります。画面が消えると止まる走錨アラームは、走錨アラームではありません。
+    走錨は数十メートル単位で測るものなので、測位は正確かつ途切れないものである必要があります。
+    バックグラウンドでの受け取りは監視が有効な間だけオンになり、監視を終了すると再びオフになります。</li>
+    <li><strong>ヘルスケア（HealthKit）</strong> — 下記のとおり、たったひとつの限定的な理由のためです。</li>
+    <li><strong>通知</strong>（時間指定通知を含む）。走錨アラームが集中モードを突破できるようにするためです。
+    通知は端末内で予約され、プッシュサーバーは存在しません。</li>
+  </ul>
+  <h3>HealthKit：書き込みのみ、しかもワークアウトセッションだけ</h3>
+  <p><strong>セーリングのワークアウトセッション</strong>は、画面がオフでも動き続けるために
+  watchOSが用意している仕組みであり、それがこの製品のすべてです。Rodewatchは
+  <em>ワークアウトの種類</em>を書き込む許可だけを求め、<strong>それ以外は何も求めません</strong>。
+  また<strong>読み取りの許可はまったく求めません</strong>。コードは空の読み取り集合を渡します。
+  心拍数その他の健康データを読み取ることはなく、自身の健康データを書き込むこともありません。
+  <code>NSHealthUpdateUsageDescription</code>の文言は、HealthKitがこのキーの存在を必須と
+  しているためだけに存在します。</p>
+  <h3>何が、どこに保存されるか</h3>
+  <ul>
+    <li>コンプリケーションと共有するApp Group内：錨の状態のスナップショット
+    （アラームの状態、錨からの現在の距離、設定した半径、タイムスタンプ）と、
+    再起動でカウントダウンを失わないためのレースタイマー。<strong>座標は含まれません。</strong></li>
+    <li>設定：標準の半径、アラームを発報させる連続確認の回数、フィートかメートルか、
+    スタートシーケンスの長さ。</li>
+    <li><strong>錨の位置と落水者マークはメモリ上にのみ保持され</strong>、セッションの間だけ
+    存在します。ディスクには書き込まれず、あとから復元することはできません。</li>
+  </ul>
+  <h3>ネットワークの利用：一切なし</h3>
+  <p>Rodewatchにはいかなる種類のネットワークコードもありません。HTTPクライアントも、
+  ソケットも、海図のダウンロードも、iCloud同期も、解析も、第三者のSDKも、AISや船隊追跡の
+  機能もありません。あなたの位置が送信・共有・公開されることはありません。これを変える
+  任意のスイッチもありません。</p>
+
+  <h2 id="who-ja">個人情報取扱事業者（管理者）</h2>
+  <p>Rodewatchを開発・提供しているのは<strong>Berke Kahraman</strong>（トルコで登録された
+  個人事業主／<em>şahıs firması</em>）です。EU・英国の一般データ保護規則（GDPR）にいう
+  <em>管理者</em>、トルコ個人情報保護法第6698号（KVKK）にいう<em>veri sorumlusu</em>、
+  そして日本の個人情報の保護に関する法律（個人情報保護法・APPI）にいう
+  <strong>個人情報取扱事業者</strong>に当たります。日本にお住まいの方に対してRodewatchを
+  提供するにあたって取得する個人情報については、同法の域外適用の対象となり得るため、
+  本項以下では同法が求める事項もあわせて記載しています。</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>一人の事業者であるため、データ保護責任者もEU域内の代理人もいません。プライバシーに
+  関するお問い合わせは開発者本人が読み、通常は数日以内に返信します。</p>
+
+  <h2 id="basis-ja">利用目的と法的根拠</h2>
+  <p>個人情報保護法第17条・第21条に基づき、取得する情報とその<strong>利用目的</strong>は
+  次のとおりです。目的外の利用は行いません。</p>
+  <ul>
+    <li><strong>Rodewatchがお使いの時計に保持するもの</strong> — 当方はこれを取り扱って
+    いません。当方に届かないからです。それはお客様の端末の中に、お客様の管理のもとにあり、
+    アプリを削除すれば消えます。当方の側に取扱いがないため、当方について述べるべき法的根拠も
+    ありません。</li>
+    <li><strong>位置情報とヘルスケアの許可</strong> — システムのダイアログでお客様が
+    与えるもので、「設定」からいつでも取り消せます。これは同意（GDPR第6条1項(a)、
+    ワークアウトセッションが必要とする健康データの許可については第9条2項(a)の明示的な同意）
+    に当たります。KVKKでは健康データは<em>özel nitelikli</em>であり、第6条2項の明示的な
+    同意に基づきます。日本の個人情報保護法では、健康に関する情報は
+    <strong>要配慮個人情報</strong>に当たり得るため、その取得には本人の同意が必要です
+    （第20条2項）。この同意はOSのHealthKitダイアログで取得され、Rodewatchは実際には
+    健康データを読み取りません。いずれにせよ、これらのデータが当方に届くことはありません。</li>
+    <li><strong>当方にメールをお送りいただいた場合</strong> — 返信するために、お客様の
+    アドレスとお書きになった内容を取り扱います。利用目的はお問い合わせへの対応のみです。
+    法的根拠：GDPR第6条1項(b)（お客様の求めに応じた措置）および第6条1項(f)（アプリを
+    購入された方を支援するという正当な利益）。KVKKでは第5条2項(c)および(f)。個人情報保護法
+    では、この利用目的の範囲でのみ取り扱います。</li>
+    <li><strong>お客様の購入</strong> — 販売の契約はお客様とAppleとの間のものです。Apple
+    が販売者（merchant of record）であり、Apple自身が管理者です。当方は氏名・住所・
+    メールアドレス・支払情報のいずれも受け取らず、App Store Connectで匿名の販売合計を
+    見るだけです。</li>
+  </ul>
+  <p>GDPR第22条・KVKK第11条(g)にいう自動化された意思決定も、いかなるプロファイリングも
+  行いません。</p>
+  <p><strong>第三者提供</strong>（個人情報保護法第27条）は行いません。個人データを第三者に
+  提供したり、共同利用したり、取扱いを外部に委託したりしていません。</p>
+
+  <h2 id="rights-ja">お客様の権利</h2>
+  <p>GDPR（第15条〜第22条）およびKVKK（第11条）に基づき、当方が保有するお客様の個人
+  データについて、<strong>アクセス</strong>、正確でないものの<strong>訂正</strong>、
+  <strong>消去</strong>、取扱いの<strong>制限</strong>、機械可読な形式での
+  <strong>データポータビリティ</strong>、正当な利益に基づく取扱いへの<strong>異議</strong>を
+  求めることができます。同意に基づくもの — たとえば許可のダイアログ — については、
+  <strong>いつでも同意を撤回</strong>でき、撤回前に行われたことの適法性は影響を受けません。</p>
+  <p>日本の個人情報保護法に基づき、お客様は当方が保有する保有個人データについて、
+  <strong>利用目的の通知</strong>（第32条3項）、<strong>開示請求</strong>（第33条）、
+  内容が事実でない場合の<strong>訂正・追加・削除</strong>（第34条）、法令違反がある場合の
+  <strong>利用停止・消去</strong>および<strong>第三者提供の停止</strong>（第35条）を
+  請求することができます。</p>
+  <p><strong>手続き：</strong>
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>宛てに、ご希望の
+  内容をお書きください。ご本人であることを確認できる範囲で、遅滞なく、原則として
+  <strong>30日以内</strong>に対応します（GDPRでは1か月以内）。手数料はいただきません。</p>
+  <p><strong>ただし、実際にはそのほとんどに当方は必要ありません。</strong>Rodewatchが扱う
+  データはお使いの時計の中にあります。アプリの中で削除する、「設定」で許可を取り消す、
+  あるいはアプリを削除する — それで消えます。お求めいただいても、当方はそれを取り出すことも、
+  復元することも、お渡しすることもできません。複製を一度も持ったことがないからです。</p>
+
+  <h2 id="complain-ja">苦情の申し立て</h2>
+  <p>できればまず当方にお知らせください。たいていはそれが一番早い方法です。ただしその義務は
+  なく、監督機関に苦情を申し立てる権利はいつでもあります。</p>
+  <ul>
+    <li><strong>日本：</strong>個人情報保護委員会 —
+    <a href="https://www.ppc.go.jp/">ppc.go.jp</a>（個人情報保護法第40条に基づき、
+    当方も苦情の適切かつ迅速な処理に努めます）</li>
+    <li><strong>EU／EEA：</strong>お住まいの国、お勤めの国、または問題が起きたと考えられる
+    国のデータ保護機関 — 一覧は
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>英国：</strong>Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+    <li><strong>トルコ：</strong>Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+  </ul>
+
+  <h2 id="retention-ja">保有期間</h2>
+  <ul>
+    <li><strong>お使いの時計の中：</strong>お客様がそこに置いておく限りです。Rodewatchは
+    お客様の内容を期限切れにしたり自動的に削除したりしません。アプリを削除すると、その
+    コンテナと中身がすべて消えます。</li>
+    <li><strong>サポートのメール：</strong>お客様のご連絡に対応するために必要な期間だけ
+    保管し、遅くとも<strong>12か月</strong>以内に削除します。ただし、特定の記録をより長く
+    保存することを法令が求める場合を除きます（たとえば、ご連絡が購入に関するものである
+    場合のトルコの税務・商業帳簿の規定）。</li>
+    <li><strong>それ以外のすべて：</strong>ありません。何もないからです。データベースを
+    運用しておらず、お客様の内容のバックアップも取らず、お客様のデータが含まれるログ
+    ファイルも書いていません。</li>
+  </ul>
+
+  <h2 id="transfer-ja">外国にある第三者への提供</h2>
+  <ul>
+    <li>当方はお客様のデータをどこにも移転していません。そもそも受け取っていないからです。</li>
+    <li><strong>唯一の例外はメールです。</strong>当方にお書きになると、そのメッセージは
+    <strong>トルコ</strong>にいる当方に届きます。トルコはEEAと英国の外にあり、EUの十分性
+    認定もありません。この移転は、お客様が当方に連絡することを選ばれたために生じるもので、
+    返信のために必要です（GDPR第49条1項(b)）。ほかの目的には使わず、誰にも渡しません。
+    なお日本の個人情報保護法との関係では、これは「外国にある<em>第三者</em>への提供」
+    （第28条）ではありません。トルコに所在する当方自身が個人情報取扱事業者であり、
+    受け取っているのが当方自身だからです。</li>
+
+  </ul>
+
+  <h2 id="children-ja">お子様について</h2>
+  <p>Rodewatchの年齢制限は4+で、特にお子様に向けたものではありません。お子様を含め、
+  誰からも何も収集しないため、保護者の同意を得る仕組みは必要でも提供されるものでも
+  ありません。</p>
+
+  <h2 id="changes-ja">本ポリシーの変更</h2>
+  <p>本ポリシーを変更する場合は、効力が生じる<em>前</em>に新しい版をこのアドレスで公開し、
+  冒頭の日付も同時に更新します。遡って変更することはありません。</p>
+
+  <h2 id="contact-ja">お問い合わせ</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <p class="foot">© 2026 Berke Kahraman · Ayvalı Mah. Afra Cad. No: 3F,
+  İç Kapı No: 104, 06010 Keçiören / Ankara, Türkiye ·
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiLove — Privacy Policy</title>
+<meta name="description" content="LiLove privacy policy. Habit titles, notes and task names never leave the device; the coach receives only numbers.">
+<link rel="canonical" href="https://berkemd.github.io/wristsuite/lilove/privacy.html">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LiLove">
+<meta property="og:title" content="LiLove — Privacy Policy">
+<meta property="og:url" content="https://berkemd.github.io/wristsuite/lilove/privacy.html">
+<meta property="og:description" content="LiLove privacy policy. Habit titles, notes and task names never leave the device; the coach receives only numbers.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LiLove — Privacy Policy">
+<meta name="twitter:description" content="LiLove privacy policy. Habit titles, notes and task names never leave the device; the coach receives only numbers.">
+<style>
+body{background:#0b0b14;color:#f3f0ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding:44px 24px 80px}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.15rem;color:#7fe0a8;margin:34px 0 10px;border-top:1px solid #23203a;padding-top:22px}
+h3{font-size:1rem;color:#e6e2f2;margin:20px 0 4px}
+p,li{color:#b9b5c8;font-size:.95rem}
+a{color:#7fe0a8}
+.back{font-size:.85rem}
+.sum{background:#14131f;border:1px solid #2a2740;border-left:3px solid #7fe0a8;border-radius:12px;padding:14px 18px;margin:18px 0}
+.sum p{margin:0 0 8px} .sum p:last-child{margin:0}
+.addr{background:#14131f;border:1px solid #2a2740;border-radius:12px;padding:12px 16px;font-size:.9rem;color:#d6d2e4}
+.lang{font-size:.85rem;color:#6f6a80;margin:0 0 18px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
+th,td{border:1px solid #2a2740;padding:8px 10px;text-align:left;color:#b9b5c8;vertical-align:top}
+th{color:#e6e2f2;background:#14131f}
+</style>
+</head>
+<body><div class="wrap">
+<p class="back"><a href="index.html">← LiLove</a></p>
+<h1>LiLove — Privacy Policy</h1>
+<p class="lang">Last updated 16 August 2026 · English · Türkçe below</p>
+
+<h2>English</h2>
+
+<div class="sum">
+<p><b>The one sentence that matters:</b> your habit titles, your note text and your
+task names never leave your device. The coach receives numbers.</p>
+<p>Most privacy policies say "we take your privacy seriously" and then describe
+collecting everything. This one describes an architecture instead, so you can
+check it against what the app does.</p>
+</div>
+
+<h3>Where your content lives</h3>
+<p>Habits, goals, tasks, notes, achievements, avatar and statistics are stored on
+your device. Of the app's endpoints, the overwhelming majority never touch a
+network at all — they read and write local storage. Deleting the app deletes that
+data. There is no account on our side holding a copy, because there is no account.</p>
+
+<h3>What is sent to the coach, exactly</h3>
+<p>LiLove's coach is the one feature that requires a connection. When you ask for a
+daily insight, a performance summary, a suggestion, or you ask the coach a
+question about your own tracked data, the app builds a <b>numeric summary</b> and
+sends that.</p>
+
+<table>
+<tr><th>Sent</th><th>Not sent</th></tr>
+<tr>
+<td>Streak lengths · completion rates · counts of habits and goals · the hour of
+day at which items tend to be completed · how many days of history exist</td>
+<td>Habit titles · goal titles · task names · note text · your name · your email ·
+your contacts · your location · any device or advertising identifier</td>
+</tr>
+</table>
+
+<p>This is a design decision with a stated reason, and the reason is written into
+the code: nearly everything a coach can usefully say about consistency already
+follows from the numbers. Sending the text as well would spend your privacy
+without buying anything back.</p>
+
+<p>The coach's instructions also say, in the model's own prompt, that it has never
+seen your words and must not pretend to know what a habit is about; that when the
+data is too thin to support a claim it must say so rather than guess; and that it
+must not give medical, psychological or nutritional advice, must not diagnose, and
+must not mention weight, calories or body image.</p>
+
+<h3>The one identifier that is sent, and why</h3>
+<p>Alongside the numeric summary, the app sends the <b>subscription transaction
+identifier</b> Apple issues for your purchase. It is used for two things: to check
+that the request comes from an active subscription, and as the key for a per-subscription
+rate limit. It is deliberately not an IP-based limit, because rate-limiting by IP
+makes users behind the same network cut each other off. This identifier is not a
+device identifier and not an advertising identifier, it is not linked to your name
+or email — we do not have those — and it is not retained after the request.</p>
+
+<h3>How the request is handled</h3>
+<p>The numeric summary is sent over HTTPS to a small relay operated for LiLove, running
+on Cloudflare Workers, which calls Cloudflare's own Workers AI to produce the answer
+and returns it. The relay writes no log of your summaries, stores no answers, and has
+no database or key-value store attached to it; responses are marked
+<code>no-store</code>. If the model's reply does not match the expected structure, the
+app reports that the coach could not answer — it never substitutes a sentence we wrote
+and presents it as the coach's.</p>
+
+<h3>Purchases</h3>
+<p>Subscriptions and coin packs are sold by Apple. Apple tells the app whether an
+entitlement is active; it does not give us your payment details, and we never see
+your card, your Apple ID or your billing address. Purchase validation is handled
+through the subscription infrastructure Apple provides. Refunds are Apple's to
+grant, through the same channel as any App Store purchase.</p>
+
+<h3>What we do not do</h3>
+<p>No advertising. No advertising identifier. No third-party analytics SDK. No
+selling or sharing of data with anyone for their own purposes. No profile is built
+about you across apps or across time. No email list is created from your use of
+the app.</p>
+
+<h2>Who is responsible</h2>
+<p>Berke Kahraman — an individual sole trader registered in Türkiye
+(<i>şahıs firması</i>) — develops and publishes LiLove. He is the data controller
+for the purposes of the EU/UK General Data Protection Regulation and the
+<i>veri sorumlusu</i> under Turkish Law No. 6698 on the Protection of Personal
+Data (KVKK).</p>
+<p class="addr">Berke Kahraman · Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104 ·
+06010 Keçiören / Ankara, Türkiye · brkekahraman@icloud.com</p>
+<p>This is a one-person business, so there is no data protection officer and no EU
+representative; privacy mail is read and answered by the developer personally,
+usually within a few days.</p>
+
+<h2>Legal basis for anything that happens</h2>
+<ul>
+<li><b>Everything stored on your device</b> — we are not processing it, because it
+never reaches us. It sits in your device, under your control, and is gone when you
+delete the app. There is no legal basis for us to state, because there is no
+processing by us.</li>
+<li><b>The numeric summary sent when you use the coach</b> — performance of the
+contract you entered into when you asked for the feature, GDPR Art. 6(1)(b), and
+the equivalent under KVKK Art. 5(2)(c). It is sent only when you actively request
+a coach response; nothing is sent in the background.</li>
+<li><b>Purchases</b> — performance of contract, and Apple's own terms govern the
+payment itself.</li>
+</ul>
+
+<h2>Your rights</h2>
+<p>Under GDPR and KVKK you may ask what is held about you, ask for a copy, ask for
+correction or erasure, object to processing, and withdraw consent. In LiLove's case
+the honest answer to most of these is short: we hold nothing about you to give you,
+correct or erase, because your content stays on your device and the numeric
+summaries are not retained. You can exercise the strongest version of erasure
+yourself at any time by deleting the app.</p>
+<p>Write to brkekahraman@icloud.com and you will get an answer from a person.</p>
+
+<h2>Complaining about us</h2>
+<p>If you are in the EU or UK you may complain to your national data protection
+authority. In Türkiye you may apply to the Kişisel Verileri Koruma Kurumu (KVKK).
+You do not have to contact us first, though it is usually faster.</p>
+
+<h2>How long anything is kept</h2>
+<p>On your device: until you delete it or delete the app. On our side: the numeric
+summary exists only for the duration of the request needed to answer it and is not
+written to a log or a database.</p>
+
+<h2>International transfers</h2>
+<p>The relay and the language-model provider that answers coach requests may process
+the numeric summary outside your country, including in the United States. The
+summary contains no titles, no note text and no identifiers, which is the point of
+sending numbers in the first place.</p>
+
+<h2>Children</h2>
+<p>LiLove is not directed at children and we do not knowingly collect anything from
+them. Because the app holds your content on your device and asks for no account, no
+name and no email, there is nothing about a child for us to have.</p>
+
+<h2>Changes to this policy</h2>
+<p>If what the app does changes, this page changes with it and the date at the top
+moves. Material changes will also be described in the app's release notes rather
+than buried here.</p>
+
+<h2>Contact</h2>
+<p>brkekahraman@icloud.com</p>
+
+<h2>Türkçe</h2>
+
+<div class="sum">
+<p><b>Önemli olan tek cümle:</b> alışkanlık başlıklarınız, not metinleriniz ve görev
+adlarınız cihazınızdan hiç çıkmıyor. Koça giden şey sayılardır.</p>
+</div>
+
+<h3>İçeriğiniz nerede duruyor</h3>
+<p>Alışkanlıklar, hedefler, görevler, notlar, başarımlar, avatar ve istatistikler
+cihazınızda saklanıyor. Uygulamayı silmek bu veriyi de siliyor. Bizim tarafımızda
+bir kopya tutan bir hesap yok, çünkü hesap yok.</p>
+
+<h3>Koça tam olarak ne gidiyor</h3>
+<p>Bağlantı gerektiren tek özellik koç. Günlük içgörü, performans özeti, öneri
+istediğinizde ya da kendi verinizle ilgili soru sorduğunuzda uygulama bir
+<b>sayısal özet</b> kuruyor ve onu gönderiyor.</p>
+
+<table>
+<tr><th>Gönderilen</th><th>Gönderilmeyen</th></tr>
+<tr>
+<td>Seri uzunlukları · tamamlanma oranları · alışkanlık ve hedef sayıları ·
+işlerin genellikle yapıldığı saat · kaç günlük geçmiş olduğu</td>
+<td>Alışkanlık başlıkları · hedef başlıkları · görev adları · not metni · adınız ·
+e-postanız · rehberiniz · konumunuz · herhangi bir cihaz ya da reklam kimliği</td>
+</tr>
+</table>
+
+<p>Bu bir tasarım kararı ve gerekçesi kodun içinde yazılı: bir koçun tutarlılık
+hakkında söyleyebileceği faydalı şeyin çoğu zaten sayılardan çıkıyor. Metni de
+göndermek, mahremiyeti hiçbir karşılık almadan harcamak olurdu.</p>
+
+<p>Koçun istemi ayrıca modele şunu söylüyor: kullanıcının kendi kelimelerini hiç
+görmedin, bir alışkanlığın <i>neyle ilgili</i> olduğunu bilir gibi konuşma; veri
+bir iddiayı taşımaya yetmiyorsa tahmin etmek yerine bunu açıkça söyle; tıbbi,
+psikolojik ya da beslenmeyle ilgili tavsiye verme, teşhis koyma, kilo, kalori ve
+beden imgesinden hiç söz etme.</p>
+
+<h3>Gönderilen tek kimlik ve sebebi</h3>
+<p>Sayısal özetin yanında, Apple'ın satın almanız için verdiği <b>abonelik işlem
+kimliği</b> gönderiliyor. İki işi var: isteğin etkin bir abonelikten geldiğini
+doğrulamak ve abonelik başına hız sınırının anahtarı olmak. IP'ye göre sınırlamak
+bilerek tercih edilmedi, çünkü aynı ağın arkasındaki kullanıcıları birbirine
+kırdırırdı. Bu kimlik bir cihaz ya da reklam kimliği değil, adınıza ya da
+e-postanıza bağlı değil — onlar bizde yok — ve istekten sonra saklanmıyor.</p>
+
+<h3>İstek nasıl işleniyor</h3>
+<p>Sayısal özet HTTPS üzerinden LiLove için işletilen küçük bir aktarıcıya gidiyor;
+aktarıcı Cloudflare Workers üzerinde çalışıyor, cevabı Cloudflare'in kendi Workers
+AI altyapısı üretiyor. Aktarıcının bağlı bir veritabanı ya da anahtar-değer deposu
+yok; özetlerinizin kaydını tutmuyor, cevapları saklamıyor, yanıtlar
+<code>no-store</code> işaretli. Modelin cevabı beklenen yapıya uymazsa uygulama
+"koç şu an cevap veremedi" diyor — bizim yazdığımız bir cümleyi koçun cevabı gibi
+göstermiyor.</p>
+
+<h3>Satın almalar</h3>
+<p>Abonelikler ve jeton paketleri Apple tarafından satılıyor. Apple uygulamaya
+yalnız bir yetkinin etkin olup olmadığını söylüyor; ödeme bilgilerinizi bize
+vermiyor. Kartınızı, Apple Kimliğinizi ya da fatura adresinizi hiç görmüyoruz.</p>
+
+<h3>Yapmadıklarımız</h3>
+<p>Reklam yok. Reklam kimliği yok. Üçüncü taraf analitik SDK'sı yok. Kimseye kendi
+amaçları için veri satışı ya da paylaşımı yok. Uygulamalar arasında ya da zaman
+içinde sizinle ilgili bir profil kurulmuyor.</p>
+
+<h2>Veri sorumlusu kim</h2>
+<p>Berke Kahraman — Türkiye'de kayıtlı şahıs firması — LiLove'ı geliştiriyor ve
+yayınlıyor. KVKK kapsamında veri sorumlusu, GDPR kapsamında <i>data controller</i>
+kendisidir.</p>
+<p class="addr">Berke Kahraman · Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104 ·
+06010 Keçiören / Ankara, Türkiye · brkekahraman@icloud.com</p>
+
+<h2>Hukuki dayanak</h2>
+<ul>
+<li><b>Cihazda duran her şey</b> — bize hiç ulaşmadığı için bizim tarafımızdan bir
+işleme yok; dolayısıyla belirtilecek bir hukuki dayanak da yok.</li>
+<li><b>Koç kullanıldığında giden sayısal özet</b> — özelliği talep ettiğinizde
+kurulan sözleşmenin ifası; KVKK m. 5(2)(c), GDPR m. 6(1)(b). Yalnız siz cevap
+istediğinizde gönderiliyor; arka planda hiçbir şey gitmiyor.</li>
+<li><b>Satın almalar</b> — sözleşmenin ifası; ödemenin kendisi Apple'ın
+koşullarına tabi.</li>
+</ul>
+
+<h2>İlgili kişi olarak haklarım</h2>
+<p>KVKK m. 11 ve GDPR kapsamında bilgi talep etme, kopya isteme, düzeltme, silme,
+işlemeye itiraz ve açık rızayı geri alma haklarınız var. LiLove'da bunların çoğuna
+dürüst cevap kısa: size verecek, düzeltecek ya da silecek bir şey tutmuyoruz.
+Silmenin en güçlü hâlini istediğiniz an kendiniz uygulayabilirsiniz — uygulamayı
+silin.</p>
+
+<h2>Şikâyet hakkı</h2>
+<p>Türkiye'de Kişisel Verileri Koruma Kurumu'na başvurabilirsiniz. AB/BK'daysanız
+kendi ulusal veri koruma otoritenize şikâyette bulunabilirsiniz.</p>
+
+<h2>Saklama süreleri</h2>
+<p>Cihazınızda: siz silene ya da uygulamayı kaldırana kadar. Bizde: sayısal özet
+yalnız isteği yanıtlamaya yetecek süre boyunca var oluyor; bir kayda ya da
+veritabanına yazılmıyor.</p>
+
+<h2>Yurt dışına aktarım</h2>
+<p>Koç isteklerini yanıtlayan aktarıcı Cloudflare Workers üzerinde çalışıyor ve
+cevabı Cloudflare'in kendi Workers AI altyapısı üretiyor; bu, sayısal özetin
+ülkenizin dışında işlenmesi anlamına gelebilir. Özette başlık, not metni ve
+kimlik bilgisi yok — sayı göndermenin sebebi zaten bu.</p>
+
+<h2>Çocuklar</h2>
+<p>LiLove çocuklara yönelik değildir ve onlardan bilerek veri toplamayız. Uygulama
+hesap, ad ve e-posta istemediği için bir çocuğa ait elimizde bir şey de olmuyor.</p>
+
+<h2>Politika değişirse</h2>
+<p>Uygulamanın yaptığı şey değişirse bu sayfa da onunla değişir ve üstteki tarih
+ilerler. Esaslı değişiklikler ayrıca sürüm notlarında anlatılır.</p>
+
+<h2>İletişim</h2>
+<p>brkekahraman@icloud.com</p>
+
+<p class="back" style="margin-top:32px"><a href="index.html">← LiLove</a></p>
+</div></body></html>

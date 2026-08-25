@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rodewatch — the anchor alarm that can prove it was watching</title>
+<meta name="description" content="Every anchor alarm can lose GPS or be suspended without telling you. Rodewatch counts the minutes it was blind and exports the night as GPX.">
+<link rel="canonical" href="https://berkemd.github.io/wristsuite/rodewatch/">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rodewatch">
+<meta property="og:title" content="Rodewatch — the anchor alarm that can prove it was watching">
+<meta property="og:url" content="https://berkemd.github.io/wristsuite/rodewatch/">
+<meta property="og:description" content="Counts the minutes the watch was blind. Draws the arc you actually swung. Exports the night as GPX. Apple Watch, fully offline.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rodewatch — the anchor alarm that can prove it was watching">
+<meta name="twitter:description" content="Counts the minutes the watch was blind. Draws the arc you actually swung. Exports the night as GPX.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication",
+ "name":"Rodewatch: Anchor & Race",
+ "applicationCategory":"NavigationApplication",
+ "operatingSystem":"watchOS, iOS",
+ "description":"Anchor watch for Apple Watch with drag alarm, race start sequences and man overboard. The Night Report records the minutes the watch lost its GPS fix, the arc the boat actually swung, and exports the night as GPX.",
+ "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+ "author":{"@type":"Person","name":"Berke Kahraman"},
+ "featureList":["Anchor drag alarm","Swing map","Scope helper","Race start sequence","Man overboard","Night Report with blind-minute count","GPX export","Fully offline — no networking code"]}
+</script>
+<style>
+:root{--bg:#0b0b14;--ink:#f3f0ea;--dim:#b9b5c8;--acc:#3ee0f8;--line:#23203a;--card:#14131f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.65;
+ font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:56px 24px 96px}
+h1{font-size:2rem;line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}
+h2{font-size:1.2rem;color:var(--acc);margin:44px 0 12px;border-top:1px solid var(--line);padding-top:26px}
+h3{font-size:1rem;margin:22px 0 6px}
+p,li{color:var(--dim)}
+.lede{font-size:1.12rem;color:var(--ink);margin:0 0 28px}
+a{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:16px 0}
+.quote{border-left:3px solid var(--acc);padding:2px 0 2px 18px;margin:18px 0;color:var(--ink);font-style:italic}
+.quote cite{display:block;font-style:normal;font-size:.85rem;color:var(--dim);margin-top:8px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;color:var(--dim);vertical-align:top}
+th{color:var(--ink);background:var(--card)}
+td.y{color:#7fe0a8}
+.free{display:inline-block;background:#132a1f;border:1px solid #2c5c43;color:#7fe0a8;
+ border-radius:999px;padding:1px 10px;font-size:.75rem;margin-left:6px;vertical-align:middle}
+.langs{font-size:.85rem;color:#6f6a80;margin:6px 0 30px}
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:.85rem;color:#6f6a80}
+</style></head><body><div class="wrap">
+
+<h1>The anchor alarm that can prove it was watching</h1>
+<p class="langs">Apple Watch · English · Deutsch · Türkçe · 日本語</p>
+
+<p class="lede">Every anchor alarm shares one silent failure: it can lose the GPS
+fix, be suspended by the system, or quietly stop — and you find out in the
+morning, if at all. Rodewatch is built around that problem.</p>
+
+<div class="quote">
+An anchor watch “may stop functioning correctly without one becoming aware of
+it, may temporarily lose GPS signal, or may even be terminated.”
+<cite>— from an independent feature survey of 50+ anchor alarm apps</cite>
+</div>
+
+<p>That sentence is the category describing its own worst flaw. Every app in it
+can fail without saying so. <strong>Rodewatch is the one that counts how long it
+failed and shows you in the morning.</strong></p>
+
+<h2>The Night Report</h2>
+<p>Disarm at breakfast and Rodewatch shows the night it actually kept:</p>
+<div class="card">
+<ul>
+<li><strong>The minutes the watch was blind</strong> — every stretch where the fix
+was lost, measured from real events, not guessed from gaps in a file.</li>
+<li><strong>The arc you truly swung</strong>, and how much of the circle you set
+was ever used. A boat that used 40° of a 360° circle was not swinging; it was
+held.</li>
+<li><strong>Furthest and average distance</strong> from the anchor, and every
+alarm with the time it fired.</li>
+<li><strong>The whole night as GPX</strong> — open it in any chart app, send it
+to your insurer, keep it.</li>
+</ul>
+</div>
+<p>The morning question is <em>“did we drag, or did the GPS wander?”</em> Until
+now no anchor app could answer it, because none of them remembered the night.</p>
+
+<h2>The recorder cannot touch the alarm</h2>
+<p>The Night Report is architecturally separate from the alarm engine, and the
+build fails if the engine ever learns the recorder exists. A full log, a rejected
+fix or a thinning pass cannot change what the alarm decides.</p>
+<p>That is not a style preference. The alarm is a safety path, and nothing was
+allowed to sit between it and your wrist — including a feature we wanted to
+sell.</p>
+
+<h2>What is free, and staying free</h2>
+<table>
+<tr><th>Feature</th><th>Free</th><th>Pro</th></tr>
+<tr><td>Anchor drag alarm, on the watch, screen off</td><td class="y">✓</td><td></td></tr>
+<tr><td>Confirmation over 2–4 consecutive fixes + hysteresis</td><td class="y">✓</td><td></td></tr>
+<tr><td>Swing map — recent track around the anchor</td><td class="y">✓</td><td></td></tr>
+<tr><td>Scope helper</td><td class="y">✓</td><td></td></tr>
+<tr><td>Race start (5-3-1, haptic, sync-to-minute)</td><td class="y">✓</td><td></td></tr>
+<tr><td>Man overboard — bearing and distance back</td><td class="y">✓</td><td></td></tr>
+<tr><td>Morning summary: furthest, average, alarms, duration</td><td class="y">✓</td><td></td></tr>
+<tr><td>Minutes the watch was blind</td><td></td><td class="y">Pro</td></tr>
+<tr><td>True swung arc and circle usage</td><td></td><td class="y">Pro</td></tr>
+<tr><td>GPX export</td><td></td><td class="y">Pro</td></tr>
+</table>
+<p>The alarm is a safety feature. Putting a safety feature behind a paywall is a
+decision we were not willing to make, so we didn’t.</p>
+
+<h2>Private because there is no code to send anything</h2>
+<p>Rodewatch contains <strong>no networking code of any kind</strong>. Not “we
+don’t sell your data” — there is no HTTP client, no socket, no analytics, no
+third-party SDK, no AIS or fleet-tracking feature. Your position cannot leave the
+watch, because nothing in the app can transmit it. No account, no sign-in.</p>
+<p><a href="privacy.html">Full privacy policy</a></p>
+
+<h2>Honest limits</h2>
+<div class="card">
+<p>Rodewatch is an aid to good seamanship, not a substitute for it, and not a
+navigation, distress or rescue system. Always keep a proper watch and carry the
+safety equipment your waters require.</p>
+<p>Overnight anchor watch runs continuous GPS and draws battery like a workout
+session does. Top up before a long night. If the watch dies, the watch dies —
+and the Night Report will show you exactly when it stopped, which is the point.</p>
+</div>
+
+<h2>Support</h2>
+<p>Questions, a bug, or a night that didn’t look right? Email
+<a href="mailto:brkekahraman@icloud.com?subject=Rodewatch">brkekahraman@icloud.com</a> —
+every message is read by the person who wrote the app.
+<a href="support.html">Support page</a></p>
+
+<footer>
+© 2026 Berke Kahraman · <a href="privacy.html">Privacy</a> ·
+<a href="support.html">Support</a> ·
+<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use</a>
+</footer>
+</div></body></html>

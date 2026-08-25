@@ -1,0 +1,93 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stemmata — know what you may mine</title>
+<meta name="description" content="Stemmata is a research library that tells you what you are allowed to do with each paper, and why. Nothing leaves your device.">
+<link rel="canonical" href="https://berkemd.github.io/wristsuite/stemmata/">
+<meta name="theme-color" content="#0A1526">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Stemmata">
+<meta property="og:title" content="Stemmata — know what you may mine">
+<meta property="og:url" content="https://berkemd.github.io/wristsuite/stemmata/">
+<meta property="og:description" content="Stemmata is a research library that tells you what you are allowed to do with each paper, and why. Nothing leaves your device.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stemmata — know what you may mine">
+<meta name="twitter:description" content="Stemmata is a research library that tells you what you are allowed to do with each paper, and why. Nothing leaves your device.">
+<style>
+:root{--lacivert:#0A1526;--gece:#12233D;--altin:#DCB86A;--acik:#F8E6B4;
+      --kagit:#EFEAE0;--sis:#A8B4C8}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#12233D,#0A1526 65%,#060D18);
+     color:var(--kagit);font:17px/1.7 ui-serif,Georgia,"Times New Roman",serif;
+     -webkit-font-smoothing:antialiased}
+main{max-width:44rem;margin:0 auto;padding:4rem 1.5rem 6rem}
+h1{font-size:2.5rem;margin:0 0 .3rem;letter-spacing:-.015em;color:#fff}
+h2{font-size:1.2rem;margin:2.8rem 0 .6rem;color:var(--altin);
+   font-weight:600;letter-spacing:.01em}
+p{color:var(--kagit)}
+.lede{color:var(--sis);font-size:1.12rem;margin:.2rem 0 2.6rem}
+ul{color:var(--kagit);padding-left:1.1rem}
+li{margin:.5rem 0}
+a{color:var(--altin)}
+.kart{background:rgba(255,255,255,.055);border:1px solid rgba(216,184,106,.22);
+      border-radius:16px;padding:1.1rem 1.35rem;margin:1.2rem 0}
+.sayi{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));
+      gap:1px;background:rgba(216,184,106,.22);border:1px solid rgba(216,184,106,.22);
+      border-radius:16px;overflow:hidden;margin:1.6rem 0 2rem}
+.sayi div{background:#0D1A2D;padding:1rem 1.1rem}
+.sayi b{display:block;font-size:1.9rem;line-height:1.1;color:var(--acik)}
+.sayi span{display:block;font-size:.82rem;color:var(--sis);margin-top:.35rem;
+           font-family:ui-sans-serif,system-ui;line-height:1.45}
+nav{margin-top:3.2rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.12);
+    font:15px/1.6 ui-sans-serif,system-ui;color:var(--sis)}
+nav a{margin-right:1.3rem}
+small{color:var(--sis)}
+code{font-size:.9em;color:var(--acik)}
+</style>
+</head><body>
+<main>
+
+<h1>Stemmata</h1>
+<p class="lede">Know what you may mine.</p>
+
+<p>Text-and-data-mining permission is not a footnote. Across 350 live records
+measured from OpenAlex, only a fifth could be processed in full. Most tools
+hide this. Stemmata puts it on the card, with the reason written out: which
+licence, which publisher, which clause.</p>
+
+<div class="sayi">
+  <div><b>20%</b><span>full text may be processed</span></div>
+  <div><b>45%</b><span>metadata only</span></div>
+  <div><b>33%</b><span>blocked by a publisher opt-out</span></div>
+  <div><b>350</b><span>live records measured</span></div>
+</div>
+
+<h2>What it does</h2>
+<ul>
+<li><b>Permission on every work.</b> Full text, metadata only, or closed —
+each with the reason that produced it. When the reservation set behind a
+decision is older than 180 days, the card says so instead of pretending
+the answer is fresh.</li>
+<li><b>Search that runs offline and needs no model.</b> A lexical index and a
+character-trigram vector work together; on inflected queries the vector leg
+raised recall from 7.4% to 44.1%.</li>
+<li><b>Notes that merge without conflict.</b> Edit the same note on two
+devices, offline, and both edits survive.</li>
+<li><b>Export that respects the answer.</b> BibTeX, RIS and Markdown. A work
+marked closed does not leave in an export — eleven tests hold that line.</li>
+<li><b>Lineage.</b> References and citations drawn as a tree, so you can see
+where an argument came from.</li>
+</ul>
+
+<h2>Where your data is</h2>
+<div class="kart">
+<p>On your device. There is no Stemmata server, no account and no telemetry.
+The app makes network requests in one place only — when you import a record
+from a public catalogue — and that request carries your search terms and
+nothing about you.</p>
+</div>
+
+<p><small>Stemmata reports the permission a publisher has declared. It is a
+reading of published licence and opt-out data, not legal advice.</small></p>
+
+<nav><a href="./">Stemmata</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="terms.html">Terms</a><a href="mailto:brkekahraman@icloud.com">Contact</a></nav>
+</main></body></html>

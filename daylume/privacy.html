@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daylume — Privacy Policy</title>
+<meta name="description" content="Daylume taps your wrist before golden hour and blue hour — fully offline, no network requests, no subscription. Privacy policy.">
+<link rel="canonical" href="https://berkemd.github.io/wristsuite/daylume/privacy.html">
+<meta name="theme-color" content="#0b0b14">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Daylume">
+<meta property="og:title" content="Daylume — Privacy Policy">
+<meta property="og:url" content="https://berkemd.github.io/wristsuite/daylume/privacy.html">
+<meta property="og:description" content="Daylume taps your wrist before golden hour and blue hour — fully offline, no network requests, no subscription. Privacy policy.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Daylume — Privacy Policy">
+<meta name="twitter:description" content="Daylume taps your wrist before golden hour and blue hour — fully offline, no network requests, no subscription. Privacy policy.">
+<style>
+body{background:#0b0b14;color:#f3f0ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0}
+.wrap{max-width:680px;margin:0 auto;padding:44px 24px 80px}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.15rem;color:#ffd685;margin:34px 0 10px;border-top:1px solid #23203a;padding-top:22px}
+h3{font-size:1rem;color:#e6e2f2;margin:20px 0 4px}
+p,li{color:#b9b5c8;font-size:.95rem}
+a{color:#ffd685}
+.back{font-size:.85rem}
+.sum{background:#14131f;border:1px solid #2a2740;border-left:3px solid #ffd685;border-radius:12px;padding:14px 18px;margin:18px 0}
+.sum p{margin:0 0 8px} .sum p:last-child{margin:0}
+.addr{background:#14131f;border:1px solid #2a2740;border-radius:12px;padding:12px 16px;font-size:.9rem;color:#d6d2e4}
+.lang{font-size:.85rem;color:#6f6a80;margin:0 0 18px}
+code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:#d6d2e4}
+.foot{margin-top:38px;color:#6f6a80;font-size:.8rem;border-top:1px solid #23203a;padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="back"><a href="index.html">← Daylume</a></p>
+  <h1>Privacy Policy / Gizlilik Politikası</h1>
+  <p class="lang"><em>Last updated / Son güncelleme: August 1, 2026 · 1 Ağustos 2026</em><br>
+  English below, Türkçesi aşağıda, Deutsch weiter unten, 日本語は最後にあります。
+  All four versions say the same thing; if they ever differ, the English text is
+  the reference. /
+  Dört sürüm aynı şeyi söyler; bir farklılık olursa İngilizce metin esas alınır. /
+  Alle vier Fassungen sagen dasselbe; sollten sie je voneinander abweichen, ist
+  der englische Text maßgeblich. /
+  4つの版は同じ内容です。相違が生じた場合は英語版を基準とします。</p>
+
+  <h2 id="en" style="border-top:none;padding-top:0">English</h2>
+  <div class="sum">
+  <p><strong>Daylume collects no data. None. It asks for your location to do arithmetic on your watch, and — only if you switch on one optional setting that ships off — asks Apple what the nearby place is called.</strong></p>
+  </div>
+
+  <h3>What Daylume asks for</h3>
+  <ul>
+    <li><strong>Location, while you are using the app</strong>
+    (<code>NSLocationWhenInUseUsageDescription</code>). It is used for one thing:
+    computing sunrise, sunset, golden hour, blue hour, moonrise, moonset and
+    moon phase for where you are. The maths runs on the watch, using an
+    ephemeris compiled into the app — there is no lookup service behind it.</li>
+    <li><strong>Notifications</strong>, optional. Alerts are scheduled locally on
+    the watch. No push server is involved and none exists.</li>
+    <li><strong>The compass sensor</strong>, on the compass screen only, to
+    rotate the dial. Nothing is stored.</li>
+  </ul>
+  <h3>What is stored, and where</h3>
+  <p>In the app's own container on the watch (an app group shared with the
+  complications, so they can draw without waking the app):</p>
+  <ul>
+    <li>your most recent coordinate and its timestamp, so the app still works
+    when you are offline or the app is closed;</li>
+    <li>the place name, <em>only</em> if you turned the lookup on;</li>
+    <li>your alert settings and a launch counter used to delay the notification
+    prompt past first launch.</li>
+  </ul>
+  <p>That is the entire list. There is no history, no track, no diary.</p>
+  <h3>Network use: none by default</h3>
+  <p>As installed, Daylume makes no network requests at all. Exactly one
+  optional feature can make one, and it ships switched <strong>off</strong>:
+  <em>Look up place name</em>, in Settings &gt; Location. While it is off, the
+  app never even constructs a geocoder object.</p>
+  <h3>If you switch the place-name lookup on</h3>
+  <p>Daylume asks Apple's own reverse-geocoding service
+  (<code>CLGeocoder</code>, built into watchOS) what the nearby locality is
+  called, so the screen can show a name instead of raw coordinates. That request
+  sends your approximate coordinate <strong>to Apple</strong>, under Apple's own
+  privacy terms — not to us, and not to any third party. There is no server of
+  ours in the chain and we cannot see the request, the answer, or that you made
+  one. It is best-effort: offline or on failure the app simply shows
+  coordinates. Switch it back off and the cached name is deleted immediately.
+  This is the only network activity the app is capable of.</p>
+
+
+  <h2 id="who-en">Who is responsible</h2>
+  <p><strong>Berke Kahraman</strong> — an individual sole trader registered in
+  Türkiye (<em>şahıs firması</em>) — develops and publishes Daylume. He is the
+  <em>data controller</em> for the purposes of the EU/UK General Data Protection
+  Regulation and the <em>veri sorumlusu</em> under Turkish Law No. 6698 on the
+  Protection of Personal Data (KVKK).</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>This is a one-person business, so there is no data protection officer and
+  no EU representative; privacy mail is read and answered by the developer
+  personally, usually within a few days.</p>
+
+  <h2 id="basis-en">Legal basis for anything that happens</h2>
+  <ul>
+    <li><strong>Whatever Daylume keeps on your watch</strong> — we are not
+    processing it, because it never reaches us. It sits in your device, under
+    your control, and is gone when you delete the app. There is no legal basis
+    to state for us, because there is no processing by us.</li>
+    <li><strong>Location permission</strong> — you grant it in the system
+    prompt and can revoke it at any time in Settings; that is consent, GDPR
+    Art. 6(1)(a) / KVKK Art. 5(1). The coordinate still never reaches us.</li>
+    <li><strong>The optional place-name lookup</strong> — off by default, so it
+    only ever happens because you switched it on. Consent again, and the
+    recipient is Apple, not us.</li>
+    <li><strong>If you email us</strong> — we process your address and whatever
+    you write, in order to answer you. Legal basis: GDPR Art. 6(1)(b) (steps
+    taken at your request) and Art. 6(1)(f) (our legitimate interest in
+    supporting the people who bought the app). Under KVKK, Art. 5(2)(c) and
+    5(2)(f).</li>
+    <li><strong>Your purchase</strong> — the sale is a contract between you and
+    Apple. Apple is the merchant of record and its own controller; we receive
+    no name, address, email or payment detail from it, only anonymous sales
+    totals in App Store Connect.</li>
+  </ul>
+  <p>There is no automated decision-making and no profiling of any kind, in the
+  sense of GDPR Art. 22 or KVKK Art. 11(g).</p>
+
+  <h2 id="rights-en">Your rights</h2>
+  <p>Under the GDPR (Articles 15–22) and KVKK (Article 11) you have the right
+  to ask us for: <strong>access</strong> to any personal data we hold about you;
+  <strong>rectification</strong> of anything inaccurate; <strong>erasure</strong>;
+  <strong>restriction</strong> of processing; <strong>portability</strong> of data
+  you gave us, in a machine-readable form; and to <strong>object</strong> to
+  processing based on legitimate interests. Where you gave consent — for example
+  a permission prompt — you can <strong>withdraw it at any time</strong>, without
+  affecting anything done before. KVKK Art. 11 additionally gives you the right
+  to learn whether your data is processed, to be told the purpose, to learn the
+  third parties it is transferred to, and to claim compensation for damage
+  caused by unlawful processing.</p>
+  <p><strong>How to exercise them:</strong> email
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> and say what you want. We reply within one
+  month (GDPR Art. 12(3)); KVKK applications are answered within 30 days under
+  the Communiqué on the Procedures and Principles of Application to the Data
+  Controller. There is no charge.</p>
+  <p><strong>In practice, for most of it you do not need us.</strong> The data
+  Daylume works with lives on your watch. Delete it in the app, revoke a
+  permission in Settings, or delete the app — and it is gone. We could not
+  retrieve, restore or hand it over even if you asked us to, because we never
+  had a copy.</p>
+
+  <h2 id="complain-en">Complaining about us</h2>
+  <p>Tell us first if you can — it is usually faster. But you do not have to,
+  and you always have the right to complain to a supervisory authority:</p>
+  <ul>
+    <li><strong>Türkiye:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+    <li><strong>EU / EEA:</strong> the data protection authority of the country
+    where you live, work, or where you think the problem happened — the list is
+    at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>United Kingdom:</strong> the Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+  </ul>
+
+  <h2 id="retention-en">How long anything is kept</h2>
+  <ul>
+    <li><strong>On your watch:</strong> for as long as you keep it there. Daylume
+    does not expire or auto-delete your content; deleting the app removes its
+    container and everything in it.</li>
+    <li><strong>Support email:</strong> kept only as long as we need it to deal
+    with your message, and deleted within 12 months at the latest — unless a law
+    requires us to keep a specific record longer (for example Turkish tax and
+    commercial bookkeeping rules, if your message relates to a purchase).</li>
+    <li><strong>Everything else:</strong> nothing, because there is nothing. We
+    run no database, keep no backup of your content, and write no log file that
+    contains your data.</li>
+  </ul>
+
+  <h2 id="transfer-en">International transfers</h2>
+  <ul>
+    <li>We do not transfer your data anywhere, because we do not receive it.</li>
+    <li><strong>Email is the one exception.</strong> If you write to us, your
+    message reaches us in <strong>Türkiye</strong> — outside the EEA and the UK,
+    and Türkiye has no EU adequacy decision. That transfer happens because you
+    chose to contact us and is necessary to answer you (GDPR Art. 49(1)(b)). We
+    use it for nothing else and pass it to nobody.</li>
+    <li><strong>The optional place-name lookup</strong> sends a coordinate to
+    Apple's geocoding service, wherever Apple operates it. That processing, and
+    any transfer it involves, is governed by
+    <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>
+    and Apple's own safeguards — we are not a party to it and receive
+    nothing.</li>
+  </ul>
+
+  <h2 id="children-en">Children</h2>
+  <p>Daylume is rated 4+ and is not directed at children in particular. It
+  collects nothing from anyone, children included, so no parental consent
+  mechanism is needed or offered.</p>
+
+  <h2 id="changes-en">Changes to this policy</h2>
+  <p>If this policy changes, the new version is published at this address
+  <em>before</em> it takes effect, and the date at the top changes with it. We
+  do not change it retroactively.</p>
+
+  <h2 id="contact-en">Contact</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <h2 id="tr">Türkçe</h2>
+  <div class="sum">
+  <p><strong>Daylume hiçbir veri toplamaz. Hiç. Konumunu, saatinin üzerinde hesap yapmak için ister; ve yalnızca kapalı gelen isteğe bağlı tek bir anahtarı açarsan yakındaki yerin adını Apple'a sorar.</strong></p>
+  </div>
+
+  <h3>Daylume ne istiyor</h3>
+  <ul>
+    <li><strong>Uygulamayı kullanırken konum</strong>
+    (<code>NSLocationWhenInUseUsageDescription</code>). Tek bir iş için:
+    bulunduğun yer için gün doğumu, batımı, altın saat, mavi saat, ay doğuşu,
+    ay batışı ve ay evresini hesaplamak. Hesap, uygulamanın içine derlenmiş
+    efemeris ile saatin üzerinde yapılır; arkasında bir sorgu servisi
+    yoktur.</li>
+    <li><strong>Bildirimler</strong>, isteğe bağlı. Uyarılar saatin üzerinde
+    yerel olarak planlanır. Push sunucusu ne kullanılır ne de vardır.</li>
+    <li><strong>Pusula sensörü</strong>, yalnız pusula ekranında, kadranı
+    döndürmek için. Hiçbir şey saklanmaz.</li>
+  </ul>
+  <h3>Ne saklanıyor, nerede</h3>
+  <p>Saatteki kendi konteynerinde (komplikasyonlarla paylaşılan bir uygulama
+  grubu; uygulamayı uyandırmadan çizebilsinler diye):</p>
+  <ul>
+    <li>en son koordinatın ve zaman damgası — çevrimdışıyken ya da uygulama
+    kapalıyken de çalışsın diye;</li>
+    <li>yer adı — <em>yalnızca</em> aramayı açtıysan;</li>
+    <li>uyarı ayarların ve bildirim izni istemini ilk açılışın ötesine ertelemek
+    için kullanılan bir açılış sayacı.</li>
+  </ul>
+  <p>Listenin tamamı bu. Geçmiş yok, iz yok, günlük yok.</p>
+  <h3>Ağ kullanımı: varsayılanda hiç yok</h3>
+  <p>Kurulduğu hâliyle Daylume hiçbir ağ isteği yapmaz. Bunu değiştirebilecek
+  tek bir isteğe bağlı özellik vardır ve <strong>kapalı</strong> gelir:
+  Ayarlar &gt; Konum altındaki <em>Yer adını ara</em>. Kapalıyken uygulama bir
+  coğrafi kodlayıcı nesnesi bile oluşturmaz.</p>
+  <h3>Yer adı aramasını açarsan</h3>
+  <p>Daylume, ham koordinat yerine ekranda bir ad gösterebilmek için watchOS'un
+  içindeki Apple'ın kendi ters coğrafi kodlama servisine
+  (<code>CLGeocoder</code>) yakındaki yerleşimin adını sorar. Bu istek yaklaşık
+  koordinatını <strong>Apple'a</strong> gönderir — Apple'ın kendi gizlilik
+  koşulları kapsamında; bize değil, üçüncü bir tarafa da değil. Zincirde bize
+  ait bir sunucu yoktur; ne isteği, ne yanıtı, ne de böyle bir istek yaptığını
+  görebiliriz. En-iyi-çabadır: çevrimdışıysan ya da başarısız olursa uygulama
+  koordinatları gösterir. Anahtarı kapattığın anda önbellekteki ad silinir.
+  Uygulamanın yapabildiği tek ağ etkinliği budur.</p>
+
+
+  <h2 id="who-tr">Veri sorumlusu kim</h2>
+  <p>Daylume uygulamasını <strong>Berke Kahraman</strong> — Türkiye'de kayıtlı bir
+  <em>şahıs firması</em> — geliştirir ve yayımlar. 6698 sayılı Kişisel Verilerin
+  Korunması Kanunu (KVKK) anlamında <em>veri sorumlusu</em>, AB/BK Genel Veri
+  Koruma Tüzüğü (GDPR) anlamında <em>veri denetleyicisi</em> odur. Bu metin aynı
+  zamanda KVKK m.10 kapsamındaki aydınlatma yükümlülüğünü yerine getirir.</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>Tek kişilik bir işletme olduğu için veri koruma görevlisi ve AB temsilcisi
+  yoktur; gizlilik yazışmalarını geliştirici bizzat okur ve genellikle birkaç
+  gün içinde yanıtlar.</p>
+
+  <h2 id="basis-tr">Hukuki dayanak</h2>
+  <ul>
+    <li><strong>Daylume'in saatinde tuttuğu her şey</strong> — bunu biz
+    <em>işlemiyoruz</em>, çünkü bize hiç ulaşmıyor. Veri senin cihazında, senin
+    denetiminde durur ve uygulamayı sildiğinde gider. Bizim tarafımızda bir
+    işleme olmadığı için belirtilecek bir hukuki sebep de yoktur.</li>
+    <li><strong>Konum izni</strong> — sistem isteminde sen verirsin ve
+    Ayarlar'dan istediğin an geri alırsın; bu rızadır (KVKK m.5/1, GDPR
+    m.6(1)(a)). Koordinat yine de bize hiç ulaşmaz.</li>
+    <li><strong>İsteğe bağlı yer adı araması</strong> — varsayılanda kapalıdır,
+    yani yalnız sen açtığın için gerçekleşir. Yine rıza; alıcı Apple'dır, biz
+    değiliz.</li>
+    <li><strong>Bize e-posta yazarsan</strong> — sana yanıt verebilmek için
+    adresini ve yazdıklarını işleriz. Dayanak: KVKK m.5/2-(c) (sözleşmenin
+    kurulması veya ifasıyla doğrudan ilgili olma) ve m.5/2-(f) (meşru menfaat);
+    GDPR karşılığı m.6(1)(b) ve m.6(1)(f).</li>
+    <li><strong>Satın alman</strong> — satış sözleşmesi seninle Apple
+    arasındadır. Kayıtlı satıcı Apple'dır ve kendi veri sorumlusudur; bize adın,
+    adresin, e-postan ya da ödeme bilgin ulaşmaz — App Store Connect'te yalnız
+    kimliksiz satış toplamlarını görürüz.</li>
+  </ul>
+  <p>Hiçbir otomatik karar verme ve hiçbir profilleme yoktur (KVKK m.11/1-(g),
+  GDPR m.22).</p>
+
+  <h2 id="rights-tr">İlgili kişi olarak haklarım</h2>
+  <p>KVKK m.11 ve GDPR m.15–22 uyarınca şunları isteyebilirsin: kişisel
+  verinin <strong>işlenip işlenmediğini öğrenme</strong> ve işlenmişse buna
+  ilişkin <strong>bilgi talep etme</strong>; işlenme <strong>amacını</strong> ve
+  amacına uygun kullanılıp kullanılmadığını öğrenme; yurt içinde veya yurt
+  dışında verinin <strong>aktarıldığı üçüncü kişileri</strong> bilme; eksik veya
+  yanlış işlenmişse <strong>düzeltilmesini</strong>; şartları oluşmuşsa
+  <strong>silinmesini veya yok edilmesini</strong>; işlemenin
+  <strong>kısıtlanmasını</strong>; verdiğin verilerin makine tarafından
+  okunabilir biçimde sana ya da başka bir sorumluya
+  <strong>taşınmasını</strong>; meşru menfaate dayalı işlemeye
+  <strong>itiraz etmeyi</strong>; ve kanuna aykırı işleme sebebiyle zarara
+  uğradıysan <strong>zararın giderilmesini</strong>. Rızaya dayanan bir şey
+  varsa — örneğin bir izin ekranı — rızanı <strong>istediğin an geri
+  alabilirsin</strong>; bu, öncesinde yapılanları etkilemez.</p>
+  <p><strong>Nasıl kullanılır:</strong> <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>
+  adresine ne istediğini yaz. Başvuruna, Veri Sorumlusuna Başvuru Usul ve
+  Esasları Hakkında Tebliğ uyarınca en geç <strong>30 gün</strong> içinde
+  (GDPR kapsamında en geç bir ay içinde) ücretsiz olarak yanıt veririz.</p>
+  <p><strong>Aslında çoğu için bize ihtiyacın yok.</strong> Daylume'in çalıştığı
+  veri saatinin üzerindedir. Uygulama içinden sil, Ayarlar'dan izni geri al ya
+  da uygulamayı kaldır — gider. İstesen bile geri getiremeyiz, veremeyiz;
+  çünkü bir kopyası bizde hiç olmadı.</p>
+
+  <h2 id="complain-tr">Şikâyet hakkı</h2>
+  <p>Mümkünse önce bize yaz — genelde en hızlısı budur. Ama zorunlu değildir;
+  her zaman bir denetim makamına şikâyette bulunma hakkın vardır:</p>
+  <ul>
+    <li><strong>Türkiye:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a> (KVKK m.14: önce veri
+    sorumlusuna başvurulur, yanıt yetersizse ya da 30 gün içinde yanıt
+    verilmezse Kurul'a şikâyet edilir)</li>
+    <li><strong>AB / AEA:</strong> yaşadığın, çalıştığın ya da sorunun
+    yaşandığını düşündüğün ülkenin veri koruma otoritesi — liste:
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>Birleşik Krallık:</strong> Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+  </ul>
+
+  <h2 id="retention-tr">Saklama süreleri</h2>
+  <ul>
+    <li><strong>Saatinde:</strong> sen orada tuttuğun sürece. Daylume içeriğini
+    kendiliğinden silmez; uygulamayı kaldırdığında konteyneri ve içindeki her
+    şey birlikte silinir.</li>
+    <li><strong>Destek e-postası:</strong> yalnız mesajını sonuçlandırmak için
+    gereken süre boyunca saklanır ve en geç <strong>12 ay</strong> içinde
+    silinir — bir kanun daha uzun saklamayı zorunlu kılmadıkça (örneğin mesajın
+    bir satın almayla ilgiliyse vergi ve ticari defter mevzuatı).</li>
+    <li><strong>Geri kalan her şey:</strong> yok, çünkü hiçbir şey yok.
+    Veritabanı çalıştırmıyoruz, içeriğinin yedeğini tutmuyoruz ve içinde verin
+    geçen bir günlük dosyası yazmıyoruz.</li>
+  </ul>
+
+  <h2 id="transfer-tr">Yurt dışına aktarım</h2>
+  <ul>
+    <li>Verini hiçbir yere aktarmıyoruz, çünkü bize hiç ulaşmıyor.</li>
+    <li><strong>Tek istisna e-postadır.</strong> Bize yazarsan mesajın
+    <strong>Türkiye'ye</strong> ulaşır; Türkiye AEA ve BK dışındadır ve AB
+    yeterlilik kararı yoktur. Bu aktarım, sen bizimle iletişim kurmayı seçtiğin
+    için gerçekleşir ve sana yanıt verebilmek için gereklidir (GDPR m.49(1)(b);
+    KVKK m.9 kapsamında açık rızana dayanan aktarım). Başka hiçbir amaçla
+    kullanılmaz, kimseye verilmez.</li>
+    <li><strong>İsteğe bağlı yer adı araması</strong>, koordinatı Apple'ın
+    coğrafi kodlama servisine — Apple bunu nerede işletiyorsa oraya — gönderir.
+    Bu işleme ve içerdiği her aktarım
+    <a href="https://www.apple.com/legal/privacy/">Apple'ın gizlilik
+    politikasına</a> ve Apple'ın kendi güvencelerine tabidir; biz tarafı
+    değiliz ve hiçbir şey almayız.</li>
+  </ul>
+
+  <h2 id="children-tr">Çocuklar</h2>
+  <p>Daylume 4+ yaş derecelidir ve özellikle çocuklara yönelik değildir. Çocuklar
+  dahil hiç kimseden veri toplamadığı için ebeveyn onayı mekanizması ne gerekir
+  ne de sunulur.</p>
+
+  <h2 id="changes-tr">Politika değişirse</h2>
+  <p>Bu politika değişirse yeni sürüm, yürürlüğe girmeden <em>önce</em> bu
+  adreste yayımlanır ve yukarıdaki tarih güncellenir. Geriye dönük değişiklik
+  yapılmaz.</p>
+
+  <h2 id="contact-tr">İletişim</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <h2 id="de">Deutsch</h2>
+  <div class="sum">
+  <p><strong>Daylume erfasst keine Daten. Keine. Die App fragt nach Ihrem Standort, um auf Ihrer Uhr zu rechnen, und fragt — nur wenn Sie eine optionale, ab Werk ausgeschaltete Einstellung aktivieren — bei Apple nach dem Namen des Ortes in der Nähe.</strong></p>
+  </div>
+
+  <h3>Worum Daylume bittet</h3>
+  <ul>
+    <li><strong>Standort, während Sie die App verwenden</strong>
+    (<code>NSLocationWhenInUseUsageDescription</code>). Er wird für genau eine
+    Sache verwendet: die Berechnung von Sonnenaufgang, Sonnenuntergang,
+    goldener Stunde, blauer Stunde, Mondaufgang, Monduntergang und Mondphase
+    für Ihren Aufenthaltsort. Die Rechnung läuft auf der Uhr, mit einer in die
+    App kompilierten Ephemeride — dahinter steht kein Abfragedienst.</li>
+    <li><strong>Mitteilungen</strong>, optional. Die Hinweise werden lokal auf
+    der Uhr geplant. Es ist kein Push-Server beteiligt, und es existiert
+    keiner.</li>
+    <li><strong>Der Kompasssensor</strong>, nur auf dem Kompassbildschirm, um
+    das Zifferblatt zu drehen. Es wird nichts gespeichert.</li>
+  </ul>
+  <h3>Was gespeichert wird, und wo</h3>
+  <p>Im eigenen Container der App auf der Uhr (eine App-Gruppe, die mit den
+  Komplikationen geteilt wird, damit diese zeichnen können, ohne die App zu
+  wecken):</p>
+  <ul>
+    <li>Ihre jüngste Koordinate und deren Zeitstempel, damit die App auch
+    offline oder bei geschlossener App funktioniert;</li>
+    <li>der Ortsname, <em>nur</em> wenn Sie die Suche eingeschaltet haben;</li>
+    <li>Ihre Hinweis-Einstellungen und ein Startzähler, mit dem die
+    Mitteilungsabfrage über den ersten Start hinaus verzögert wird.</li>
+  </ul>
+  <p>Das ist die vollständige Liste. Kein Verlauf, keine Spur, kein Tagebuch.</p>
+  <h3>Netzwerknutzung: ab Werk keine</h3>
+  <p>Wie installiert stellt Daylume überhaupt keine Netzwerkanfragen. Genau
+  eine optionale Funktion kann eine auslösen, und sie ist ab Werk
+  <strong>ausgeschaltet</strong>: <em>Ortsnamen abrufen</em> unter
+  Einstellungen &gt; Standort. Solange sie aus ist, erzeugt die App nicht
+  einmal ein Geocoder-Objekt.</p>
+  <h3>Wenn Sie die Ortsnamen-Suche einschalten</h3>
+  <p>Daylume fragt Apples eigenen Reverse-Geocoding-Dienst
+  (<code>CLGeocoder</code>, in watchOS enthalten) nach dem Namen des Ortes in
+  der Nähe, damit auf dem Bildschirm ein Name statt roher Koordinaten stehen
+  kann. Diese Anfrage sendet Ihre ungefähre Koordinate <strong>an
+  Apple</strong>, unter Apples eigenen Datenschutzbedingungen — nicht an uns
+  und nicht an Dritte. In der Kette steht kein Server von uns, und wir können
+  weder die Anfrage noch die Antwort sehen, noch dass Sie eine gestellt haben.
+  Sie erfolgt nach dem Best-Effort-Prinzip: offline oder bei einem Fehler zeigt
+  die App einfach die Koordinaten. Schalten Sie sie wieder aus, wird der
+  zwischengespeicherte Name sofort gelöscht. Das ist die einzige
+  Netzwerkaktivität, zu der die App überhaupt in der Lage ist.</p>
+
+  <h2 id="who-de">Wer ist verantwortlich</h2>
+  <p><strong>Berke Kahraman</strong> — ein in der Türkei eingetragener
+  Einzelunternehmer (<em>şahıs firması</em>) — entwickelt und veröffentlicht
+  Daylume. Er ist der <em>Verantwortliche</em> im Sinne der
+  Datenschutz-Grundverordnung der EU und des Vereinigten Königreichs (DSGVO) und
+  <em>veri sorumlusu</em> nach dem türkischen Gesetz Nr. 6698 zum Schutz
+  personenbezogener Daten (KVKK).</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>Dies ist ein Ein-Personen-Unternehmen; es gibt daher weder einen
+  Datenschutzbeauftragten noch einen Vertreter in der EU. Datenschutzpost liest
+  und beantwortet der Entwickler persönlich, in der Regel innerhalb weniger
+  Tage.</p>
+
+  <h2 id="basis-de">Rechtsgrundlage für alles, was geschieht</h2>
+  <ul>
+    <li><strong>Alles, was Daylume auf Ihrer Uhr behält</strong> — wir
+    verarbeiten es nicht, denn es erreicht uns nie. Es liegt auf Ihrem Gerät,
+    unter Ihrer Kontrolle, und ist fort, sobald Sie die App löschen. Für uns ist
+    keine Rechtsgrundlage anzugeben, weil bei uns keine Verarbeitung
+    stattfindet.</li>
+    <li><strong>Standortberechtigung</strong> — Sie erteilen sie im
+    Systemdialog und können sie jederzeit in den Einstellungen widerrufen; das
+    ist eine Einwilligung, Art. 6 Abs. 1 lit. a DSGVO / KVKK Art. 5 Abs. 1. Die
+    Koordinate erreicht uns trotzdem nie.</li>
+    <li><strong>Die optionale Ortsnamen-Suche</strong> — ab Werk aus, sie findet
+    also nur statt, weil Sie sie eingeschaltet haben. Wieder eine Einwilligung,
+    und Empfänger ist Apple, nicht wir.</li>
+    <li><strong>Wenn Sie uns schreiben</strong> — dann verarbeiten wir Ihre
+    Adresse und das, was Sie schreiben, um Ihnen zu antworten. Rechtsgrundlage:
+    Art. 6 Abs. 1 lit. b DSGVO (Maßnahmen auf Ihre Anfrage hin) und
+    Art. 6 Abs. 1 lit. f DSGVO (unser berechtigtes Interesse, die Menschen zu
+    unterstützen, die die App gekauft haben). Nach KVKK Art. 5 Abs. 2 lit. c und
+    lit. f.</li>
+    <li><strong>Ihr Kauf</strong> — der Kaufvertrag besteht zwischen Ihnen und
+    Apple. Apple ist Händler (merchant of record) und eigener Verantwortlicher;
+    wir erhalten von Apple weder Namen noch Anschrift, E-Mail-Adresse oder
+    Zahlungsdaten, sondern in App Store Connect nur anonyme Verkaufssummen.</li>
+  </ul>
+  <p>Es findet keine automatisierte Entscheidungsfindung und kein Profiling
+  statt, im Sinne von Art. 22 DSGVO oder KVKK Art. 11 lit. g.</p>
+
+  <h2 id="rights-de">Ihre Rechte</h2>
+  <p>Nach der DSGVO (Art. 15–22) und dem KVKK (Art. 11) haben Sie uns gegenüber
+  das Recht auf: <strong>Auskunft</strong> über die personenbezogenen Daten, die
+  wir über Sie verarbeiten; <strong>Berichtigung</strong> unrichtiger Daten;
+  <strong>Löschung</strong>; <strong>Einschränkung der Verarbeitung</strong>;
+  <strong>Datenübertragbarkeit</strong> der von Ihnen bereitgestellten Daten in
+  einem maschinenlesbaren Format; und auf <strong>Widerspruch</strong> gegen
+  eine Verarbeitung, die auf berechtigten Interessen beruht. Soweit Sie eine
+  Einwilligung erteilt haben — etwa in einem Berechtigungsdialog —, können Sie
+  diese <strong>jederzeit widerrufen</strong>, ohne dass die Rechtmäßigkeit der
+  bis dahin erfolgten Verarbeitung berührt wird. KVKK Art. 11 gibt Ihnen
+  zusätzlich das Recht, zu erfahren, ob Ihre Daten verarbeitet werden, den Zweck
+  zu erfahren, die Dritten zu erfahren, an die sie übermittelt werden, und
+  Ersatz für Schäden aus einer rechtswidrigen Verarbeitung zu verlangen.</p>
+  <p><strong>So üben Sie sie aus:</strong> Schreiben Sie an
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> und sagen Sie, was Sie möchten. Wir
+  antworten innerhalb eines Monats (Art. 12 Abs. 3 DSGVO); KVKK-Anträge werden
+  nach dem Kommuniqué über die Verfahren und Grundsätze der Antragstellung beim
+  Verantwortlichen innerhalb von 30 Tagen beantwortet. Es entstehen Ihnen keine
+  Kosten.</p>
+  <p><strong>In der Praxis brauchen Sie uns für das meiste davon nicht.</strong>
+  Die Daten, mit denen Daylume arbeitet, liegen auf Ihrer Uhr. Löschen Sie sie in
+  der App, widerrufen Sie eine Berechtigung in den Einstellungen, oder löschen
+  Sie die App — und sie sind fort. Wir könnten sie selbst auf Ihre Bitte hin
+  weder abrufen noch wiederherstellen oder herausgeben, weil wir nie eine Kopie
+  hatten.</p>
+
+  <h2 id="complain-de">Beschwerde über uns</h2>
+  <p>Sagen Sie es möglichst zuerst uns — das geht meistens schneller. Sie müssen
+  das aber nicht, und Sie haben jederzeit das <strong>Beschwerderecht bei einer
+  Aufsichtsbehörde</strong>:</p>
+  <ul>
+    <li><strong>EU / EWR:</strong> die Datenschutz-Aufsichtsbehörde des Landes,
+    in dem Sie leben oder arbeiten oder in dem der mutmaßliche Verstoß
+    stattgefunden hat — in Deutschland die oder der Landesbeauftragte für den
+    Datenschutz Ihres Bundeslandes, in Österreich die Datenschutzbehörde. Die
+    vollständige Liste steht bei
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>Vereinigtes Königreich:</strong> das Information Commissioner's
+    Office — <a href="https://ico.org.uk/">ico.org.uk</a></li>
+    <li><strong>Türkei:</strong> Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+  </ul>
+
+  <h2 id="retention-de">Wie lange etwas aufbewahrt wird</h2>
+  <ul>
+    <li><strong>Auf Ihrer Uhr:</strong> so lange, wie Sie es dort behalten.
+    Daylume lässt Ihre Inhalte nicht verfallen und löscht sie nicht von selbst;
+    beim Löschen der App verschwindet ihr Container mit allem darin.</li>
+    <li><strong>Support-E-Mail:</strong> nur so lange, wie wir sie zur
+    Bearbeitung Ihrer Nachricht brauchen, und spätestens nach
+    <strong>12 Monaten</strong> gelöscht — es sei denn, ein Gesetz verpflichtet
+    uns, einen bestimmten Beleg länger aufzubewahren (etwa das türkische Steuer-
+    und Handelsbuchführungsrecht, wenn Ihre Nachricht einen Kauf betrifft).</li>
+    <li><strong>Alles andere:</strong> nichts, weil es nichts gibt. Wir
+    betreiben keine Datenbank, führen keine Sicherung Ihrer Inhalte und
+    schreiben keine Protokolldatei, in der Ihre Daten vorkommen.</li>
+  </ul>
+
+  <h2 id="transfer-de">Übermittlungen in Drittländer</h2>
+  <ul>
+    <li>Wir übermitteln Ihre Daten nirgendwohin, weil wir sie nicht
+    erhalten.</li>
+    <li><strong>Die einzige Ausnahme ist E-Mail.</strong> Wenn Sie uns
+    schreiben, erreicht Ihre Nachricht uns in der <strong>Türkei</strong> —
+    außerhalb des EWR und des Vereinigten Königreichs, und für die Türkei gibt
+    es keinen EU-Angemessenheitsbeschluss. Diese Übermittlung findet statt, weil
+    Sie sich entschieden haben, uns zu kontaktieren, und sie ist erforderlich,
+    um Ihnen zu antworten (Art. 49 Abs. 1 lit. b DSGVO). Wir verwenden sie für
+    nichts anderes und geben sie an niemanden weiter.</li>
+    <li><strong>Die optionale Ortsnamen-Suche</strong> sendet eine Koordinate an
+    Apples Geocoding-Dienst, wo immer Apple ihn betreibt. Diese Verarbeitung und
+    jede damit verbundene Übermittlung richten sich nach
+    <a href="https://www.apple.com/legal/privacy/">Apples
+    Datenschutzrichtlinie</a> und Apples eigenen Garantien — wir sind daran
+    nicht beteiligt und erhalten nichts.</li>
+  </ul>
+
+  <h2 id="children-de">Kinder</h2>
+  <p>Daylume ist mit 4+ eingestuft und richtet sich nicht besonders an Kinder. Die
+  App erfasst von niemandem etwas, Kinder eingeschlossen, sodass kein
+  Mechanismus für eine elterliche Einwilligung nötig ist oder angeboten
+  wird.</p>
+
+  <h2 id="changes-de">Änderungen dieser Erklärung</h2>
+  <p>Ändert sich diese Datenschutzerklärung, wird die neue Fassung
+  <em>vor</em> ihrem Inkrafttreten unter dieser Adresse veröffentlicht, und das
+  Datum oben ändert sich mit. Rückwirkend wird nichts geändert.</p>
+
+  <h2 id="contact-de">Kontakt</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+    <h2 id="ja">日本語</h2>
+  <div class="sum">
+  <p><strong>Daylumeは個人情報を一切収集しません。ひとつもです。時計の中で計算をするために位置情報を求め、初期状態でオフになっている任意の設定をオンにした場合にかぎり、近くの場所の名前をAppleに問い合わせます。</strong></p>
+  </div>
+
+  <h3>Daylumeが求める許可</h3>
+  <ul>
+    <li><strong>アプリの使用中の位置情報</strong>
+    （<code>NSLocationWhenInUseUsageDescription</code>）。用途はひとつだけです。
+    今いる場所の日の出、日の入り、ゴールデンアワー、ブルーアワー、月の出、月の入り、
+    月相を計算することです。計算はアプリに組み込まれた天体暦を使って時計の中で行われ、
+    その背後に問い合わせ先のサービスはありません。</li>
+    <li><strong>通知</strong>（任意）。通知は時計の中で予約されます。プッシュサーバーは
+    関与しませんし、そもそも存在しません。</li>
+    <li><strong>コンパスのセンサー</strong>。コンパス画面でダイヤルを回すためだけに使い、
+    何も保存しません。</li>
+  </ul>
+  <h3>何が、どこに保存されるか</h3>
+  <p>時計上のアプリ自身のコンテナ内（コンプリケーションがアプリを起こさずに描画できるよう、
+  App Groupを共有しています）：</p>
+  <ul>
+    <li>直近の座標とそのタイムスタンプ。オフラインのときやアプリを閉じているときにも
+    動作するためです。</li>
+    <li>地名。<em>地名検索をオンにした場合にかぎります</em>。</li>
+    <li>通知の設定と、初回起動の直後に通知の許可を求めないようにするための起動回数。</li>
+  </ul>
+  <p>以上がすべてです。履歴も、軌跡も、日誌もありません。</p>
+  <h3>ネットワークの利用：初期状態では一切なし</h3>
+  <p>インストールしたままの状態では、Daylumeはネットワーク通信を一切行いません。
+  通信を発生させうる任意の機能はちょうどひとつだけで、それは<strong>オフ</strong>の状態で
+  出荷されます。「設定」＞「位置情報」の<em>地名を取得</em>です。オフの間、アプリは
+  ジオコーダーのオブジェクトを生成することすらありません。</p>
+  <h3>地名検索をオンにした場合</h3>
+  <p>Daylumeは、画面に座標ではなく名前を表示できるように、近くの市区町村名をApple自身の
+  逆ジオコーディングサービス（watchOSに内蔵の<code>CLGeocoder</code>）に問い合わせます。
+  このリクエストは、おおよその座標を<strong>Appleへ</strong>、Apple自身のプライバシー条件の
+  もとで送信します。当方へでも、第三者へでもありません。この経路に当方のサーバーはなく、
+  当方はリクエストも、その回答も、あなたがそれを行ったという事実も見ることができません。
+  ベストエフォートの機能であり、オフラインのときや失敗したときは、アプリは単に座標を表示します。
+  オフに戻すと、キャッシュされた地名はただちに削除されます。これが、このアプリに可能な
+  唯一のネットワーク動作です。</p>
+
+  <h2 id="who-ja">個人情報取扱事業者（管理者）</h2>
+  <p>Daylumeを開発・提供しているのは<strong>Berke Kahraman</strong>（トルコで登録された
+  個人事業主／<em>şahıs firması</em>）です。EU・英国の一般データ保護規則（GDPR）にいう
+  <em>管理者</em>、トルコ個人情報保護法第6698号（KVKK）にいう<em>veri sorumlusu</em>、
+  そして日本の個人情報の保護に関する法律（個人情報保護法・APPI）にいう
+  <strong>個人情報取扱事業者</strong>に当たります。日本にお住まいの方に対してDaylumeを
+  提供するにあたって取得する個人情報については、同法の域外適用の対象となり得るため、
+  本項以下では同法が求める事項もあわせて記載しています。</p>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+  <p>一人の事業者であるため、データ保護責任者もEU域内の代理人もいません。プライバシーに
+  関するお問い合わせは開発者本人が読み、通常は数日以内に返信します。</p>
+
+  <h2 id="basis-ja">利用目的と法的根拠</h2>
+  <p>個人情報保護法第17条・第21条に基づき、取得する情報とその<strong>利用目的</strong>は
+  次のとおりです。目的外の利用は行いません。</p>
+  <ul>
+    <li><strong>Daylumeがお使いの時計に保持するもの</strong> — 当方はこれを取り扱って
+    いません。当方に届かないからです。それはお客様の端末の中に、お客様の管理のもとにあり、
+    アプリを削除すれば消えます。当方の側に取扱いがないため、当方について述べるべき法的根拠も
+    ありません。</li>
+    <li><strong>位置情報の許可</strong> — システムのダイアログでお客様が与えるもので、
+    「設定」からいつでも取り消せます。これは同意（GDPR第6条1項(a)／KVKK第5条1項）に
+    当たり、日本の個人情報保護法では、位置情報の利用目的は上記のとおり特定・明示されています
+    （第17条・第21条）。座標が当方に届くことはありません。</li>
+    <li><strong>任意の地名検索</strong> — 初期状態はオフなので、これが行われるのは
+    お客様がオンにした場合だけです。これも同意であり、受け取るのはAppleであって当方では
+    ありません。</li>
+    <li><strong>当方にメールをお送りいただいた場合</strong> — 返信するために、お客様の
+    アドレスとお書きになった内容を取り扱います。利用目的はお問い合わせへの対応のみです。
+    法的根拠：GDPR第6条1項(b)（お客様の求めに応じた措置）および第6条1項(f)（アプリを
+    購入された方を支援するという正当な利益）。KVKKでは第5条2項(c)および(f)。個人情報保護法
+    では、この利用目的の範囲でのみ取り扱います。</li>
+    <li><strong>お客様の購入</strong> — 販売の契約はお客様とAppleとの間のものです。Apple
+    が販売者（merchant of record）であり、Apple自身が管理者です。当方は氏名・住所・
+    メールアドレス・支払情報のいずれも受け取らず、App Store Connectで匿名の販売合計を
+    見るだけです。</li>
+  </ul>
+  <p>GDPR第22条・KVKK第11条(g)にいう自動化された意思決定も、いかなるプロファイリングも
+  行いません。</p>
+  <p><strong>第三者提供</strong>（個人情報保護法第27条）は行いません。個人データを第三者に
+  提供したり、共同利用したり、取扱いを外部に委託したりしていません。</p>
+
+  <h2 id="rights-ja">お客様の権利</h2>
+  <p>GDPR（第15条〜第22条）およびKVKK（第11条）に基づき、当方が保有するお客様の個人
+  データについて、<strong>アクセス</strong>、正確でないものの<strong>訂正</strong>、
+  <strong>消去</strong>、取扱いの<strong>制限</strong>、機械可読な形式での
+  <strong>データポータビリティ</strong>、正当な利益に基づく取扱いへの<strong>異議</strong>を
+  求めることができます。同意に基づくもの — たとえば許可のダイアログ — については、
+  <strong>いつでも同意を撤回</strong>でき、撤回前に行われたことの適法性は影響を受けません。</p>
+  <p>日本の個人情報保護法に基づき、お客様は当方が保有する保有個人データについて、
+  <strong>利用目的の通知</strong>（第32条3項）、<strong>開示請求</strong>（第33条）、
+  内容が事実でない場合の<strong>訂正・追加・削除</strong>（第34条）、法令違反がある場合の
+  <strong>利用停止・消去</strong>および<strong>第三者提供の停止</strong>（第35条）を
+  請求することができます。</p>
+  <p><strong>手続き：</strong>
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>宛てに、ご希望の
+  内容をお書きください。ご本人であることを確認できる範囲で、遅滞なく、原則として
+  <strong>30日以内</strong>に対応します（GDPRでは1か月以内）。手数料はいただきません。</p>
+  <p><strong>ただし、実際にはそのほとんどに当方は必要ありません。</strong>Daylumeが扱う
+  データはお使いの時計の中にあります。アプリの中で削除する、「設定」で許可を取り消す、
+  あるいはアプリを削除する — それで消えます。お求めいただいても、当方はそれを取り出すことも、
+  復元することも、お渡しすることもできません。複製を一度も持ったことがないからです。</p>
+
+  <h2 id="complain-ja">苦情の申し立て</h2>
+  <p>できればまず当方にお知らせください。たいていはそれが一番早い方法です。ただしその義務は
+  なく、監督機関に苦情を申し立てる権利はいつでもあります。</p>
+  <ul>
+    <li><strong>日本：</strong>個人情報保護委員会 —
+    <a href="https://www.ppc.go.jp/">ppc.go.jp</a>（個人情報保護法第40条に基づき、
+    当方も苦情の適切かつ迅速な処理に努めます）</li>
+    <li><strong>EU／EEA：</strong>お住まいの国、お勤めの国、または問題が起きたと考えられる
+    国のデータ保護機関 — 一覧は
+    <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en">edpb.europa.eu</a></li>
+    <li><strong>英国：</strong>Information Commissioner's Office —
+    <a href="https://ico.org.uk/">ico.org.uk</a></li>
+    <li><strong>トルコ：</strong>Kişisel Verileri Koruma Kurumu / Kurulu —
+    <a href="https://www.kvkk.gov.tr/">kvkk.gov.tr</a></li>
+  </ul>
+
+  <h2 id="retention-ja">保有期間</h2>
+  <ul>
+    <li><strong>お使いの時計の中：</strong>お客様がそこに置いておく限りです。Daylumeは
+    お客様の内容を期限切れにしたり自動的に削除したりしません。アプリを削除すると、その
+    コンテナと中身がすべて消えます。</li>
+    <li><strong>サポートのメール：</strong>お客様のご連絡に対応するために必要な期間だけ
+    保管し、遅くとも<strong>12か月</strong>以内に削除します。ただし、特定の記録をより長く
+    保存することを法令が求める場合を除きます（たとえば、ご連絡が購入に関するものである
+    場合のトルコの税務・商業帳簿の規定）。</li>
+    <li><strong>それ以外のすべて：</strong>ありません。何もないからです。データベースを
+    運用しておらず、お客様の内容のバックアップも取らず、お客様のデータが含まれるログ
+    ファイルも書いていません。</li>
+  </ul>
+
+  <h2 id="transfer-ja">外国にある第三者への提供</h2>
+  <ul>
+    <li>当方はお客様のデータをどこにも移転していません。そもそも受け取っていないからです。</li>
+    <li><strong>唯一の例外はメールです。</strong>当方にお書きになると、そのメッセージは
+    <strong>トルコ</strong>にいる当方に届きます。トルコはEEAと英国の外にあり、EUの十分性
+    認定もありません。この移転は、お客様が当方に連絡することを選ばれたために生じるもので、
+    返信のために必要です（GDPR第49条1項(b)）。ほかの目的には使わず、誰にも渡しません。
+    なお日本の個人情報保護法との関係では、これは「外国にある<em>第三者</em>への提供」
+    （第28条）ではありません。トルコに所在する当方自身が個人情報取扱事業者であり、
+    受け取っているのが当方自身だからです。</li>
+    <li><strong>任意の地名検索</strong>は、Appleが運用する場所がどこであれ、Appleの
+    ジオコーディングサービスへ座標を送信します。この取扱いとそれに伴う移転はすべて
+    <a href="https://www.apple.com/legal/privacy/">Appleのプライバシーポリシー</a>と
+    Apple自身の保護措置に従います。当方はこれに関与せず、何も受け取りません。</li>
+  </ul>
+
+  <h2 id="children-ja">お子様について</h2>
+  <p>Daylumeの年齢制限は4+で、特にお子様に向けたものではありません。お子様を含め、
+  誰からも何も収集しないため、保護者の同意を得る仕組みは必要でも提供されるものでも
+  ありません。</p>
+
+  <h2 id="changes-ja">本ポリシーの変更</h2>
+  <p>本ポリシーを変更する場合は、効力が生じる<em>前</em>に新しい版をこのアドレスで公開し、
+  冒頭の日付も同時に更新します。遡って変更することはありません。</p>
+
+  <h2 id="contact-ja">お問い合わせ</h2>
+  <p class="addr">Berke Kahraman<br>Ayvalı Mah. Afra Cad. No: 3F, İç Kapı No: 104<br>06010 Keçiören / Ankara, Türkiye<br><a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+
+  <p class="foot">© 2026 Berke Kahraman · Ayvalı Mah. Afra Cad. No: 3F,
+  İç Kapı No: 104, 06010 Keçiören / Ankara, Türkiye ·
+  <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a></p>
+</div>
+</body>
+</html>
