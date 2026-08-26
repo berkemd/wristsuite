@@ -74,9 +74,23 @@ raised recall from 7.4% to 44.1%.</li>
 devices, offline, and both edits survive.</li>
 <li><b>Export that respects the answer.</b> BibTeX, RIS and Markdown. A work
 marked closed does not leave in an export — eleven tests hold that line.</li>
-<li><b>Lineage.</b> References and citations drawn as a tree, so you can see
-where an argument came from.</li>
+<li><b>Lineage.</b> A stemma drawn from what a work cites — filled where you
+hold the full text, open where the publisher closed access. Works cited but
+not in your library are counted, not guessed at. Citations <em>to</em> a work
+are not drawn: the app only knows what your own library contains.</li>
 </ul>
+
+<h2>Try it before you build anything</h2>
+<div class="kart">
+<p>Stemmata is empty until you open a library, because it ships with no data
+pretending to be yours. To see it working, download a real one:</p>
+<p><a href="ornek-kutuphane.jsonl"><b>ornek-kutuphane.jsonl</b></a> — 140 works
+from OpenAlex: 17 full text, 64 metadata only, 59 access closed. Those
+proportions are not staged; they are what the publishers' licences actually
+say for that query.</p>
+<p>Open it in the app with <em>Open library</em>, or tap <em>Open a sample
+library</em> on the first screen — the same file ships inside the app.</p>
+</div>
 
 <h2>Where your data is</h2>
 <div class="kart">
