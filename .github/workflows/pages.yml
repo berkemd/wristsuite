@@ -1,0 +1,47 @@
+# =====================================================================
+#  GitHub Pages · statik yayın
+#
+#  NİYE VAR — 26 Ağustos 2026
+#  Push indi (`origin/main` = e6519da, API `pushed_at` 15:40:17Z) ama
+#  Pages ESKİ yapıyı sunmaya devam etti. Ölçüldü:
+#      origin/main  nestria/index.html -> 3 mailto · kök 10 kart
+#      Pages        nestria/index.html -> 0 mailto · kök  8 kart
+#  Depoda hiç iş akışı yoktu; Pages kaynağı "GitHub Actions"a ayarlıysa
+#  dağıtacak bir şey de yoktur ve site sessizce bayat kalır. Hata da
+#  vermez — tam olarak bu portföyde defalarca gördüğümüz sessiz
+#  başarısızlık biçimi.
+#
+#  Bu akış depoyu olduğu gibi yayımlar (Jekyll yok, `.nojekyll` zaten
+#  var). Pages kaynağı "Deploy from a branch" ise bu akış gereksizdir
+#  ama zarar vermez; "GitHub Actions" ise yayını YAPAN budur.
+# =====================================================================
+name: Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - id: deployment
+        uses: actions/deploy-pages@v4
