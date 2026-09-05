@@ -1,107 +1,392 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forgn: Prior Art Search — Support</title>
-<meta name="description" content="Forgn: Prior Art Search — find out whether your idea already exists, then take the risks that could kill it in order. Runs on your iPhone; no account, no server of ours. Screens for prior art; does not give legal advice. Support and contact.">
-<link rel="canonical" href="https://berkemd.github.io/wristsuite/forgn/">
-<meta name="theme-color" content="#0b0b14">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Forgn">
-<meta property="og:title" content="Forgn: Prior Art Search">
-<meta property="og:url" content="https://berkemd.github.io/wristsuite/forgn/">
-<meta property="og:description" content="Find it before you build it. Prior-art screening and risk-ordered invention plans, on your iPhone. Not legal advice.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Forgn: Prior Art Search">
-<meta name="twitter:description" content="Find it before you build it. Prior-art screening and risk-ordered invention plans, on your iPhone. Not legal advice.">
-<style>
-body{background:#0b0b14;color:#f3f0ea;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.7;margin:0}
-.wrap{max-width:680px;margin:0 auto;padding:44px 24px 80px}
-h1{font-size:1.6rem;margin:0 0 4px}
-h2{font-size:1.15rem;color:#8ee6c8;margin:34px 0 10px;border-top:1px solid #23203a;padding-top:22px}
-h3{font-size:1rem;color:#e6e2f2;margin:20px 0 4px}
-p,li{color:#b9b5c8;font-size:.95rem}
-a{color:#8ee6c8}
-.sub{color:#6f6a80;font-size:.9rem;margin:0 0 18px}
-.sum{background:#14131f;border:1px solid #2a2740;border-left:3px solid #8ee6c8;border-radius:12px;padding:14px 18px;margin:18px 0}
-.sum p{margin:0 0 8px} .sum p:last-child{margin:0}
-.addr{background:#14131f;border:1px solid #2a2740;border-radius:12px;padding:12px 16px;font-size:.9rem;color:#d6d2e4}
-code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:#d6d2e4}
-.foot{margin-top:38px;color:#6f6a80;font-size:.8rem;border-top:1px solid #23203a;padding-top:18px}
-.cta{display:inline-block;background:#8ee6c8;color:#0b0b14;font-weight:600;padding:9px 16px;border-radius:10px;text-decoration:none;margin:6px 0 14px}
-.cta:hover{background:#a9f0d8}
-.law{background:#1b1a29;border:1px solid #2a2740;border-radius:12px;padding:12px 16px;color:#d6d2e4;font-size:.9rem}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <h1>Forgn: Prior Art Search</h1>
-  <p class="sub">Find it before you build it. An inventor's workshop that runs on your iPhone — support &amp; contact.</p>
-  <a class="cta" href="https://apps.apple.com/app/id6761314575">Get Forgn on the App Store</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgn — Research ideas. Plan tests.</title>
+    <meta
+      name="description"
+      content="Research ideas, keep sources and plan experiments on your iPhone. Forgn combines literature discovery, private research notebooks and risk-ordered test plans."
+    />
+    <link rel="canonical" href="https://berkemd.github.io/wristsuite/forgn/" />
+    <meta name="theme-color" content="#0b0b14" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Forgn" />
+    <meta property="og:title" content="Forgn: Prior Art Search" />
+    <meta
+      property="og:url"
+      content="https://berkemd.github.io/wristsuite/forgn/"
+    />
+    <meta
+      property="og:description"
+      content="Research ideas, save sources and plan experiments on your iPhone. Private notebooks and previewed progress cards."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Forgn: Prior Art Search" />
+    <meta
+      name="twitter:description"
+      content="Research ideas, save sources and plan experiments on your iPhone. Private notebooks and previewed progress cards."
+    />
+    <style>
+      body {
+        background: #0b0b14;
+        color: #f3f0ea;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 44px 24px 80px;
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.6rem);
+        margin: 0 0 4px;
+      }
+      h2 {
+        font-size: 1.15rem;
+        color: #8ee6c8;
+        margin: 34px 0 10px;
+        border-top: 1px solid #23203a;
+        padding-top: 22px;
+      }
+      h3 {
+        font-size: 1rem;
+        color: #e6e2f2;
+        margin: 20px 0 4px;
+      }
+      p,
+      li {
+        color: #b9b5c8;
+        font-size: 0.95rem;
+      }
+      a {
+        color: #8ee6c8;
+      }
+      .sub {
+        color: #b9b5c8;
+        font-size: 1.15rem;
+        margin: 0 0 18px;
+      }
+      .sum {
+        background: #14131f;
+        border: 1px solid #2a2740;
+        border-left: 3px solid #8ee6c8;
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin: 18px 0;
+      }
+      .sum p {
+        margin: 0 0 8px;
+      }
+      .sum p:last-child {
+        margin: 0;
+      }
+      .addr {
+        background: #14131f;
+        border: 1px solid #2a2740;
+        border-radius: 12px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        color: #d6d2e4;
+      }
+      code {
+        background: #1b1a29;
+        padding: 1px 5px;
+        border-radius: 5px;
+        font-size: 0.85em;
+        color: #d6d2e4;
+      }
+      .foot {
+        margin-top: 38px;
+        color: #6f6a80;
+        font-size: 0.8rem;
+        border-top: 1px solid #23203a;
+        padding-top: 18px;
+      }
+      .cta {
+        display: inline-block;
+        background: #8ee6c8;
+        color: #0b0b14;
+        font-weight: 600;
+        padding: 9px 16px;
+        border-radius: 10px;
+        text-decoration: none;
+        margin: 6px 0 14px;
+      }
+      .cta:hover {
+        background: #a9f0d8;
+      }
+      .law {
+        background: #1b1a29;
+        border: 1px solid #2a2740;
+        border-radius: 12px;
+        padding: 12px 16px;
+        color: #d6d2e4;
+        font-size: 0.9rem;
+      }
+      .tour {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        margin: 28px 0;
+      }
+      .tour figure {
+        margin: 0;
+      }
+      .tour img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 22px;
+        border: 1px solid #343044;
+      }
+      .tour figcaption {
+        color: #d6d2e4;
+        font-weight: 600;
+        margin-top: 12px;
+      }
+      @media (max-width: 620px) {
+        .tour {
+          grid-template-columns: 1fr;
+          max-width: 320px;
+          margin-inline: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Forgn: Prior Art Search</h1>
+      <p class="sub">
+        Research an idea. Keep the evidence. Decide what to test next.
+      </p>
+      <a class="cta" href="https://apps.apple.com/app/id6761314575"
+        >Get Forgn on the App Store</a
+      >
 
-  <div class="sum">
-    <p><strong>Your notes stay on this device.</strong> There is no account and no server of ours. The only thing that ever goes out is a search you start yourself — and only the words you typed, to public research databases.</p>
-    <p><strong>An empty result is not a green light.</strong> Forgn searches Crossref and arXiv live and prepares patent queries for you to run; it does not hold a patent database on the device. "Nothing found" means those sources found nothing — which is not the same as nothing exists, and the app says so on the result screen.</p>
-    <p>Questions, bug reports and refund questions: <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> — usually answered within two business days.</p>
-  </div>
+      <h2>From a question to a test</h2>
+      <p>
+        Preview of version 1.3, pending App Store approval. Actual app screens
+        with an example research project.
+      </p>
+      <section class="tour" aria-label="Forgn 1.3 product preview">
+        <figure>
+          <img
+            src="images/01-research-notebook.png"
+            width="1320"
+            height="2868"
+            loading="lazy"
+            alt="A research notebook recording a shared mechanism, an open question and a measurable next experiment."
+          />
+          <figcaption>1. Turn reading into a next step</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="images/02-saved-evidence.png"
+            width="1320"
+            height="2868"
+            loading="lazy"
+            alt="Saved Crossref and arXiv sources with the date and scope of the original search."
+          />
+          <figcaption>2. Keep the evidence with the idea</figcaption>
+        </figure>
+        <figure>
+          <img
+            src="images/03-share-preview.png"
+            width="1320"
+            height="2868"
+            loading="lazy"
+            alt="A sharing preview containing a public takeaway and counts, without private project notes."
+          />
+          <figcaption>3. Share only what you choose</figcaption>
+        </figure>
+      </section>
+      <div class="sum">
+        <p>
+          <strong>Coming in 1.3:</strong> project research notebooks, previewed
+          sharing cards and recovery exports. Available after App Store
+          approval. The current app interface is English.
+        </p>
+        <p>
+          <strong>Your work is stored locally.</strong> No account or
+          developer-operated backend is required. Literature searches send the
+          words you choose to Crossref and arXiv; web clipping contacts your
+          chosen website. In 1.3, sharing and recovery export send only what you
+          explicitly choose to a destination you select.
+        </p>
+        <p>
+          <strong>An empty result is not a green light.</strong> Forgn searches
+          Crossref and arXiv live and prepares patent queries for you to run; it
+          does not hold a patent database on the device. A missing match is not
+          evidence that an idea is new. Version 1.3 also identifies sources that
+          could not be checked because of a connection or response problem.
+        </p>
+        <p>
+          Questions, bug reports and refund questions:
+          <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a> —
+          usually answered within two business days.
+        </p>
+      </div>
 
-  <h2>What Forgn does</h2>
-  <h3>Prior art, first</h3>
-  <p>The cheapest way an idea can die is by already existing. Forgn recognises 146 established arrangements by name, searches Crossref and arXiv live, and prepares queries for Google Patents, Espacenet and Lens so you can check the patent record yourself.</p>
+      <h2>What Forgn does</h2>
+      <h3>Prior art, first</h3>
+      <p>
+        Start by checking related work. Forgn recognises established mechanism
+        combinations with its local rules, searches Crossref and arXiv, and
+        prepares browser queries for Google Patents, Espacenet and Lens.
+        Literature records and preprints are starting points for investigation,
+        not an exhaustive patent search.
+      </p>
 
-  <h3>Cross-pollination</h3>
-  <p>It takes a distinctive term from one of your notes and applies it to a real mechanism in another — only when the two share genuine common ground. Every suggestion says what moved, where it came from, and what connects them.</p>
+      <h3>Research notebooks · coming in 1.3</h3>
+      <p>
+        Save selected literature sources to a project, record the date and scope
+        of each search, and write down the shared mechanism, the unanswered
+        question and your next measurable experiment. Notes save on the device
+        as you edit. Each notebook holds up to 30 selected sources and 20
+        recorded searches; nothing is silently evicted.
+      </p>
+      <h3>Share progress without publishing the idea · coming in 1.3</h3>
+      <p>
+        Write an optional public takeaway and preview a progress card before
+        opening the system share sheet. The card includes only that takeaway and
+        source/search counts. Private project titles, queries, sources and
+        notebook notes are excluded.
+      </p>
+      <h3>Cross-pollination · Pro</h3>
+      <p>
+        It takes a distinctive term from one of your notes and applies it to a
+        real mechanism in another — only when the two share genuine common
+        ground. Every suggestion says what moved, where it came from, and what
+        connects them.
+      </p>
 
-  <h3>Risk-ordered plans</h3>
-  <p>Not a build manual. Forgn turns an idea into the order in which it could die: prior art first, then each known failure mode, most fatal and cheapest-to-test first. Every step says what to measure and asks you to write the threshold down <em>before</em> you run the test.</p>
+      <h3>Risk-ordered plans · Pro</h3>
+      <p>
+        Not a build manual. Forgn turns an idea into the order in which it could
+        die: prior art first, then each known failure mode, most fatal and
+        cheapest-to-test first. Every step says what to measure and asks you to
+        write the threshold down <em>before</em> you run the test.
+      </p>
 
-  <h3>Reality walls</h3>
-  <p>Thirty-eight documented failure modes, each triggered by an actual design choice, each with alternatives and a reason. These are free, always.</p>
+      <h3>Reality walls</h3>
+      <p>
+        Documented failure modes, each triggered by an actual design choice,
+        each with alternatives and a reason. These are free, always.
+      </p>
 
-  <h3>Town</h3>
-  <p>A map of your own archive: buildings are the mechanisms your notes use, and the figures walking between them are the notes themselves. When two meet you get a real transfer candidate.</p>
+      <h3>Town</h3>
+      <p>
+        A map of your own archive: buildings are the mechanisms your notes use,
+        and the figures walking between them are the notes themselves. When two
+        meet you get a real transfer candidate.
+      </p>
 
-  <h2>Common questions</h2>
+      <h2>Common questions</h2>
 
-  <h3>Why is there no sign-in?</h3>
-  <p>Because there is nothing to sign in to. Your archive lives in this app on this device. No account means nothing to lose, nothing to leak, and nothing to pay for in the background.</p>
+      <h3>Why is there no sign-in?</h3>
+      <p>
+        Because there is nothing to sign in to. Your archive lives in this app
+        on this device. Protect your device and keep an external recovery copy
+        of important work; we do not hold a server copy.
+      </p>
 
-  <h3>Does it work offline?</h3>
-  <p>Everything except the literature search and web clipping works with no connection at all — the engine is on your device. Those two features need a connection because they read public databases and public web pages.</p>
+      <h3>Does it work offline?</h3>
+      <p>
+        Local notes, saved research and the rule-based engine work offline.
+        Literature searches, web clipping, external links and App Store
+        purchases or restoration need a connection. The sharing destination may
+        also require internet access.
+      </p>
 
-  <h3>How do I get my notes out?</h3>
-  <p>Settings → Export writes your whole archive as a JSON file you can save or send anywhere. Export keeps working even after a subscription ends.</p>
+      <h3>How do I get my notes out?</h3>
+      <p>
+        In 1.3, Profile → Your data → Export recovery copy creates a JSON file
+        containing your archive, projects, research notebooks and original
+        stored data needed for recovery. Save it to a private location using the
+        system share sheet. Recovery export is free and stays available after a
+        subscription ends. It is not automatic cloud sync.
+      </p>
 
-  <h3>How do I scan a printed page?</h3>
-  <p>Archive → Scan Page → tap the text box, then choose <strong>Scan Text</strong> on the keyboard. Your iPhone's own text recognition reads the page and writes it into the box. The photo is never saved and never sent — the app never receives an image at all.</p>
+      <h3>How do I scan a printed page?</h3>
+      <p>
+        Archive → Scan Page → tap the text box, then choose
+        <strong>Scan Text</strong> on the keyboard. Your iPhone's own text
+        recognition reads the page and writes it into the box. The photo is
+        never saved and never sent — the app never receives an image at all.
+      </p>
 
-  <h3>What is free and what is paid?</h3>
-  <p>Free: your archive up to 25 entries, prior-art checks, reality walls and the coverage map. Pro: cross-pollination, risk-ordered plans, unlimited archive and export. Bad news is always free — a warning you did not see because you had not paid would be a warning working against you.</p>
-  <p>Forgn Pro is an auto-renewable subscription, monthly or yearly; the price for your region is shown in the app before you buy. Payment is charged to your Apple Account when you confirm, and the subscription renews automatically unless you cancel at least 24 hours before the end of the current period. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use (EULA)</a> · <a href="privacy.html">Privacy Policy</a></p>
+      <h3>What is free and what is paid?</h3>
+      <p>
+        Free: up to 25 archive entries, literature discovery, reality walls and
+        the coverage map. Version 1.3 adds free project research notebooks,
+        sharing cards and recovery export. Pro: cross-pollination, full
+        risk-ordered plans and an unlimited archive. Existing notes remain
+        accessible if a subscription ends.
+      </p>
+      <p>
+        Forgn Pro is an auto-renewable subscription, monthly or yearly; the
+        price for your region is shown in the app before you buy. Payment is
+        charged to your Apple Account when you confirm, and the subscription
+        renews automatically unless you cancel at least 24 hours before the end
+        of the current period.
+        <a
+          href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/"
+          >Terms of Use (EULA)</a
+        >
+        · <a href="privacy.html">Privacy Policy</a>
+      </p>
 
-  <h3>Is this legal advice?</h3>
-  <p class="law">No. Forgn screens for prior art; it does not give legal advice, and no result in the app is a legal opinion on patentability, freedom to operate or infringement. Before you file, license or invest on the strength of a search, talk to a patent attorney.</p>
+      <h3>Is this legal advice?</h3>
+      <p class="law">
+        No. Forgn screens for prior art; it does not give legal advice, and no
+        result in the app is a legal opinion on patentability, freedom to
+        operate or infringement. Before you file, license or invest on the
+        strength of a search, talk to a patent attorney.
+      </p>
 
-  <h3>The engine says my idea already exists. Now what?</h3>
-  <p>That is the most useful thing Forgn can tell you, and it is not a stop sign. It moves the question: find the published limit of the known version, and make your contribution the specific thing you add to it.</p>
+      <h3>The engine says my idea already exists. Now what?</h3>
+      <p>
+        That is the most useful thing Forgn can tell you, and it is not a stop
+        sign. It moves the question: find the published limit of the known
+        version, and make your contribution the specific thing you add to it.
+      </p>
 
-  <h3>Why did nothing appear in Town?</h3>
-  <p>Town is built from mechanisms your notes describe. A note that says what something <em>is</em> but not <em>how it works</em> has no place to stand yet. Add a sentence about the mechanism and it appears.</p>
+      <h3>Why did nothing appear in Town?</h3>
+      <p>
+        Town is built from mechanisms your notes describe. A note that says what
+        something <em>is</em> but not <em>how it works</em> has no place to
+        stand yet. Add a sentence about the mechanism and it appears.
+      </p>
 
-  <h3>Cancelling a subscription</h3>
-  <p>Subscriptions are managed by Apple, not by us: iPhone Settings → your name → Subscriptions. Cancelling there stops future charges. Your archive and your export stay with you.</p>
+      <h3>Cancelling a subscription</h3>
+      <p>
+        Subscriptions are managed by Apple, not by us: iPhone Settings → your
+        name → Subscriptions. Cancelling there stops future charges. Your
+        archive and your export stay with you.
+      </p>
 
-  <h2>Contact</h2>
-  <p class="addr">
-    Berke Kahraman<br>
-    <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a><br>
-    Istanbul, Türkiye
-  </p>
+      <h2 id="support">Contact</h2>
+      <p class="addr">
+        Berke Kahraman<br />
+        <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a
+        ><br />
+        Istanbul, Türkiye
+      </p>
 
-  <p style="margin-top:22px"><a href="privacy.html">Privacy Policy →</a></p>
+      <p style="margin-top: 22px">
+        <a href="privacy.html">Privacy Policy →</a>
+      </p>
 
-  <p class="foot">Forgn screens for prior art. It does not give legal advice. Forgn is an independent app; Crossref, arXiv, Google Patents, Espacenet and Lens are independent services and are not affiliated with Forgn.</p>
-</div>
-</body>
+      <p class="foot">
+        Forgn screens for prior art. It does not give legal advice. Forgn is an
+        independent app; Crossref, arXiv, Google Patents, Espacenet and Lens are
+        independent services and are not affiliated with Forgn.
+      </p>
+    </div>
+  </body>
 </html>
