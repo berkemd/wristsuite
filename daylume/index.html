@@ -1,148 +1,401 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daylume — Light assistant on your wrist</title>
-<meta name="description" content="Daylume taps your wrist before golden hour and blue hour — fully offline, no network requests, no subscription. Support, privacy and contact.">
-<link rel="canonical" href="https://berkemd.github.io/wristsuite/daylume/">
-<meta name="theme-color" content="#0b0b14">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Daylume">
-<meta property="og:title" content="Daylume — Light assistant on your wrist">
-<meta property="og:url" content="https://berkemd.github.io/wristsuite/daylume/">
-<meta property="og:description" content="Daylume taps your wrist before golden hour and blue hour — fully offline, no network requests, no subscription. Support, privacy and contact.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Daylume — Light assistant on your wrist">
-<meta name="twitter:description" content="Daylume taps your wrist before golden hour and blue hour — fully offline, no network requests, no subscription. Support, privacy and contact.">
-<style>
-  :root{
-    --bg:#0b0b14; --card:#161622; --text:#f3f0ea; --sec:#a9a5b8;
-    --gold:#f5aa40; --gold2:#ffd685; --blue:#73a6ff;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:linear-gradient(180deg,#0b0b14 0%,#141024 55%,#2a1830 85%,#4a2430 100%);
-       color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-       min-height:100vh;line-height:1.6}
-  .wrap{max-width:720px;margin:0 auto;padding:48px 24px 80px}
-  .lang{text-align:right;margin-bottom:8px}
-  .lang button{background:none;border:1px solid #3a3550;color:var(--sec);border-radius:14px;
-       padding:4px 12px;margin-left:6px;cursor:pointer;font-size:13px}
-  .lang button.on{color:var(--gold2);border-color:var(--gold)}
-  .icon{width:96px;height:96px;border-radius:22px;display:block;margin:18px auto 20px;
-       box-shadow:0 8px 40px rgba(245,170,64,.35)}
-  h1{text-align:center;font-size:2.2rem;letter-spacing:.5px}
-  .tag{text-align:center;color:var(--gold2);margin:6px 0 34px;font-size:1.05rem}
-  .card{background:rgba(22,22,34,.75);border:1px solid #2a2740;border-radius:16px;
-       padding:22px 24px;margin:14px 0}
-  .card h2{font-size:1.05rem;color:var(--gold2);margin-bottom:8px}
-  .card p{color:var(--sec);font-size:.95rem}
-  .footer{text-align:center;color:#6f6a80;font-size:.8rem;margin-top:40px}
-  .footer a{color:var(--sec)}
-  .badge{display:block;text-align:center;margin:26px 0 6px;color:var(--sec);font-size:.9rem}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="lang">
-    <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
-    <button id="btn-tr" onclick="setLang('tr')">TR</button>
-    <button id="btn-de" onclick="setLang('de')">DE</button>
-    <button id="btn-ja" onclick="setLang('ja')">日本語</button>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daylume — Light assistant on your wrist</title>
+    <meta
+      name="description"
+      content="Daylume plans golden and blue hour on Apple Watch. Free light times and reminders, with optional Pro compass and Moon planning. Support, privacy and contact."
+    />
+    <link
+      rel="canonical"
+      href="https://berkemd.github.io/wristsuite/daylume/"
+    />
+    <meta name="theme-color" content="#0b0b14" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Daylume" />
+    <meta
+      property="og:title"
+      content="Daylume — Light assistant on your wrist"
+    />
+    <meta
+      property="og:url"
+      content="https://berkemd.github.io/wristsuite/daylume/"
+    />
+    <meta
+      property="og:description"
+      content="Daylume plans golden and blue hour on Apple Watch. Free light times and reminders, with optional Pro compass and Moon planning. Support, privacy and contact."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Daylume — Light assistant on your wrist"
+    />
+    <meta
+      name="twitter:description"
+      content="Daylume plans golden and blue hour on Apple Watch. Free light times and reminders, with optional Pro compass and Moon planning. Support, privacy and contact."
+    />
+    <style>
+      :root {
+        --bg: #0b0b14;
+        --card: #161622;
+        --text: #f3f0ea;
+        --sec: #a9a5b8;
+        --gold: #f5aa40;
+        --gold2: #ffd685;
+        --blue: #73a6ff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: linear-gradient(
+          180deg,
+          #0b0b14 0%,
+          #141024 55%,
+          #2a1830 85%,
+          #4a2430 100%
+        );
+        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        min-height: 100vh;
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      .lang {
+        text-align: right;
+        margin-bottom: 8px;
+      }
+      .lang button {
+        background: none;
+        border: 1px solid #3a3550;
+        color: var(--sec);
+        border-radius: 14px;
+        padding: 4px 12px;
+        margin-left: 6px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      .lang button.on {
+        color: var(--gold2);
+        border-color: var(--gold);
+      }
+      .icon {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        display: block;
+        margin: 18px auto 20px;
+        box-shadow: 0 8px 40px rgba(245, 170, 64, 0.35);
+      }
+      h1 {
+        text-align: center;
+        font-size: 2.2rem;
+        letter-spacing: 0.5px;
+      }
+      .tag {
+        text-align: center;
+        color: var(--gold2);
+        margin: 6px 0 34px;
+        font-size: 1.05rem;
+      }
+      .card {
+        background: rgba(22, 22, 34, 0.75);
+        border: 1px solid #2a2740;
+        border-radius: 16px;
+        padding: 22px 24px;
+        margin: 14px 0;
+      }
+      .card h2 {
+        font-size: 1.05rem;
+        color: var(--gold2);
+        margin-bottom: 8px;
+      }
+      .card p {
+        color: var(--sec);
+        font-size: 0.95rem;
+      }
+      .footer {
+        text-align: center;
+        color: #6f6a80;
+        font-size: 0.8rem;
+        margin-top: 40px;
+      }
+      .footer a {
+        color: var(--sec);
+      }
+      .badge {
+        display: block;
+        text-align: center;
+        margin: 26px 0 6px;
+        color: var(--sec);
+        font-size: 0.9rem;
+      }
+      a {
+        color: var(--gold2);
+      }
+      .cta {
+        display: block;
+        width: fit-content;
+        margin: 20px auto 30px;
+        background: var(--gold2);
+        color: var(--bg);
+        padding: 12px 22px;
+        border-radius: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .lang button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="lang">
+        <button id="btn-en" class="on" onclick="setLang('en')">EN</button>
+        <button id="btn-tr" onclick="setLang('tr')">TR</button>
+        <button id="btn-de" onclick="setLang('de')">DE</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
 
-  <svg class="icon" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#1c1442"/><stop offset=".55" stop-color="#7a3454"/>
-        <stop offset=".66" stop-color="#e87a2c"/><stop offset=".661" stop-color="#171026"/>
-        <stop offset="1" stop-color="#0d0a18"/>
-      </linearGradient>
-      <radialGradient id="sun" cx=".5" cy=".66" r=".3">
-        <stop offset="0" stop-color="#fff4c8"/><stop offset="1" stop-color="#ffbe5a" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <rect width="96" height="96" rx="21" fill="url(#sky)"/>
-    <rect width="96" height="96" rx="21" fill="url(#sun)"/>
-    <path d="M18 63 A34 34 0 0 1 78 63" fill="none" stroke="#ffeecb" stroke-width="2.4" stroke-linecap="round"/>
-    <circle cx="69" cy="43" r="3.6" fill="#fff8e6"/>
-    <circle cx="48" cy="63" r="12" fill="#ffd685"/>
-    <rect x="10" y="62.5" width="76" height="2.4" fill="#171026"/>
-  </svg>
+      <svg class="icon" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1c1442" />
+            <stop offset=".55" stop-color="#7a3454" />
+            <stop offset=".66" stop-color="#e87a2c" />
+            <stop offset=".661" stop-color="#171026" />
+            <stop offset="1" stop-color="#0d0a18" />
+          </linearGradient>
+          <radialGradient id="sun" cx=".5" cy=".66" r=".3">
+            <stop offset="0" stop-color="#fff4c8" />
+            <stop offset="1" stop-color="#ffbe5a" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <rect width="96" height="96" rx="21" fill="url(#sky)" />
+        <rect width="96" height="96" rx="21" fill="url(#sun)" />
+        <path
+          d="M18 63 A34 34 0 0 1 78 63"
+          fill="none"
+          stroke="#ffeecb"
+          stroke-width="2.4"
+          stroke-linecap="round"
+        />
+        <circle cx="69" cy="43" r="3.6" fill="#fff8e6" />
+        <circle cx="48" cy="63" r="12" fill="#ffd685" />
+        <rect x="10" y="62.5" width="76" height="2.4" fill="#171026" />
+      </svg>
 
-  <h1>Daylume</h1>
-  <p class="tag" data-en="The light won't wait. Be ready."
-     data-tr="Işık beklemez. Hazır ol."
-     data-de="Das Licht wartet nicht. Seien Sie bereit."
-     data-ja="光は待ってくれません。備えましょう。">The light won't wait. Be ready.</p>
+      <h1>Daylume</h1>
+      <p
+        class="tag"
+        data-en="The light won't wait. Be ready."
+        data-tr="Işık beklemez. Hazır ol."
+        data-de="Das Licht wartet nicht. Seien Sie bereit."
+        data-ja="光は待ってくれません。備えましょう。"
+      >
+        The light won't wait. Be ready.
+      </p>
 
-  <div class="card">
-    <h2 data-en="What is Daylume?" data-tr="Daylume nedir?"
-        data-de="Was ist Daylume?" data-ja="Daylumeとは">What is Daylume?</h2>
-    <p data-en="A light assistant that lives on your Apple Watch. Golden hour and blue hour countdowns, a live sun &amp; moon compass, a day planner for any date, moon phases and tonight's astro-darkness window — with a gentle tap on your wrist before the light turns. Every calculation runs offline on the watch, and by default the app makes no network requests at all. No subscription, ever."
-       data-tr="Apple Watch'unda yaşayan bir ışık asistanı. Altın saat ve mavi saat geri sayımları, canlı güneş-ay pusulası, herhangi bir tarih için gün planlayıcı, ay evreleri ve bu gecenin astronomik karanlık penceresi — ışık dönmeden önce bileğine nazik bir dokunuşla. Tüm hesaplamalar saatin üzerinde, çevrimdışı yapılır ve uygulama varsayılan olarak hiçbir ağ isteği yapmaz. Abonelik yok, asla."
-       data-de="Ein Lichtassistent, der auf Ihrer Apple Watch lebt. Countdowns für die goldene und die blaue Stunde, ein Live-Kompass für Sonne &amp; Mond, ein Tagesplaner für jedes Datum, Mondphasen und das heutige Fenster der astronomischen Dunkelheit — mit einem sanften Tippen am Handgelenk, bevor das Licht wechselt. Jede Berechnung läuft offline auf der Uhr, und ab Werk stellt die App überhaupt keine Netzwerkanfragen. Kein Abo, niemals."
-       data-ja="Apple Watchの中に住む光のアシスタントです。ゴールデンアワーとブルーアワーのカウントダウン、太陽と月のライブコンパス、任意の日付の一日プランナー、月相、そして今夜の天文薄明後の暗い時間帯 — 光が変わる前に、手首をそっとタップしてお知らせします。すべての計算は時計の上でオフラインに実行され、初期状態ではネットワーク通信を一切行いません。サブスクリプションは、ずっとありません。">
-    A light assistant that lives on your Apple Watch. Golden hour and blue hour countdowns, a live sun &amp; moon compass, a day planner for any date, moon phases and tonight's astro-darkness window — with a gentle tap on your wrist before the light turns. Every calculation runs offline on the watch, and by default the app makes no network requests at all. No subscription, ever.</p>
-  </div>
-
-  <div class="card">
-    <h2 data-en="Support" data-tr="Destek" data-de="Support" data-ja="サポート">Support</h2>
-    <p data-en="Questions, feature requests or a bug? Email us — we read everything:"
-       data-tr="Soru, özellik isteği ya da hata mı? E-posta gönder — hepsini okuyoruz:"
-       data-de="Fragen, Funktionswünsche oder ein Fehler? Schreiben Sie uns — wir lesen alles:"
-       data-ja="ご質問、ご要望、不具合のご報告はメールでどうぞ。すべて目を通しています。">
-       Questions, feature requests or a bug? Email us — we read everything:</p>
-    <p style="margin-top:8px"><a href="mailto:brkekahraman@icloud.com" style="color:var(--gold2)">brkekahraman@icloud.com</a></p>
-  </div>
-
-  <div class="card">
-    <h2 data-en="FAQ" data-tr="SSS" data-de="FAQ" data-ja="よくある質問">FAQ</h2>
-    <p data-en="• Does it need an iPhone? No — Daylume is a standalone watch app.&#10;• Does it work offline? Yes — every sun/moon calculation is done on the watch and your last location is remembered. By default Daylume makes no network requests at all; the one thing it can send is the optional place-name lookup to Apple's own geocoder (Settings &gt; Location, off by default).&#10;• Which watches? Apple Watch with watchOS 10 or later. The compass view uses built-in compass hardware (Series 5+).&#10;• Subscription? Never. One purchase, yours forever."
-       data-tr="• iPhone gerekir mi? Hayır — Daylume bağımsız bir saat uygulamasıdır.&#10;• Çevrimdışı çalışır mı? Evet — tüm güneş/ay hesapları saatte yapılır ve son konumun hatırlanır. Daylume varsayılan olarak hiçbir ağ isteği yapmaz; gönderebildiği tek şey, Apple'ın kendi coğrafi kodlayıcısına giden isteğe bağlı yer-adı sorgusudur (Ayarlar &gt; Konum, varsayılan kapalı).&#10;• Hangi saatler? watchOS 10 veya üzeri Apple Watch. Pusula görünümü yerleşik pusula donanımını kullanır (Series 5+).&#10;• Abonelik? Asla. Bir kez satın al, ömür boyu senin."
-       data-de="• Wird ein iPhone benötigt? Nein — Daylume ist eine eigenständige Watch-App.&#10;• Funktioniert es offline? Ja — jede Sonnen- und Mondberechnung läuft auf der Uhr, und Ihr letzter Standort wird gemerkt. Ab Werk stellt Daylume überhaupt keine Netzwerkanfragen; das Einzige, was es senden kann, ist die optionale Ortsnamen-Abfrage an Apples eigenen Geocoder (Einstellungen &gt; Standort, ab Werk aus).&#10;• Welche Uhren? Apple Watch mit watchOS 10 oder neuer. Die Kompassansicht nutzt den eingebauten Kompass (Series 5+).&#10;• Abo? Niemals. Einmal kaufen, für immer Ihres."
-       data-ja="• iPhoneは必要ですか？ いいえ — Daylumeは単独で動作するWatchアプリです。&#10;• オフラインでも動きますか？ はい — 太陽と月の計算はすべて時計の中で行われ、最後の位置情報は記憶されます。初期状態ではネットワーク通信を一切行いません。送信しうる唯一のものは、任意の地名検索（設定 &gt; 位置情報、初期状態はオフ）でApple自身のジオコーダーへ送られる座標だけです。&#10;• 対応する機種は？ watchOS 10以降のApple Watch。コンパス表示は内蔵のコンパス（Series 5以降）を使用します。&#10;• サブスクリプションは？ ありません。一度の購入で、ずっとあなたのものです。"
-       style="white-space:pre-line">• Does it need an iPhone? No — Daylume is a standalone watch app.
-• Does it work offline? Yes — every sun/moon calculation is done on the watch and your last location is remembered. By default Daylume makes no network requests at all; the one thing it can send is the optional place-name lookup to Apple's own geocoder (Settings &gt; Location, off by default).
-• Which watches? Apple Watch with watchOS 10 or later. The compass view uses built-in compass hardware (Series 5+).
-• Subscription? Never. One purchase, yours forever.</p>
-  </div>
-
-  <span class="badge" data-en="Privacy: Daylume collects no data. None."
-        data-tr="Gizlilik: Daylume hiçbir veri toplamaz. Hiç."
-        data-de="Datenschutz: Daylume erfasst keine Daten. Keine."
-        data-ja="プライバシー：Daylumeはデータを一切収集しません。ひとつも。">Privacy: Daylume collects no data. None.</span>
-
-  <div class="footer">
-    <a href="privacy.html" data-en="Privacy Policy" data-tr="Gizlilik Politikası"
-       data-de="Datenschutzerklärung" data-ja="プライバシーポリシー">Privacy Policy</a>
-    &nbsp;·&nbsp; © 2026 Berke Kahraman
-  </div>
-</div>
-<script>
-// data-en / data-tr içeriği YAZAR TARAFINDAN yazılır ve HTML içerebilir
-// (örn. gizlilik politikasına giden bir <a>). Eski sürüm `el.textContent`
-// atıyordu: metin geçiyordu ama İÇİNDEKİ İŞARETLEME SESSİZCE SİLİNİYORDU —
-// bir bağlantı eklendiği anda kaybolurdu ve hiçbir hata görünmezdi.
-// Doğrusu innerHTML'dir. Güvenlik notu: bu değerler kullanıcı girdisi
-// değildir, depodaki statik HTML'dendir; XSS yüzeyi yoktur. Bir gün
-// kullanıcı girdisi buraya bağlanırsa bu satır tekrar düşünülmelidir.
-function setLang(l){
-  document.querySelectorAll('[data-en]').forEach(function(el){
-    var v = el.getAttribute('data-' + l);
-    if (v === null) return;          // o dilde karşılığı yoksa olduğu gibi bırak
-    el.innerHTML = v;
-  });
-  document.getElementById('btn-en').classList.toggle('on', l==='en');
-  document.getElementById('btn-tr').classList.toggle('on', l==='tr');
-  document.getElementById('btn-de').classList.toggle('on', l==='de');
-  document.getElementById('btn-ja').classList.toggle('on', l==='ja');
-  document.documentElement.lang = l;
-}
-var nav = (navigator.language||'').toLowerCase();
-if (nav.startsWith('tr')) setLang('tr');
-else if (nav.startsWith('de')) setLang('de');
-else if (nav.startsWith('ja')) setLang('ja');
-</script>
-</body>
+      <a
+        data-en="View on the App Store"
+        data-tr="App Store’da görüntüle"
+        data-de="Im App Store ansehen"
+        data-ja="App Storeで見る"
+        class="cta"
+        href="https://apps.apple.com/app/id6796813768"
+        >View on the App Store</a
+      >
+      <section class="card">
+        <h2
+          data-en="Know when the light changes"
+          data-tr="Işığın ne zaman değişeceğini bil"
+          data-de="Wissen, wann das Licht wechselt"
+          data-ja="光が変わる時刻を知る"
+        >
+          Know when the light changes
+        </h2>
+        <p
+          data-en="Golden hour, blue hour, sunrise and sunset on your Apple Watch. Check the next light change, plan another date, and set a local reminder before you head out. Astronomical calculations run on the watch, even offline with a saved location."
+          data-tr="Altın saat, mavi saat, gün doğumu ve gün batımı Apple Watch’unda. Sonraki ışık değişimini gör, başka bir tarihi planla ve çıkmadan önce yerel hatırlatıcı ayarla. Astronomik hesaplar, kayıtlı konumla çevrimdışıyken de saatte yapılır."
+          data-de="Goldene Stunde, blaue Stunde, Sonnenaufgang und Sonnenuntergang auf Ihrer Apple Watch. Sehen Sie den nächsten Lichtwechsel, planen Sie ein anderes Datum und stellen Sie eine lokale Erinnerung ein. Astronomische Berechnungen laufen auf der Uhr, mit gespeichertem Standort auch offline."
+          data-ja="Apple Watchでゴールデンアワー、ブルーアワー、日の出、日の入りを確認。次の光の変化を見たり、別の日を計画したり、出発前の通知を設定できます。天文計算は時計上で実行し、保存した位置があればオフラインでも使えます。"
+        >
+          Golden hour, blue hour, sunrise and sunset on your Apple Watch. Check
+          the next light change, plan another date, and set a local reminder
+          before you head out. Astronomical calculations run on the watch, even
+          offline with a saved location.
+        </p>
+      </section>
+      <section class="card" id="coming-1-5">
+        <h2
+          data-en="Coming in Daylume 1.5: plan a shoot"
+          data-tr="Daylume 1.5 ile geliyor: çekim planı"
+          data-de="Demnächst in Daylume 1.5: Fotoplanung"
+          data-ja="Daylume 1.5で登場予定：撮影プラン"
+        >
+          Coming in Daylume 1.5: plan a shoot
+        </h2>
+        <p
+          data-en="Choose landscape, portrait or city photography. See a suggested golden or blue hour window with its start, end and a practical shooting tip. Preview a shareable plan before opening the system share sheet. The shared text leaves out your coordinates and place name. This update is awaiting release; these features are not in the current App Store version yet."
+          data-tr="Manzara, portre veya şehir çekimini seç. Başlangıcı, bitişi ve pratik çekim ipucuyla önerilen altın veya mavi saat aralığını gör. Sistem paylaşım ekranını açmadan önce planı incele. Paylaşım metni koordinatlarını ve yer adını içermez. Bu güncelleme henüz yayımlanmadı; özellikler mevcut App Store sürümünde bulunmuyor."
+          data-de="Wählen Sie Landschaft, Porträt oder Stadt. Erhalten Sie ein vorgeschlagenes Zeitfenster für goldenes oder blaues Licht mit Beginn, Ende und praktischem Fototipp. Prüfen Sie den Plan vor dem systemweiten Teilen. Koordinaten und Ortsname fehlen im geteilten Text. Das Update ist noch nicht veröffentlicht; diese Funktionen sind noch nicht in der aktuellen App-Store-Version verfügbar."
+          data-ja="風景、ポートレート、街の撮影から選択。おすすめのゴールデンアワーまたはブルーアワーを、開始・終了時刻と撮影のヒントで確認できます。システムの共有画面を開く前にプランを確認でき、共有文に座標や地名は含まれません。この更新は未公開で、現在のApp Store版にはまだ含まれていません。"
+        >
+          Choose landscape, portrait or city photography. See a suggested golden
+          or blue hour window with its start, end and a practical shooting tip.
+          Preview a shareable plan before opening the system share sheet. The
+          shared text leaves out your coordinates and place name. This update is
+          awaiting release; these features are not in the current App Store
+          version yet.
+        </p>
+      </section>
+      <section class="card">
+        <h2
+          data-en="Start free. Add Pro when you need it."
+          data-tr="Ücretsiz başla. Gerektiğinde Pro ekle."
+          data-de="Kostenlos starten. Bei Bedarf Pro ergänzen."
+          data-ja="無料で開始。必要に応じてProを追加。"
+        >
+          Start free. Add Pro when you need it.
+        </h2>
+        <p
+          data-en="Light times, the day planner, alerts and complications are free. Daylume Pro adds the live Sun/Moon compass and Moon and dark-sky planning. Choose a monthly or yearly auto-renewing subscription; the local price and period appear before purchase. Manage or cancel through your Apple Account. The new photo plans in 1.5 will also be free."
+          data-tr="Işık saatleri, gün planlayıcı, uyarılar ve komplikasyonlar ücretsizdir. Daylume Pro, canlı Güneş/Ay pusulasını ve Ay ile karanlık gökyüzü planlamasını açar. Aylık veya yıllık otomatik yenilenen abonelik seçebilirsin; yerel fiyat ve dönem satın almadan önce gösterilir. Apple Hesabından yönetebilir veya iptal edebilirsin. 1.5’teki yeni çekim planları da ücretsiz olacak."
+          data-de="Lichtzeiten, Tagesplaner, Hinweise und Komplikationen sind kostenlos. Daylume Pro ergänzt den Live-Kompass für Sonne und Mond sowie Mond- und Dunkelheitsplanung. Monatliche oder jährliche Abos verlängern sich automatisch; Preis und Laufzeit werden vor dem Kauf angezeigt. Verwalten oder kündigen Sie über Ihren Apple Account. Auch die neue Fotoplanung in 1.5 wird kostenlos sein."
+          data-ja="光の時刻、日別プラン、通知、コンプリケーションは無料です。Daylume Proでは太陽と月のライブコンパス、月と暗い空の計画を利用できます。月額または年額の自動更新サブスクリプションで、価格と期間は購入前に表示されます。Apple Accountから管理・解約できます。1.5の新しい撮影プランも無料です。"
+        >
+          Light times, the day planner, alerts and complications are free.
+          Daylume Pro adds the live Sun/Moon compass and Moon and dark-sky
+          planning. Choose a monthly or yearly auto-renewing subscription; the
+          local price and period appear before purchase. Manage or cancel
+          through your Apple Account. The new photo plans in 1.5 will also be
+          free.
+        </p>
+      </section>
+      <section class="card">
+        <h2
+          data-en="A plan for the light, not a weather forecast"
+          data-tr="Işık planı; hava durumu tahmini değil"
+          data-de="Astronomische Planung, keine Wettervorhersage"
+          data-ja="天文に基づく計画で、天気予報ではありません"
+        >
+          A plan for the light, not a weather forecast
+        </h2>
+        <p
+          data-en="Times are astronomical estimates shown in the watch’s time zone. Clouds, terrain and buildings can change the light you see. Near the poles, some events do not happen; Daylume shows that instead of inventing a time. The live compass needs compatible compass hardware and location permission."
+          data-tr="Saatler astronomik hesaplamalara dayanır ve saatin zaman diliminde gösterilir. Bulutlar, arazi ve binalar gördüğün ışığı değiştirebilir. Kutuplara yakın yerlerde bazı olaylar gerçekleşmez; Daylume hayalî bir saat vermek yerine bunu belirtir. Canlı pusula için uyumlu pusula donanımı ve konum izni gerekir."
+          data-de="Die berechneten Zeiten erscheinen in der Zeitzone Ihrer Uhr. Wolken, Gelände und Gebäude beeinflussen das sichtbare Licht. In Polnähe finden manche Ereignisse nicht statt; Daylume zeigt dies an, statt eine Uhrzeit zu erfinden. Der Live-Kompass benötigt passende Kompasshardware und Standortzugriff."
+          data-ja="計算した時刻は時計のタイムゾーンで表示します。雲、地形、建物は実際の光に影響します。極地付近で起こらない現象には、架空の時刻を表示しません。ライブコンパスには対応するコンパス機能と位置情報の許可が必要です。"
+        >
+          Times are astronomical estimates shown in the watch’s time zone.
+          Clouds, terrain and buildings can change the light you see. Near the
+          poles, some events do not happen; Daylume shows that instead of
+          inventing a time. The live compass needs compatible compass hardware
+          and location permission.
+        </p>
+      </section>
+      <section class="card" id="support">
+        <h2
+          data-en="Support"
+          data-tr="Destek"
+          data-de="Support"
+          data-ja="サポート"
+        >
+          Support
+        </h2>
+        <p
+          data-en="Need help with location, reminders or Pro? Read the practical support guide or contact the developer."
+          data-tr="Konum, hatırlatıcılar veya Pro için yardıma mı ihtiyacın var? Destek rehberini açabilir veya geliştiriciye yazabilirsin."
+          data-de="Hilfe zu Standort, Erinnerungen oder Pro? Lesen Sie die Anleitung oder schreiben Sie dem Entwickler."
+          data-ja="位置情報、通知、Proについてはサポートガイドをご覧いただくか、開発者にお問い合わせください。"
+        >
+          Need help with location, reminders or Pro? Read the practical support
+          guide or contact the developer.
+        </p>
+      </section>
+      <a
+        data-en="Open support guide"
+        data-tr="Destek rehberini aç"
+        data-de="Support-Anleitung öffnen"
+        data-ja="サポートガイドを開く"
+        href="support.html"
+        >Open support guide</a
+      >
+      <p>
+        <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a>
+      </p>
+      <p
+        data-en="No account or tracking server. Calculations stay on your watch; Apple purchases, optional place-name lookup and sharing may use the network."
+        data-tr="Hesap veya takip sunucusu yok. Hesaplamalar saatte yapılır; Apple satın almaları, isteğe bağlı yer adı araması ve paylaşım ağ kullanabilir."
+        data-de="Keine Konto- oder Trackingserver. Berechnungen bleiben auf Ihrer Uhr; Apple-Käufe, optionale Ortsnamen und das Teilen können eine Verbindung nutzen."
+        data-ja="アカウントや追跡用のサーバーはありません。計算は時計上で行い、Appleでの購入、任意の地名検索、共有には通信を使う場合があります。"
+        class="badge"
+      >
+        No account or tracking server. Calculations stay on your watch; Apple
+        purchases, optional place-name lookup and sharing may use the network.
+      </p>
+      <nav class="footer">
+        <a
+          data-en="Privacy"
+          data-tr="Gizlilik"
+          data-de="Datenschutz"
+          data-ja="プライバシー"
+          href="privacy.html"
+          >Privacy</a
+        >
+        ·
+        <a
+          data-en="Subscription terms"
+          data-tr="Abonelik koşulları"
+          data-de="Abonnementbedingungen"
+          data-ja="サブスクリプション条件"
+          href="terms.html"
+          >Subscription terms</a
+        >
+        · © 2026 Berke Kahraman
+      </nav>
+    </div>
+    <script>
+      // data-en / data-tr içeriği YAZAR TARAFINDAN yazılır ve HTML içerebilir
+      // (örn. gizlilik politikasına giden bir <a>). Eski sürüm `el.textContent`
+      // atıyordu: metin geçiyordu ama İÇİNDEKİ İŞARETLEME SESSİZCE SİLİNİYORDU —
+      // bir bağlantı eklendiği anda kaybolurdu ve hiçbir hata görünmezdi.
+      // Doğrusu innerHTML'dir. Güvenlik notu: bu değerler kullanıcı girdisi
+      // değildir, depodaki statik HTML'dendir; XSS yüzeyi yoktur. Bir gün
+      // kullanıcı girdisi buraya bağlanırsa bu satır tekrar düşünülmelidir.
+      function setLang(l) {
+        document.querySelectorAll("[data-en]").forEach(function (el) {
+          var v = el.getAttribute("data-" + l);
+          if (v === null) return; // o dilde karşılığı yoksa olduğu gibi bırak
+          el.innerHTML = v;
+        });
+        document.getElementById("btn-en").classList.toggle("on", l === "en");
+        document.getElementById("btn-tr").classList.toggle("on", l === "tr");
+        document.getElementById("btn-de").classList.toggle("on", l === "de");
+        document.getElementById("btn-ja").classList.toggle("on", l === "ja");
+        document.documentElement.lang = l;
+      }
+      var nav = (navigator.language || "").toLowerCase();
+      if (nav.startsWith("tr")) setLang("tr");
+      else if (nav.startsWith("de")) setLang("de");
+      else if (nav.startsWith("ja")) setLang("ja");
+    </script>
+  </body>
 </html>
