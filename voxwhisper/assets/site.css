@@ -260,3 +260,29 @@ footer {
     scroll-behavior: auto;
   }
 }
+
+.help {
+  max-width: 850px;
+}
+.help h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  letter-spacing: -1.5px;
+}
+.help .intro {
+  max-width: 680px;
+}
+.help h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 18px;
+}
+.help section {
+  scroll-margin-top: 24px;
+}
+.help-topics {
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-top: 28px;
+}
+.help-topics a {
+  padding: 10px 0;
+}
