@@ -36,7 +36,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 <div class="wrap">
   <p class="back"><a href="index.html">← VoxWhisper</a></p>
   <h1>Privacy Policy / Gizlilik Politikası</h1>
-  <p class="lang"><em>Last updated / Son güncelleme: August 1, 2026 · 1 Ağustos 2026</em><br>
+  <p class="lang"><em>Last updated / Son güncelleme: September 23, 2026 · 23 Eylül 2026</em><br>
   English below, Türkçesi aşağıda, Deutsch weiter unten, 日本語は最後にあります。
   All four versions say the same thing; if they ever differ, the English text is
   the reference. /
@@ -47,7 +47,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="en" style="border-top:none;padding-top:0">English</h2>
   <div class="sum">
-  <p><strong>VoxWhisper collects no data. None — we run no server and have no account system. Your text notes do sync, through your own iCloud, which we cannot read. Audio memos never sync at all.</strong></p>
+  <p><strong>VoxWhisper collects no data. None — we run no server and have no account system. Your text notes do sync, through your own iCloud, which we cannot read. Audio memos never go to iCloud or to us — with the iPhone app they are copied directly from your watch to your own iPhone.</strong></p>
   </div>
 
   <h3>Two kinds of capture, treated differently</h3>
@@ -64,11 +64,16 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   If you sign out of iCloud, notes stay on the watch and simply stop syncing.
   Deleting a note also publishes a deletion marker, so it does not come back
   from another device.</p>
-  <h3>2. Audio voice memos — these never sync</h3>
+  <h3>2. Audio voice memos — never to iCloud, never to us</h3>
   <p>Voice recordings are written as files into the app's own folder on the
   watch. They are <strong>never</strong> uploaded to iCloud, never sent to us,
-  never shared and never transcribed by anything of ours. They stay on the watch
-  until you delete them or delete the app.</p>
+  never shared and never transcribed by anything of ours. If you also install the
+  VoxWhisper iPhone app (version 1.8 or later), each memo is copied
+  <strong>directly from your watch to your paired iPhone</strong> over Apple's
+  WatchConnectivity link, so you can listen to it on the phone. That copy goes
+  device to device; no server of ours or anyone else's is involved. Deleting a
+  memo on the iPhone removes only the iPhone copy. Without the iPhone app, memos
+  stay on the watch until you delete them or delete the app.</p>
   <h3>Dictation</h3>
   <p>Speech-to-text is performed by <strong>watchOS itself</strong>, through the
   system text-input controller. VoxWhisper contains no speech-recognition code
@@ -94,7 +99,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <p>VoxWhisper contains no HTTP client, no sockets, no analytics and no
   third-party SDK. The single mechanism that moves anything off the watch is the
   iCloud key-value sync of text notes described above, and it is Apple's, not
-  ours.</p>
+  ours. Audio memos copied to your iPhone travel over Apple's direct
+  watch-to-iPhone link, which is also Apple's and never touches the internet
+  through us.</p>
 
 
   <h2 id="who-en">Who is responsible</h2>
@@ -116,8 +123,8 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     to state for us, because there is no processing by us.</li>
     <li><strong>Microphone permission</strong> — granted by you in the system
     prompt, revocable at any time in Settings; consent, GDPR Art. 6(1)(a) /
-    KVKK Art. 5(1). Recordings stay on the watch, so we do not process
-    them.</li>
+    KVKK Art. 5(1). Recordings stay on your watch and, if you use the iPhone
+    app, your iPhone, so we do not process them.</li>
     <li><strong>iCloud sync of text notes</strong> — this is your own iCloud
     storage under your own Apple Account, provided to you by Apple. Apple is the
     controller for that service; we are not, because we have no access to it and
@@ -216,7 +223,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="tr">Türkçe</h2>
   <div class="sum">
-  <p><strong>VoxWhisper hiçbir veri toplamaz. Hiç — sunucumuz da hesap sistemimiz de yoktur. Metin notların, okuyamadığımız kendi iCloud'un üzerinden eşitlenir. Sesli notlar hiç eşitlenmez.</strong></p>
+  <p><strong>VoxWhisper hiçbir veri toplamaz. Hiç — sunucumuz da hesap sistemimiz de yoktur. Metin notların, okuyamadığımız kendi iCloud'un üzerinden eşitlenir. Sesli notlar asla iCloud'a ya da bize gitmez — iPhone uygulamasıyla doğrudan saatinden kendi iPhone'una kopyalanır.</strong></p>
   </div>
 
   <h3>İki tür yakalama, iki ayrı muamele</h3>
@@ -233,11 +240,16 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   bulunmaz. iCloud'dan çıkarsan notlar saatte kalır, yalnızca eşitleme durur. Bir
   notu sildiğinde bir silme işareti de yayımlanır; böylece başka bir cihazdan
   geri gelmez.</p>
-  <h3>2. Sesli notlar — bunlar hiç eşitlenmez</h3>
+  <h3>2. Sesli notlar — asla iCloud'a, asla bize</h3>
   <p>Ses kayıtları saatteki kendi klasörüne dosya olarak yazılır.
   <strong>Asla</strong> iCloud'a yüklenmez, bize gönderilmez, paylaşılmaz ve
-  bize ait hiçbir şey tarafından metne çevrilmez. Sen silene ya da uygulamayı
-  kaldırana kadar saatte kalırlar.</p>
+  bize ait hiçbir şey tarafından metne çevrilmez. VoxWhisper iPhone uygulamasını
+  da (1.8 veya sonrası) kurarsan her sesli not, telefonda dinleyebilmen için
+  Apple'ın WatchConnectivity bağlantısıyla <strong>doğrudan saatinden eşli
+  iPhone'una</strong> kopyalanır. Bu kopya cihazdan cihaza gider; arada bizim ya
+  da bir başkasının sunucusu yoktur. iPhone'da bir sesli notu silmek yalnızca
+  iPhone'daki kopyayı siler. iPhone uygulaması yoksa sesli notlar, sen silene ya
+  da uygulamayı kaldırana kadar saatte kalır.</p>
   <h3>Dikte</h3>
   <p>Konuşmayı metne çevirme işini sistem metin girişi denetleyicisi üzerinden
   <strong>watchOS'un kendisi</strong> yapar. VoxWhisper'da konuşma tanıma kodu
@@ -260,7 +272,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <h3>Ağ kullanımı</h3>
   <p>VoxWhisper'da HTTP istemcisi, soket, analitik ve üçüncü taraf SDK yoktur.
   Saatten bir şey çıkaran tek mekanizma, yukarıda anlatılan metin notların
-  iCloud anahtar-değer eşitlemesidir; o da Apple'ındır, bizim değil.</p>
+  iCloud anahtar-değer eşitlemesidir; o da Apple'ındır, bizim değil. iPhone'una
+  kopyalanan sesli notlar Apple'ın saat–iPhone arasındaki doğrudan bağlantısını
+  kullanır; o da Apple'ındır ve bizim üzerimizden internete çıkmaz.</p>
 
 
   <h2 id="who-tr">Veri sorumlusu kim</h2>
@@ -282,7 +296,8 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     işleme olmadığı için belirtilecek bir hukuki sebep de yoktur.</li>
     <li><strong>Mikrofon izni</strong> — sistem isteminde sen verirsin,
     Ayarlar'dan istediğin an geri alırsın; bu rızadır (KVKK m.5/1, GDPR
-    m.6(1)(a)). Kayıtlar saatte kalır, dolayısıyla onları biz işlemeyiz.</li>
+    m.6(1)(a)). Kayıtlar saatinde ve iPhone uygulamasını kullanıyorsan
+    iPhone'unda kalır, dolayısıyla onları biz işlemeyiz.</li>
     <li><strong>Metin notların iCloud eşitlemesi</strong> — bu, kendi Apple
     Hesabın altındaki, Apple'ın sana sunduğu kendi iCloud alanındır. O servisin
     veri sorumlusu Apple'dır; biz değiliz, çünkü erişimimiz yok ve oradan bize
@@ -384,7 +399,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="de">Deutsch</h2>
   <div class="sum">
-  <p><strong>VoxWhisper erfasst keine Daten. Keine — wir betreiben keinen Server und haben kein Konto-System. Ihre Textnotizen werden allerdings synchronisiert, und zwar über Ihre eigene iCloud, die wir nicht lesen können. Sprachnotizen werden überhaupt nie synchronisiert.</strong></p>
+  <p><strong>VoxWhisper erfasst keine Daten. Keine — wir betreiben keinen Server und haben kein Konto-System. Ihre Textnotizen werden allerdings synchronisiert, und zwar über Ihre eigene iCloud, die wir nicht lesen können. Sprachnotizen gelangen nie in iCloud oder zu uns — mit der iPhone-App werden sie direkt von Ihrer Uhr auf Ihr eigenes iPhone kopiert.</strong></p>
   </div>
 
   <h3>Zwei Arten der Erfassung, unterschiedlich behandelt</h3>
@@ -403,11 +418,17 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   iCloud abmelden, bleiben die Notizen auf der Uhr und werden einfach nicht mehr
   synchronisiert. Beim Löschen einer Notiz wird zusätzlich eine Löschmarkierung
   veröffentlicht, damit sie nicht von einem anderen Gerät zurückkommt.</p>
-  <h3>2. Sprachnotizen — diese synchronisieren nie</h3>
+  <h3>2. Sprachnotizen — nie in iCloud, nie zu uns</h3>
   <p>Sprachaufnahmen werden als Dateien im eigenen Ordner der App auf der Uhr
   abgelegt. Sie werden <strong>nie</strong> in iCloud hochgeladen, nie an uns
-  gesendet, nie geteilt und von nichts, was uns gehört, transkribiert. Sie
-  bleiben auf der Uhr, bis Sie sie löschen oder die App löschen.</p>
+  gesendet, nie geteilt und von nichts, was uns gehört, transkribiert. Wenn Sie
+  zusätzlich die VoxWhisper-App fürs iPhone (ab Version 1.8) installieren, wird
+  jede Sprachnotiz über Apples WatchConnectivity-Verbindung <strong>direkt von
+  Ihrer Uhr auf Ihr gekoppeltes iPhone</strong> kopiert, damit Sie sie dort
+  anhören können. Diese Kopie geht von Gerät zu Gerät; kein Server von uns oder
+  von anderen ist beteiligt. Das Löschen auf dem iPhone entfernt nur die Kopie
+  auf dem iPhone. Ohne die iPhone-App bleiben Sprachnotizen auf der Uhr, bis Sie
+  sie löschen oder die App löschen.</p>
   <h3>Diktat</h3>
   <p>Die Umwandlung von Sprache in Text übernimmt <strong>watchOS
   selbst</strong>, über den Texteingabe-Controller des Systems. VoxWhisper
@@ -434,7 +455,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <p>VoxWhisper enthält keinen HTTP-Client, keine Sockets, keine Analyse und
   kein SDK von Dritten. Der einzige Mechanismus, der überhaupt etwas von der Uhr
   bewegt, ist die oben beschriebene iCloud-Schlüssel-Wert-Synchronisierung der
-  Textnotizen — und die gehört Apple, nicht uns.</p>
+  Textnotizen — und die gehört Apple, nicht uns. Sprachnotizen, die auf Ihr
+  iPhone kopiert werden, laufen über Apples direkte Verbindung zwischen Uhr und
+  iPhone, die ebenfalls Apple gehört und nie über uns ins Internet geht.</p>
 
   <h2 id="who-de">Wer ist verantwortlich</h2>
   <p><strong>Berke Kahraman</strong> — ein in der Türkei eingetragener
@@ -459,7 +482,8 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     <li><strong>Mikrofonberechtigung</strong> — von Ihnen im Systemdialog
     erteilt, jederzeit in den Einstellungen widerrufbar; Einwilligung,
     Art. 6 Abs. 1 lit. a DSGVO / KVKK Art. 5 Abs. 1. Die Aufnahmen bleiben auf
-    der Uhr, wir verarbeiten sie also nicht.</li>
+    Ihrer Uhr und, wenn Sie die iPhone-App nutzen, auf Ihrem iPhone; wir
+    verarbeiten sie also nicht.</li>
     <li><strong>iCloud-Synchronisierung der Textnotizen</strong> — das ist Ihr
     eigener iCloud-Speicher unter Ihrem eigenen Apple-Account, den Apple Ihnen
     bereitstellt. Für diesen Dienst ist Apple der Verantwortliche; wir sind es
@@ -574,7 +598,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
     <h2 id="ja">日本語</h2>
   <div class="sum">
-  <p><strong>VoxWhisperは個人情報を一切収集しません。ひとつもです — 当方はサーバーを運用しておらず、アカウントの仕組みも持っていません。テキストメモはご自身のiCloudを通じて同期されますが、当方はそれを読むことができません。ボイスメモはまったく同期されません。</strong></p>
+  <p><strong>VoxWhisperは個人情報を一切収集しません。ひとつもです — 当方はサーバーを運用しておらず、アカウントの仕組みも持っていません。テキストメモはご自身のiCloudを通じて同期されますが、当方はそれを読むことができません。ボイスメモがiCloudや当方に送られることはありません。iPhoneアプリをお使いの場合は、時計からご自身のiPhoneへ直接コピーされます。</strong></p>
   </div>
 
   <h3>2種類の記録は、扱いが異なります</h3>
@@ -590,11 +614,15 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   当方が持つ鍵もなく、あなたのメモを読む・一覧する・復元する手段もありません。iCloudから
   サインアウトすると、メモは時計に残ったまま、同期だけが止まります。メモを削除すると
   削除マーカーも公開されるため、他の端末から復活することはありません。</p>
-  <h3>2. ボイスメモ — これは決して同期されません</h3>
+  <h3>2. ボイスメモ — iCloudにも当方にも送られません</h3>
   <p>録音は、時計上のアプリ自身のフォルダにファイルとして書き込まれます。iCloudに
   アップロードされることは<strong>決してなく</strong>、当方に送られることも、共有される
-  ことも、当方の何かによって文字起こしされることもありません。あなたが削除するか、
-  アプリを削除するまで、時計の中に留まります。</p>
+  ことも、当方の何かによって文字起こしされることもありません。VoxWhisperのiPhoneアプリ
+  （バージョン1.8以降）もインストールした場合、各ボイスメモはiPhoneで再生できるよう、
+  AppleのWatchConnectivity接続を通じて<strong>時計からペアリング済みのiPhoneへ直接</strong>
+  コピーされます。このコピーは端末から端末へ直接届き、当方や第三者のサーバーは介在しません。
+  iPhoneでボイスメモを削除しても、消えるのはiPhone上のコピーだけです。iPhoneアプリが
+  ない場合、ボイスメモはあなたが削除するか、アプリを削除するまで時計の中に留まります。</p>
   <h3>音声入力について</h3>
   <p>音声からテキストへの変換は、システムのテキスト入力コントローラを通じて
   <strong>watchOS自身</strong>が行います。VoxWhisperには音声認識のコードがなく、
@@ -619,7 +647,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <h3>ネットワークの利用</h3>
   <p>VoxWhisperにはHTTPクライアントも、ソケットも、解析も、第三者のSDKもありません。
   時計の外へ何かを動かす仕組みは、上に書いたテキストメモのiCloudキー値同期ただひとつで、
-  それはAppleのものであって当方のものではありません。</p>
+  それはAppleのものであって当方のものではありません。iPhoneへコピーされるボイスメモは、
+  時計とiPhoneを直接結ぶAppleの接続を使います。これもAppleのものであり、当方を経由して
+  インターネットに出ることはありません。</p>
 
   <h2 id="who-ja">個人情報取扱事業者（管理者）</h2>
   <p>VoxWhisperを開発・提供しているのは<strong>Berke Kahraman</strong>（トルコで登録された
@@ -643,7 +673,8 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     ありません。</li>
     <li><strong>マイクの許可</strong> — システムのダイアログでお客様が与えるもので、
     「設定」からいつでも取り消せます。これは同意（GDPR第6条1項(a)／KVKK第5条1項）に
-    当たります。録音は時計に留まるため、当方がこれを取り扱うことはありません。</li>
+    当たります。録音はお客様の時計と、iPhoneアプリをお使いの場合はお客様のiPhoneに留まるため、
+    当方がこれを取り扱うことはありません。</li>
     <li><strong>テキストメモのiCloud同期</strong> — これはお客様ご自身のApple Accountの
     もとでAppleがお客様に提供する、お客様ご自身のiCloudストレージです。このサービスに
     ついての管理者はAppleであって当方ではありません。当方はそこにアクセスできず、そこから
