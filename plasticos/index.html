@@ -1,93 +1,450 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PlasticOS — Surgical Atlas</title>
-<meta name="description" content="PlasticOS is the plastic surgery residency curriculum as a searchable atlas: 86 procedures and 122 topics, entirely offline. Surgical Atlas.">
-<link rel="canonical" href="https://berkemd.github.io/wristsuite/plasticos/index.html">
-<meta name="theme-color" content="#0a0f1c">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="PlasticOS">
-<meta property="og:title" content="PlasticOS — Surgical Atlas">
-<meta property="og:url" content="https://berkemd.github.io/wristsuite/plasticos/index.html">
-<meta property="og:description" content="PlasticOS is the plastic surgery residency curriculum as a searchable atlas: 86 procedures and 122 topics, entirely offline. Surgical Atlas.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PlasticOS — Surgical Atlas">
-<meta name="twitter:description" content="PlasticOS is the plastic surgery residency curriculum as a searchable atlas: 86 procedures and 122 topics, entirely offline. Surgical Atlas.">
-<style>
-:root{--zemin:#0a0f1c;--yuzey:#111827;--cizgi:#1f2a3f;--vurgu:#7fa6db;
-      --metin:#e8eef7;--ikincil:#a8b4c8;--ucuncul:#6b7688}
-*{box-sizing:border-box}
-body{background:var(--zemin);color:var(--metin);line-height:1.7;margin:0;
-     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.wrap{max-width:700px;margin:0 auto;padding:44px 24px 80px}
-h1{font-size:1.6rem;margin:0 0 6px;letter-spacing:-.01em}
-h2{font-size:1.15rem;color:var(--vurgu);margin:34px 0 10px;
-   border-top:1px solid var(--cizgi);padding-top:22px}
-h3{font-size:1rem;color:var(--metin);margin:20px 0 4px}
-p,li{color:var(--ikincil);font-size:.95rem}
-a{color:var(--vurgu)}
-.back{font-size:.85rem}
-.sum{background:var(--yuzey);border:1px solid var(--cizgi);
-     border-left:3px solid var(--vurgu);border-radius:12px;padding:14px 18px;margin:18px 0}
-.sum p{margin:0 0 8px}.sum p:last-child{margin:0}
-.lang{font-size:.85rem;color:var(--ucuncul);margin:0 0 18px}
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--cizgi);color:var(--ikincil)}
-th{color:var(--metin);font-weight:600}
-code{background:#16203a;padding:1px 5px;border-radius:5px;font-size:.85em;color:var(--metin)}
-.foot{margin-top:38px;color:var(--ucuncul);font-size:.8rem;
-      border-top:1px solid var(--cizgi);padding-top:18px}
-</style>
-</head>
-<body><div class="wrap">
-
-<h1>PlasticOS</h1>
-<p>The plastic surgery residency curriculum as an atlas you can actually search —
-86 procedures, 122 topics by training level, and it all works with the aeroplane
-mode switch on.</p>
-<div class="sum">
-<p><strong>No account. No server. No analytics. Nothing to sign up for and nothing
-to sign out of.</strong></p>
-</div>
-<h2>What is inside</h2>
-<ul>
-  <li><strong>86 procedures</strong> — anatomy before you scrub, operative steps,
-      hazards and how they are avoided, outcomes.</li>
-  <li><strong>122 curriculum topics</strong> organised by training level, PGY-1
-      through PGY-6.</li>
-  <li><strong>Consult</strong> — a search that returns <em>cited passages from the
-      atlas</em>, as you type. It retrieves; it does not generate text. Ask it what
-      to do for a specific patient and it declines, and says why.</li>
-  <li>Case studies, decision algorithms and anatomy visualisations.</li>
-  <li>Everything ships inside the app and is available offline.</li>
-</ul>
-<h2>Measured, not promised</h2>
-<p>Consult is scored before every release against 91 realistic clinical questions
-(plus 11 the atlas must refuse). Version 1.1: the right procedure came first
-98.9% of the time and was in the top three every time; on a separate set the
-search had never seen, 96.7% and 100%. Questions the atlas cannot answer return
-nothing, with the unrecognised words listed — never the closest weak match.
-A citation gate fails the build if any passage ships without its reference.</p>
-<h2>Plans</h2>
-<p>PGY-1 topics are free, permanently. Resident and Fellow unlock the rest;
-Lifetime is a one-time purchase. Details and the cancellation terms are on the
-<a href="terms.html">subscription terms page</a>. Residency programmes can license
-seats for their trainees by invoice — <a href="mailto:brkekahraman@icloud.com">write to us</a>.</p>
-<h2>Pages</h2>
-<ul>
-  <li><a href="support.html">Support</a></li>
-  <li><a href="privacy.html">Privacy Policy</a></li>
-  <li><a href="terms.html">Subscription Terms</a></li>
-  <li><a href="https://apps.apple.com/app/id6799756600">PlasticOS on the App Store</a></li>
-</ul>
-<h2>Who it is for</h2>
-<p>Plastic surgery residents and fellows. PlasticOS is a study and reference tool.
-It is not a medical device, it does not diagnose or treat anyone, and it does not
-replace supervision, institutional protocol or clinical judgement.</p>
-
-<p class="foot">PlasticOS · Berke Kahraman · <a href="mailto:brkekahraman@icloud.com">brkekahraman@icloud.com</a><br>
-Last updated / Son güncelleme / Última actualización: September 3, 2026 · 3 Eylül 2026 · 3 de septiembre de 2026</p>
-</div></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlasticOS — Surgical study, one question at a time</title>
+    <meta
+      name="description"
+      content="Review surgical topics with questions, explanations and spaced repetition. Explore the free review workflow in PlasticOS."
+    />
+    <link
+      rel="canonical"
+      href="https://berkemd.github.io/wristsuite/plasticos/"
+    />
+    <meta name="theme-color" content="#f5f6f8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PlasticOS" />
+    <meta
+      property="og:title"
+      content="PlasticOS — Surgical study, one question at a time"
+    />
+    <meta
+      property="og:url"
+      content="https://berkemd.github.io/wristsuite/plasticos/"
+    />
+    <meta
+      property="og:description"
+      content="Open a question, read the explanation and rate how well you recalled it. Explore spaced review in PlasticOS."
+    />
+    <meta name="twitter:card" content="summary" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #182236;
+        --muted: #525e70;
+        --blue: #204eb1;
+        --line: #d8dfe8;
+        --paper: #f5f6f8;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.65;
+      }
+      a {
+        color: var(--blue);
+        text-underline-offset: 0.2em;
+      }
+      a:hover {
+        text-decoration-thickness: 2px;
+      }
+      a:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 5px;
+      }
+      .wrap {
+        width: min(1120px, calc(100% - 48px));
+        margin-inline: auto;
+      }
+      .skip {
+        position: absolute;
+        top: -80px;
+        left: 16px;
+        padding: 10px 16px;
+        background: white;
+        z-index: 2;
+      }
+      .skip:focus {
+        top: 12px;
+      }
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding-block: 28px;
+        border-bottom: 1px solid var(--line);
+      }
+      .brand {
+        font-size: 1.25rem;
+        font-weight: 750;
+        letter-spacing: -0.04em;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      nav {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+      nav a {
+        color: var(--muted);
+      }
+      .hero {
+        padding-block: 64px 72px;
+      }
+      .eyebrow {
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        margin: 0 0 22px;
+      }
+      h1 {
+        font-size: clamp(2.4rem, 4.3vw, 3.6rem);
+        line-height: 1.1;
+        letter-spacing: -0.05em;
+        font-weight: 720;
+        margin: 0 0 24px;
+        max-width: 20ch;
+      }
+      .intro {
+        font-size: 1.15rem;
+        color: var(--muted);
+        max-width: 45ch;
+        margin: 0 0 28px;
+      }
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 12px 24px;
+        border-radius: 10px;
+        color: white;
+        background: var(--blue);
+        font-weight: 650;
+        text-decoration: none;
+      }
+      .cta:hover {
+        background: #163b8d;
+      }
+      .small {
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .hero-copy > .small {
+        margin-top: 12px;
+      }
+      .section {
+        padding-block: 40px;
+        border-top: 1px solid var(--line);
+      }
+      h2 {
+        font-size: 1.55rem;
+        line-height: 1.3;
+        letter-spacing: -0.025em;
+        margin: 0 0 24px;
+      }
+      h3 {
+        font-size: 1.1rem;
+        margin: 0 0 8px;
+        line-height: 1.4;
+      }
+      .steps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .step-number {
+        display: block;
+        color: var(--blue);
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+      .steps p {
+        color: var(--muted);
+        margin: 0;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
+      .split p {
+        color: var(--muted);
+        max-width: 52ch;
+      }
+      .split h2 {
+        margin-bottom: 14px;
+      }
+      .languages {
+        padding-top: 12px;
+      }
+      details {
+        border-top: 1px solid var(--line);
+        padding-block: 18px;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 650;
+        padding-block: 6px;
+      }
+      details p,
+      details ol {
+        max-width: 72ch;
+        color: var(--muted);
+      }
+      details li {
+        margin-block: 8px;
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding-block: 30px 40px;
+        margin-top: 24px;
+      }
+      footer p {
+        color: var(--muted);
+        font-size: 0.8rem;
+        margin: 18px 0 0;
+      }
+      @media (max-width: 720px) {
+        .wrap {
+          width: calc(100% - 40px);
+        }
+        header {
+          padding-block: 20px;
+          gap: 16px;
+        }
+        nav {
+          gap: 16px;
+        }
+        .hero {
+          padding-block: 40px;
+        }
+        h1 {
+          max-width: 15ch;
+          font-size: clamp(2.4rem, 9vw, 3.5rem);
+        }
+        .intro {
+          font-size: 1.05rem;
+        }
+        .steps,
+        .split {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+        .step-number {
+          margin-bottom: 8px;
+        }
+        .section {
+          padding-block: 32px;
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="./" aria-label="PlasticOS home">PlasticOS</a>
+        <nav aria-label="Page navigation">
+          <a href="#review">How review works</a>
+          <a href="#languages">TR / ES</a>
+        </nav>
+      </header>
+      <main id="main">
+        <section class="hero" aria-labelledby="headline">
+          <div class="hero-copy">
+            <p class="eyebrow">For plastic surgery trainees</p>
+            <h1 id="headline">Surgical study, one question at a time.</h1>
+            <p class="intro">
+              Open a study question, check the explanation and decide how well
+              you recalled it. PlasticOS keeps your review progress on your
+              device so you can return to it.
+            </p>
+            <a
+              class="cta"
+              href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_srs_20260923&amp;mt=8"
+              >View on the App Store</a
+            >
+            <p class="small">Free study content. Optional paid plans.</p>
+          </div>
+        </section>
+        <section class="section" id="review" aria-labelledby="review-title">
+          <h2 id="review-title">A review session, in three steps</h2>
+          <p class="small">A preview of the free spaced-repetition workflow.</p>
+          <ol class="steps">
+            <li>
+              <span class="step-number" aria-hidden="true">01</span>
+              <h3>Try a question</h3>
+              <p>
+                Open Spaced Repetition from Learn. Give yourself a moment to
+                recall the answer.
+              </p>
+            </li>
+            <li>
+              <span class="step-number" aria-hidden="true">02</span>
+              <h3>Read the explanation</h3>
+              <p>
+                Reveal the answer and its explanation before choosing your
+                rating.
+              </p>
+            </li>
+            <li>
+              <span class="step-number" aria-hidden="true">03</span>
+              <h3>Rate your recall</h3>
+              <p>
+                Tap Again, Hard, Good or Easy to record how well you recalled it
+                and move to the next card. Your progress stays on this device.
+              </p>
+            </li>
+          </ol>
+        </section>
+        <section
+          class="section split"
+          aria-label="About PlasticOS and its plans"
+        >
+          <div>
+            <h2>A study companion</h2>
+            <p>
+              PlasticOS brings surgical study topics, an atlas search and review
+              questions into one app. Use it for learning and revision alongside
+              your training.
+            </p>
+            <p>
+              It is an educational reference, not a tool for diagnosing or
+              treating patients. It does not replace supervision or your
+              institution’s protocols.
+            </p>
+          </div>
+          <div>
+            <h2>Start with the free content</h2>
+            <p>
+              Selected PGY-1 study topics are available for free. Resident and
+              Fellow subscriptions expand access.
+            </p>
+            <p>
+              See the current prices and plan details in the app. Review the
+              <a href="terms.html">subscription terms</a> before choosing a
+              plan.
+            </p>
+          </div>
+        </section>
+        <section
+          class="languages"
+          id="languages"
+          aria-label="Türkçe ve español"
+        >
+          <details lang="tr">
+            <summary>
+              Türkçe — Her seferinde bir soruyla cerrahi çalışın
+            </summary>
+            <p>
+              Bir çalışma sorusunu açın, cevabın açıklamasını okuyun ve ne kadar
+              iyi hatırladığınızı seçin. PlasticOS tekrar ilerlemenizi
+              cihazınızda saklar.
+            </p>
+            <p>Ücretsiz aralıklı tekrar akışına kısa bir bakış.</p>
+            <ol>
+              <li>
+                Learn bölümünden Spaced Repetition’ı açıp soruyu yanıtlamayı
+                deneyin.
+              </li>
+              <li>Cevabı ve açıklamasını okuyun.</li>
+              <li>
+                Again, Hard, Good veya Easy ile hatırlama düzeyinizi kaydedip
+                sonraki karta geçin.
+              </li>
+            </ol>
+            <p>
+              Seçili PGY-1 çalışma konuları ücretsizdir. Resident ve Fellow
+              abonelikleri erişimi genişletir. Güncel fiyatlar uygulamadadır.
+            </p>
+            <p>
+              PlasticOS eğitim ve tekrar içindir; hasta tanı veya tedavisinde
+              kullanılmaz, gözetimin ve kurum protokollerinin yerini almaz.
+            </p>
+            <p>
+              <a
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_srs_20260923&amp;mt=8"
+                lang="tr"
+                >App Store’da inceleyin</a
+              >
+              · <a href="support.html">Destek</a> ·
+              <a href="terms.html">Abonelik koşulları</a>
+            </p>
+          </details>
+          <details lang="es">
+            <summary>Español — Estudia cirugía, una pregunta a la vez</summary>
+            <p>
+              Abre una pregunta de estudio, lee la explicación y elige cuánto
+              recordabas. PlasticOS guarda tu progreso de repaso en el
+              dispositivo.
+            </p>
+            <p>Un vistazo al flujo gratuito de repetición espaciada.</p>
+            <ol>
+              <li>
+                Abre Spaced Repetition desde Learn e intenta recordar la
+                respuesta.
+              </li>
+              <li>Consulta la respuesta y su explicación.</li>
+              <li>
+                Elige Again, Hard, Good o Easy para registrar tu recuerdo y
+                pasar a la siguiente tarjeta.
+              </li>
+            </ol>
+            <p>
+              Algunos temas de PGY-1 son gratuitos. Las suscripciones Resident y
+              Fellow amplían el acceso. Consulta los precios actuales en la app.
+            </p>
+            <p>
+              PlasticOS es una ayuda de estudio. No sirve para diagnosticar o
+              tratar pacientes ni sustituye la supervisión o los protocolos de
+              tu institución.
+            </p>
+            <p>
+              <a
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_srs_20260923&amp;mt=8"
+                lang="es"
+                >Ver en el App Store</a
+              >
+              · <a href="support.html">Soporte</a> ·
+              <a href="terms.html">Condiciones de suscripción</a>
+            </p>
+          </details>
+        </section>
+      </main>
+      <footer>
+        <nav aria-label="Support and legal">
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Subscription terms</a>
+          <a href="mailto:brkekahraman@icloud.com">Contact the developer</a>
+        </nav>
+        <p>
+          PlasticOS · Berke Kahraman<br />Updated / Güncellendi / Actualizado:
+          23 September 2026
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>
