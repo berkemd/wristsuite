@@ -36,7 +36,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 <div class="wrap">
   <p class="back"><a href="index.html">← Trailhome</a></p>
   <h1>Privacy Policy / Gizlilik Politikası</h1>
-  <p class="lang"><em>Last updated / Son güncelleme: August 1, 2026 · 1 Ağustos 2026</em><br>
+  <p class="lang"><em>Last updated / Son güncelleme: September 24, 2026 · 24 Eylül 2026</em><br>
   English below, Türkçesi aşağıda, Deutsch weiter unten, 日本語は最後にあります。
   All four versions say the same thing; if they ever differ, the English text is
   the reference. /
@@ -47,7 +47,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="en" style="border-top:none;padding-top:0">English</h2>
   <div class="sum">
-  <p><strong>Trailhome collects no data. None. It records a breadcrumb trail so it can point you back — in the watch's memory, not on a server, and not even on disk. Nothing it touches ever leaves the watch.</strong></p>
+  <p><strong>Trailhome collects no data. None. It records a breadcrumb trail so it can point you back — in the watch's memory, not on a server, and not even on disk. Your trail never leaves the watch. From version 1.6 there is one optional switch — the forecast — which, only if you turn it on, asks Apple Weather for the forecast at your position.</strong></p>
   </div>
 
   <h3>What Trailhome asks for</h3>
@@ -92,11 +92,17 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     <li>Your settings: units, extra buffer minutes, storm and daylight alert
     switches.</li>
   </ul>
-  <h3>Network use: none, at all</h3>
-  <p>Trailhome contains no networking code of any kind — no HTTP client, no
-  sockets, no map tile download, no iCloud sync, no analytics and no third-party
-  SDK. Bearing, distance and daylight are computed on the watch. There is no
-  optional switch that changes this.</p>
+  <h3>Network use: none, unless you turn on the forecast</h3>
+  <p>Trailhome has no HTTP client of its own, no sockets, no map tile download,
+  no iCloud sync, no analytics and no third-party SDK. Bearing, distance,
+  daylight and the barometer storm watch are computed on the watch.</p>
+  <p><strong>Forecast (optional, version 1.6 and later).</strong> It is
+  <strong>off</strong> until you turn it on, on the Sky page or in Settings.
+  While it is on and the app is open, Trailhome asks Apple's WeatherKit service
+  for the hourly forecast at your current position — at most once an hour and
+  eight times a day. The request goes from your watch to Apple, under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>;
+  it never reaches us, and Apple does not tell us who asked. Your trail is not
+  sent. Turn the switch off and no request is made again.</p>
 
 
   <h2 id="who-en">Who is responsible</h2>
@@ -211,7 +217,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="tr">Türkçe</h2>
   <div class="sum">
-  <p><strong>Trailhome hiçbir veri toplamaz. Hiç. Seni geri götürebilmek için bir iz kaydı tutar — sunucuda değil, diskte bile değil, saatin belleğinde. Dokunduğu hiçbir şey saatten çıkmaz.</strong></p>
+  <p><strong>Trailhome hiçbir veri toplamaz. Hiç. Seni geri götürebilmek için bir iz kaydı tutar — sunucuda değil, diskte bile değil, saatin belleğinde. İzin saatten hiç çıkmaz. 1.6 sürümünden itibaren isteğe bağlı tek bir anahtar var — hava tahmini — ve yalnız sen açarsan, konumunun tahminini Apple Hava Durumu'ndan ister.</strong></p>
   </div>
 
   <h3>Trailhome ne istiyor</h3>
@@ -254,11 +260,18 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     <li>Ayarların: birim, ek tampon dakikası, fırtına ve gün ışığı uyarı
     anahtarları.</li>
   </ul>
-  <h3>Ağ kullanımı: hiç yok</h3>
-  <p>Trailhome'da hiçbir türde ağ kodu yoktur — HTTP istemcisi yok, soket yok,
-  harita karosu indirme yok, iCloud eşitlemesi yok, analitik yok, üçüncü taraf
-  SDK yok. Yön, mesafe ve gün ışığı saatin üzerinde hesaplanır. Bunu
-  değiştirecek isteğe bağlı bir anahtar da yoktur.</p>
+  <h3>Ağ kullanımı: hava tahminini açmadıkça hiç yok</h3>
+  <p>Trailhome'un kendine ait HTTP istemcisi, soketi, harita karosu indirmesi,
+  iCloud eşitlemesi, analitiği ya da üçüncü taraf SDK'sı yoktur. Yön, mesafe,
+  gün ışığı ve barometreyle fırtına takibi saatin üzerinde hesaplanır.</p>
+  <p><strong>Hava tahmini (isteğe bağlı, 1.6 ve sonrası).</strong> Sen Gök
+  sayfasından ya da Ayarlar'dan açana kadar <strong>kapalıdır</strong>. Açıkken
+  ve uygulama ekrandayken Trailhome, bulunduğun konum için saatlik tahmini
+  Apple'ın WeatherKit servisinden ister — saatte en çok bir, günde en çok sekiz
+  kez. İstek saatinden Apple'a gider ve
+  <a href="https://www.apple.com/legal/privacy/">Apple'ın gizlilik
+  politikasına</a> tabidir; bize hiç ulaşmaz ve Apple kimin sorduğunu bize
+  bildirmez. İzin gönderilmez. Anahtarı kapattığında bir daha istek yapılmaz.</p>
 
 
   <h2 id="who-tr">Veri sorumlusu kim</h2>
@@ -375,7 +388,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="de">Deutsch</h2>
   <div class="sum">
-  <p><strong>Trailhome erfasst keine Daten. Keine. Die App zeichnet eine Brotkrumenspur auf, um Ihnen den Weg zurück zeigen zu können — im Arbeitsspeicher der Uhr, nicht auf einem Server und nicht einmal auf dem Datenträger. Nichts, was sie berührt, verlässt jemals die Uhr.</strong></p>
+  <p><strong>Trailhome erfasst keine Daten. Keine. Die App zeichnet eine Brotkrumenspur auf, um Ihnen den Weg zurück zeigen zu können — im Arbeitsspeicher der Uhr, nicht auf einem Server und nicht einmal auf dem Datenträger. Ihre Spur verlässt nie die Uhr. Ab Version 1.6 gibt es einen einzigen optionalen Schalter — die Vorhersage —, der nur dann, wenn Sie ihn einschalten, bei Apple Wetter die Vorhersage für Ihre Position abruft.</strong></p>
   </div>
 
   <h3>Worum Trailhome bittet</h3>
@@ -424,12 +437,21 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     <li>Ihre Einstellungen: Einheiten, Extra-Puffer in Minuten, Schalter für
     Sturm- und Tageslichtwarnungen.</li>
   </ul>
-  <h3>Netzwerknutzung: überhaupt keine</h3>
-  <p>Trailhome enthält keinerlei Netzwerkcode — keinen HTTP-Client, keine
-  Sockets, keinen Kartenkachel-Download, keine iCloud-Synchronisierung, keine
-  Analyse und kein SDK von Dritten. Peilung, Entfernung und Tageslicht werden
-  auf der Uhr berechnet. Es gibt keinen optionalen Schalter, der daran etwas
-  ändert.</p>
+  <h3>Netzwerknutzung: keine, außer Sie schalten die Vorhersage ein</h3>
+  <p>Trailhome hat keinen eigenen HTTP-Client, keine Sockets, keinen
+  Kartenkachel-Download, keine iCloud-Synchronisierung, keine Analyse und kein
+  SDK von Dritten. Peilung, Entfernung, Tageslicht und die Sturmwarnung per
+  Barometer werden auf der Uhr berechnet.</p>
+  <p><strong>Vorhersage (optional, ab Version 1.6).</strong> Sie ist
+  <strong>aus</strong>, bis Sie sie auf der Himmel-Seite oder in den
+  Einstellungen einschalten. Solange sie an ist und die App geöffnet ist, ruft
+  Trailhome beim Apple-Dienst WeatherKit die stündliche Vorhersage für Ihre
+  aktuelle Position ab — höchstens einmal pro Stunde und achtmal am Tag. Die
+  Anfrage geht von Ihrer Uhr an Apple und unterliegt der
+  <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von
+  Apple</a>; sie erreicht uns nie, und Apple teilt uns nicht mit, wer gefragt
+  hat. Ihre Spur wird nicht gesendet. Schalten Sie sie aus, erfolgt keine
+  Anfrage mehr.</p>
 
   <h2 id="who-de">Wer ist verantwortlich</h2>
   <p><strong>Berke Kahraman</strong> — ein in der Türkei eingetragener
@@ -560,7 +582,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
     <h2 id="ja">日本語</h2>
   <div class="sum">
-  <p><strong>Trailhomeは個人情報を一切収集しません。ひとつもです。帰り道を示せるように軌跡（パンくず）を記録しますが、それは時計のメモリの中であって、サーバー上でも、ディスク上ですらありません。Trailhomeが触れるものが時計の外に出ることはありません。</strong></p>
+  <p><strong>Trailhomeは個人情報を一切収集しません。ひとつもです。帰り道を示せるように軌跡（パンくず）を記録しますが、それは時計のメモリの中であって、サーバー上でも、ディスク上ですらありません。軌跡が時計の外に出ることはありません。バージョン1.6からは任意のスイッチがひとつだけあります — 予報です。オンにした場合に限り、現在地の予報をAppleの天気に問い合わせます。</strong></p>
   </div>
 
   <h3>Trailhomeが求める許可</h3>
@@ -598,10 +620,16 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     気圧トレンドの区分、残りの距離、そしてタイムスタンプ。<strong>座標は含まれません。</strong></li>
     <li>設定：単位、追加の余裕（分）、荒天と明るさの警告のオンオフ。</li>
   </ul>
-  <h3>ネットワークの利用：一切なし</h3>
-  <p>Trailhomeにはいかなる種類のネットワークコードもありません。HTTPクライアントも、
-  ソケットも、地図タイルのダウンロードも、iCloud同期も、解析も、第三者のSDKもありません。
-  方位、距離、明るさは時計の中で計算されます。これを変える任意のスイッチもありません。</p>
+  <h3>ネットワークの利用：予報をオンにしない限り一切なし</h3>
+  <p>Trailhomeには独自のHTTPクライアントも、ソケットも、地図タイルのダウンロードも、
+  iCloud同期も、解析も、第三者のSDKもありません。方位、距離、明るさ、気圧計による荒天監視は
+  時計の中で計算されます。</p>
+  <p><strong>予報（任意、バージョン1.6以降）。</strong>空のページまたは設定でオンにするまで
+  <strong>オフ</strong>です。オンでアプリを開いている間、Trailhomeは現在地の1時間ごとの予報を
+  AppleのWeatherKitサービスに問い合わせます（1時間に1回、1日8回まで）。この通信は時計から
+  Appleへ直接送られ、<a href="https://www.apple.com/legal/privacy/">Appleのプライバシー
+  ポリシー</a>に従います。私たちには届かず、誰が問い合わせたかをAppleが私たちに伝えることも
+  ありません。軌跡は送信されません。オフにすれば、以後の問い合わせは行われません。</p>
 
   <h2 id="who-ja">個人情報取扱事業者（管理者）</h2>
   <p>Trailhomeを開発・提供しているのは<strong>Berke Kahraman</strong>（トルコで登録された
