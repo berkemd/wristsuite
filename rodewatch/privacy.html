@@ -36,7 +36,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 <div class="wrap">
   <p class="back"><a href="index.html">← Rodewatch</a></p>
   <h1>Privacy Policy / Gizlilik Politikası</h1>
-  <p class="lang"><em>Last updated / Son güncelleme: August 1, 2026 · 1 Ağustos 2026</em><br>
+  <p class="lang"><em>Last updated / Son güncelleme: September 24, 2026 · 24 Eylül 2026</em><br>
   English below, Türkçesi aşağıda, Deutsch weiter unten, 日本語は最後にあります。
   All four versions say the same thing; if they ever differ, the English text is
   the reference. /
@@ -47,7 +47,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="en" style="border-top:none;padding-top:0">English</h2>
   <div class="sum">
-  <p><strong>Rodewatch collects no data. None. It watches your anchor with continuous GPS all night, on the watch, and tells nobody — there is no network code in the app at all.</strong></p>
+  <p><strong>Rodewatch collects no data. None. It watches your anchor with continuous GPS all night, on the watch, and tells nobody. The anchor alarm never uses the network. From version 1.7 there is one optional switch — the wind forecast — which, only if you turn it on, asks Apple Weather for the forecast at your position.</strong></p>
   </div>
 
   <h3>What Rodewatch asks for</h3>
@@ -86,11 +86,21 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     memory only</strong>, for the life of the session. They are not written to
     disk and cannot be recovered afterwards.</li>
   </ul>
-  <h3>Network use: none, at all</h3>
-  <p>Rodewatch contains no networking code of any kind — no HTTP client, no
-  sockets, no chart download, no iCloud sync, no analytics, no third-party SDK,
-  and no AIS or fleet-tracking feature. Rodewatch never sends your position
-  anywhere on its own, and there is no optional switch that changes this.</p>
+  <h3>Network use: none, unless you turn on the wind forecast</h3>
+  <p>Rodewatch has no HTTP client of its own, no sockets, no chart download, no
+  iCloud sync, no analytics, no third-party SDK and no AIS or fleet-tracking
+  feature. The anchor alarm, swing map, race timer and man-overboard work
+  entirely on the watch.</p>
+  <p><strong>Wind forecast (optional, version 1.7 and later).</strong> It is
+  <strong>off</strong> until you turn it on, on the anchor screen or in
+  Settings. While it is on and the app is open, Rodewatch asks Apple's
+  WeatherKit service for the hourly wind forecast at your current position —
+  at most once an hour and eight times a day. The request goes from your watch
+  to Apple, under
+  <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>;
+  it never reaches us, and Apple does not tell us who asked. Nothing else is
+  sent: not your track, not the anchor position you set, not your settings.
+  Turn the switch off and no request is made again.</p>
 
   <h3>The one way data can leave: you export it</h3>
   <p>The night report has an <strong>Export GPX</strong> button. Tapping it
@@ -214,7 +224,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="tr">Türkçe</h2>
   <div class="sum">
-  <p><strong>Rodewatch hiçbir veri toplamaz. Hiç. Demirini bütün gece kesintisiz GPS ile izler; bunu saatin üzerinde yapar ve kimseye söylemez — uygulamada hiç ağ kodu yoktur.</strong></p>
+  <p><strong>Rodewatch hiçbir veri toplamaz. Hiç. Demirini bütün gece kesintisiz GPS ile izler; bunu saatin üzerinde yapar ve kimseye söylemez. Çapa alarmı ağı hiç kullanmaz. 1.7 sürümünden itibaren isteğe bağlı tek bir anahtar var — rüzgâr tahmini — ve yalnız sen açarsan, konumunun tahminini Apple Hava Durumu'ndan ister.</strong></p>
   </div>
 
   <h3>Rodewatch ne istiyor</h3>
@@ -251,11 +261,20 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     tutulur</strong>, seans süresince. Diske yazılmaz ve sonradan geri
     getirilemez.</li>
   </ul>
-  <h3>Ağ kullanımı: hiç yok</h3>
-  <p>Rodewatch'ta hiçbir türde ağ kodu yoktur — HTTP istemcisi yok, soket yok,
-  harita indirme yok, iCloud eşitlemesi yok, analitik yok, üçüncü taraf SDK yok,
-  AIS ya da filo takibi özelliği yok. Rodewatch konumunu kendiliğinden hiçbir
-  yere göndermez ve bunu değiştirecek isteğe bağlı bir anahtar da yoktur.</p>
+  <h3>Ağ kullanımı: rüzgâr tahminini açmadıkça hiç yok</h3>
+  <p>Rodewatch'un kendine ait HTTP istemcisi, soketi, harita indirmesi, iCloud
+  eşitlemesi, analitiği, üçüncü taraf SDK'sı, AIS ya da filo takibi özelliği
+  yoktur. Çapa alarmı, salınım haritası, yarış sayacı ve denize adam düştü
+  tamamen saatin üzerinde çalışır.</p>
+  <p><strong>Rüzgâr tahmini (isteğe bağlı, 1.7 ve sonrası).</strong> Sen çapa
+  ekranından ya da Ayarlar'dan açana kadar <strong>kapalıdır</strong>. Açıkken
+  ve uygulama ekrandayken Rodewatch, bulunduğun konum için saatlik rüzgâr
+  tahminini Apple'ın WeatherKit servisinden ister — saatte en çok bir, günde en
+  çok sekiz kez. İstek saatinden Apple'a gider ve
+  <a href="https://www.apple.com/legal/privacy/">Apple'ın gizlilik
+  politikasına</a> tabidir; bize hiç ulaşmaz ve Apple kimin sorduğunu bize
+  bildirmez. Başka hiçbir şey gönderilmez: izin, belirlediğin çapa konumu ya da
+  ayarların gitmez. Anahtarı kapattığında bir daha istek yapılmaz.</p>
 
   <h3>Verinin çıkabileceği tek yol: sen dışa aktarırsan</h3>
   <p>Gece raporunda bir <strong>GPX olarak dışa aktar</strong> düğmesi var.
@@ -381,7 +400,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
   <h2 id="de">Deutsch</h2>
   <div class="sum">
-  <p><strong>Rodewatch erfasst keine Daten. Keine. Die App überwacht Ihren Anker die ganze Nacht mit durchgehendem GPS, auf der Uhr, und erzählt es niemandem — in der App steckt überhaupt kein Netzwerkcode.</strong></p>
+  <p><strong>Rodewatch erfasst keine Daten. Keine. Die App überwacht Ihren Anker die ganze Nacht mit durchgehendem GPS, auf der Uhr, und erzählt es niemandem. Der Ankeralarm nutzt nie das Netzwerk. Ab Version 1.7 gibt es einen einzigen optionalen Schalter — die Windvorhersage —, der nur dann, wenn Sie ihn einschalten, bei Apple Wetter die Vorhersage für Ihre Position abruft.</strong></p>
   </div>
 
   <h3>Worum Rodewatch bittet</h3>
@@ -426,12 +445,23 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     werden nicht auf den Datenträger geschrieben und können danach nicht
     wiederhergestellt werden.</li>
   </ul>
-  <h3>Netzwerknutzung: überhaupt keine</h3>
-  <p>Rodewatch enthält keinerlei Netzwerkcode — keinen HTTP-Client, keine
-  Sockets, keinen Seekarten-Download, keine iCloud-Synchronisierung, keine
-  Analyse, kein SDK von Dritten und keine AIS- oder Flotten-Tracking-Funktion.
-  Ihre Position wird nie gesendet, geteilt oder veröffentlicht. Es gibt keinen
-  optionalen Schalter, der daran etwas ändert.</p>
+  <h3>Netzwerknutzung: keine, außer Sie schalten die Windvorhersage ein</h3>
+  <p>Rodewatch hat keinen eigenen HTTP-Client, keine Sockets, keinen
+  Seekarten-Download, keine iCloud-Synchronisierung, keine Analyse, kein SDK
+  von Dritten und keine AIS- oder Flotten-Tracking-Funktion. Ankeralarm,
+  Schwoikreis-Karte, Starttimer und Mann-über-Bord laufen vollständig auf der
+  Uhr.</p>
+  <p><strong>Windvorhersage (optional, ab Version 1.7).</strong> Sie ist
+  <strong>aus</strong>, bis Sie sie auf dem Ankerbildschirm oder in den
+  Einstellungen einschalten. Solange sie an ist und die App geöffnet ist, ruft
+  Rodewatch beim Apple-Dienst WeatherKit die stündliche Windvorhersage für Ihre
+  aktuelle Position ab — höchstens einmal pro Stunde und achtmal am Tag. Die
+  Anfrage geht von Ihrer Uhr an Apple und unterliegt der
+  <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von
+  Apple</a>; sie erreicht uns nie, und Apple teilt uns nicht mit, wer gefragt
+  hat. Sonst wird nichts gesendet: weder Ihr Track noch die gesetzte
+  Ankerposition noch Ihre Einstellungen. Schalten Sie sie aus, erfolgt keine
+  Anfrage mehr.</p>
 
   <h2 id="who-de">Wer ist verantwortlich</h2>
   <p><strong>Berke Kahraman</strong> — ein in der Türkei eingetragener
@@ -563,7 +593,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 
     <h2 id="ja">日本語</h2>
   <div class="sum">
-  <p><strong>Rodewatchは個人情報を一切収集しません。ひとつもです。一晩中、連続したGPSで錨泊を監視しますが、その処理はすべて時計の中で行われ、どこにも知らせません — アプリにはネットワークのコードがそもそも入っていません。</strong></p>
+  <p><strong>Rodewatchは個人情報を一切収集しません。ひとつもです。一晩中、連続したGPSで錨泊を監視しますが、その処理はすべて時計の中で行われ、どこにも知らせません。錨アラームがネットワークを使うことはありません。バージョン1.7からは任意のスイッチがひとつだけあります — 風の予報です。オンにした場合に限り、現在地の予報をAppleの天気に問い合わせます。</strong></p>
   </div>
 
   <h3>Rodewatchが求める許可</h3>
@@ -596,11 +626,17 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     <li><strong>錨の位置と落水者マークはメモリ上にのみ保持され</strong>、セッションの間だけ
     存在します。ディスクには書き込まれず、あとから復元することはできません。</li>
   </ul>
-  <h3>ネットワークの利用：一切なし</h3>
-  <p>Rodewatchにはいかなる種類のネットワークコードもありません。HTTPクライアントも、
-  ソケットも、海図のダウンロードも、iCloud同期も、解析も、第三者のSDKも、AISや船隊追跡の
-  機能もありません。あなたの位置が送信・共有・公開されることはありません。これを変える
-  任意のスイッチもありません。</p>
+  <h3>ネットワークの利用：風の予報をオンにしない限り一切なし</h3>
+  <p>Rodewatchには独自のHTTPクライアントも、ソケットも、海図のダウンロードも、iCloud同期も、
+  解析も、第三者のSDKも、AISや船隊追跡の機能もありません。錨アラーム、振れ回りマップ、
+  スタートタイマー、落水者機能はすべて時計の中だけで動作します。</p>
+  <p><strong>風の予報（任意、バージョン1.7以降）。</strong>錨泊画面または設定でオンにするまで
+  <strong>オフ</strong>です。オンでアプリを開いている間、Rodewatchは現在地の1時間ごとの風の
+  予報をAppleのWeatherKitサービスに問い合わせます（1時間に1回、1日8回まで）。この通信は
+  時計からAppleへ直接送られ、<a href="https://www.apple.com/legal/privacy/">Appleの
+  プライバシーポリシー</a>に従います。私たちには届かず、誰が問い合わせたかをAppleが私たちに
+  伝えることもありません。航跡、設定した錨の位置、設定内容など、それ以外は何も送信されません。
+  オフにすれば、以後の問い合わせは行われません。</p>
 
   <h2 id="who-ja">個人情報取扱事業者（管理者）</h2>
   <p>Rodewatchを開発・提供しているのは<strong>Berke Kahraman</strong>（トルコで登録された
