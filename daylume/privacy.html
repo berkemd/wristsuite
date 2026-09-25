@@ -120,7 +120,8 @@
       <p class="back"><a href="index.html">← Daylume</a></p>
       <h1>Privacy Policy / Gizlilik Politikası</h1>
       <p class="lang">
-        <em>Last updated / Son güncelleme: September 5, 2026 · 5 Eylül 2026</em
+        <em
+          >Last updated / Son güncelleme: September 25, 2026 · 25 Eylül 2026</em
         ><br />
         English below, Türkçesi aşağıda, Deutsch weiter unten,
         日本語は最後にあります。 All four versions say the same thing; if they
@@ -134,8 +135,10 @@
       <h2 id="en" style="border-top: none; padding-top: 0">English</h2>
       <div class="sum">
         <p>
-          No account or tracking server. Calculations stay on your watch; Apple
-          purchases, optional place-name lookup and sharing may use the network.
+          No Daylume account or tracking server. Sun and Moon calculations run
+          on your watch. Sky forecasts send coordinates to Apple Weather and
+          require the network. Apple purchases, optional place-name lookup and
+          sharing may also use the network.
         </p>
       </div>
       <h3>On your watch</h3>
@@ -154,6 +157,20 @@
         the cached name. Without a connection, the app can calculate using its
         saved location.
       </p>
+      <h3>Sky forecasts with Apple Weather</h3>
+      <p>
+        When the app has a current or saved location, it automatically requests
+        hourly forecasts of cloud cover and the chance of rain from Apple
+        Weather using WeatherKit. The request includes those coordinates and the
+        forecast time range. Forecast results are held in app memory; a daily
+        request counter is stored locally to limit requests. These requests go
+        to Apple, not to a server operated by the developer.
+      </p>
+      <p>
+        There is no separate forecast switch; turning off place-name lookup only
+        disables geocoding. Forecast requests can still use the saved location.
+        Without internet, Sun and Moon calculations can use the saved location.
+      </p>
       <h3>Apple services and purchases</h3>
       <p>
         Sun and Moon calculations do not require a server. StoreKit may contact
@@ -163,7 +180,7 @@
         information needed to unlock Pro; we do not operate a payment or
         purchase-validation server.
       </p>
-      <h3>Sharing in the upcoming 1.5 update</h3>
+      <h3>Sharing</h3>
       <p>
         Sharing is optional. You first see the complete message: photo goal,
         light phase, date and time interval, watch time zone and an App Store
@@ -354,9 +371,10 @@
       <h2 id="tr">Türkçe</h2>
       <div class="sum">
         <p>
-          Hesap veya takip sunucusu yok. Hesaplamalar saatte yapılır; Apple
-          satın almaları, isteğe bağlı yer adı araması ve paylaşım ağ
-          kullanabilir.
+          Daylume hesabı veya takip sunucusu yok. Güneş ve Ay hesapları saatte
+          yapılır. Gökyüzü tahminleri koordinatları Apple Weather’a gönderir ve
+          ağ bağlantısı gerektirir. Apple satın almaları, isteğe bağlı yer adı
+          araması ve paylaşım da ağ kullanabilir.
         </p>
       </div>
       <h3>Saatinde saklananlar</h3>
@@ -374,6 +392,21 @@
         Apple’ın coğrafi kodlama servisine gönderilir. Kapatmak önbellekteki adı
         siler. Bağlantı yokken uygulama kayıtlı konumla hesap yapabilir.
       </p>
+      <h3>Apple Weather ile gökyüzü tahminleri</h3>
+      <p>
+        Uygulama güncel veya kayıtlı bir konuma sahipse WeatherKit üzerinden
+        Apple Weather’dan saatlik bulut örtüsü ve yağış olasılığı tahminlerini
+        otomatik olarak ister. İstek, bu koordinatları ve tahminin zaman
+        aralığını içerir. Tahmin sonuçları uygulama belleğinde tutulur;
+        istekleri sınırlamak için günlük bir istek sayacı yerel olarak saklanır.
+        Bu istekler geliştiricinin işlettiği bir sunucuya değil, Apple’a gider.
+      </p>
+      <p>
+        Tahminler için ayrı bir kapatma anahtarı yoktur; yer adı aramasını
+        kapatmak yalnızca coğrafi kodlamayı kapatır. Tahmin istekleri kayıtlı
+        konumu kullanmaya devam edebilir. İnternet yokken Güneş ve Ay hesapları
+        kayıtlı konumla yapılabilir.
+      </p>
       <h3>Apple servisleri ve satın almalar</h3>
       <p>
         Güneş ve Ay hesapları sunucu gerektirmez. StoreKit abonelik ürünlerini
@@ -383,7 +416,7 @@
         gerekli işlem bilgisini alır; ödeme veya satın alma doğrulama sunucumuz
         yoktur.
       </p>
-      <h3>Yaklaşan 1.5 güncellemesinde paylaşım</h3>
+      <h3>Paylaşım</h3>
       <p>
         Paylaşım isteğe bağlıdır. Önce metnin tamamını görürsün: çekim hedefi,
         ışık evresi, tarih ve saat aralığı, saatin zaman dilimi ve App Store
@@ -575,9 +608,11 @@
       <h2 id="de">Deutsch</h2>
       <div class="sum">
         <p>
-          Keine Konto- oder Trackingserver. Berechnungen bleiben auf Ihrer Uhr;
-          Apple-Käufe, optionale Ortsnamen und das Teilen können eine Verbindung
-          nutzen.
+          Kein Daylume-Konto und kein Trackingserver. Sonnen- und
+          Mondberechnungen erfolgen auf Ihrer Uhr. Wettervorhersagen senden
+          Koordinaten an Apple Weather und benötigen eine Netzwerkverbindung.
+          Apple-Käufe, optionale Ortsnamen und das Teilen können ebenfalls eine
+          Verbindung nutzen.
         </p>
       </div>
       <h3>Auf Ihrer Uhr</h3>
@@ -596,6 +631,22 @@
         Ausschalten löscht den gespeicherten Namen. Ohne Verbindung kann die App
         mit dem gespeicherten Standort rechnen.
       </p>
+      <h3>Wettervorhersagen mit Apple Weather</h3>
+      <p>
+        Wenn ein aktueller oder gespeicherter Standort vorliegt, ruft die App
+        automatisch über WeatherKit stündliche Vorhersagen zur Bewölkung und
+        Regenwahrscheinlichkeit von Apple Weather ab. Die Anfrage enthält diese
+        Koordinaten und den Vorhersagezeitraum. Vorhersageergebnisse bleiben im
+        Arbeitsspeicher der App; ein täglicher Anfragezähler wird lokal
+        gespeichert, um Anfragen zu begrenzen. Die Anfragen gehen an Apple,
+        nicht an einen vom Entwickler betriebenen Server.
+      </p>
+      <p>
+        Für Vorhersagen gibt es keinen eigenen Schalter; das Ausschalten der
+        Ortsnamensuche deaktiviert nur die Geokodierung. Vorhersageanfragen
+        können weiterhin den gespeicherten Standort verwenden. Ohne Internet
+        können Sonnen- und Mondberechnungen den gespeicherten Standort nutzen.
+      </p>
       <h3>Apple-Dienste und Käufe</h3>
       <p>
         Sonnen- und Mondberechnungen benötigen keinen Server. StoreKit kann
@@ -605,7 +656,7 @@
         die für Pro benötigten Transaktionsinformationen; wir betreiben keinen
         Zahlungs- oder Kaufprüfungsserver.
       </p>
-      <h3>Teilen im kommenden Update 1.5</h3>
+      <h3>Teilen</h3>
       <p>
         Teilen ist optional. Zuerst sehen Sie die vollständige Nachricht:
         Fotoziel, Lichtphase, Datum und Zeitfenster, Zeitzone der Uhr und
@@ -818,7 +869,8 @@
       <h2 id="ja">日本語</h2>
       <div class="sum">
         <p>
-          アカウントや追跡用のサーバーはありません。計算は時計上で行い、Appleでの購入、任意の地名検索、共有には通信を使う場合があります。
+          Daylumeのアカウントや追跡用サーバーはありません。太陽と月の計算は時計上で行います。空の予報では座標をApple
+          Weatherに送信するため、通信が必要です。Appleでの購入、任意の地名検索、共有にも通信を使う場合があります。
         </p>
       </div>
       <h3>時計に保存する情報</h3>
@@ -829,11 +881,19 @@
       <p>
         位置情報の許可は太陽と月の現象を計算するために使います。地名検索は初期設定でオフです。設定から有効にすると座標をAppleのジオコーディングサービスに送信します。オフにすると保存した地名を削除します。接続がなくても保存した位置で計算できます。
       </p>
+      <h3>Apple Weatherによる空の予報</h3>
+      <p>
+        現在または保存済みの位置情報がある場合、アプリはWeatherKitを通じてApple
+        Weatherから1時間ごとの雲量と降水確率の予報を自動で取得します。リクエストには座標と予報の対象時間帯が含まれます。予報結果はアプリのメモリ内に保持し、リクエストを制限するための1日ごとの回数カウンターを端末内に保存します。これらのリクエストは開発者のサーバーではなくAppleへ送信します。
+      </p>
+      <p>
+        予報専用のオフスイッチはありません。地名検索をオフにしても、停止するのはジオコーディングだけです。予報のリクエストには保存済みの位置情報を引き続き使用する場合があります。インターネット接続がなくても、太陽と月の計算には保存済みの位置情報を使えます。
+      </p>
       <h3>Appleのサービスと購入</h3>
       <p>
         太陽と月の計算にサーバーは不要です。StoreKitはサブスクリプション情報の取得、購入の処理・復元、利用資格の確認のためAppleと通信する場合があります。Appleは独自のプライバシー条件で購入情報を扱います。アプリはProを有効にするための取引情報を受け取りますが、当方は決済や購入検証のサーバーを運用しません。
       </p>
-      <h3>今後の1.5更新での共有</h3>
+      <h3>共有</h3>
       <p>
         共有は任意です。最初に撮影の目的、光の状態、日付と時間帯、時計のタイムゾーン、App
         Storeへのリンクを含む全文を確認できます。座標や地名は含みません。続行するとwatchOSと選んだアプリまたは送信先がそれぞれの条件で文章を扱います。プレビューを見るだけでは送信しません。
