@@ -8,7 +8,7 @@
 <meta property="og:site_name" content="Rodewatch">
 <meta property="og:title" content="Rodewatch — the anchor alarm that can prove it was watching">
 <meta property="og:url" content="https://berkemd.github.io/wristsuite/rodewatch/">
-<meta property="og:description" content="Counts the minutes the watch was blind. Draws the arc you actually swung. Exports the night as GPX. Apple Watch, fully offline.">
+<meta property="og:description" content="Counts the minutes the watch was blind. Draws the arc you actually swung. Exports the night as GPX. Tells you tonight's strongest gust. Apple Watch; the alarm works fully offline.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Rodewatch — the anchor alarm that can prove it was watching">
 <meta name="twitter:description" content="Counts the minutes the watch was blind. Draws the arc you actually swung. Exports the night as GPX.">
@@ -20,7 +20,7 @@
  "description":"Anchor watch for Apple Watch with drag alarm, race start sequences and man overboard. The Night Report records the minutes the watch lost its GPS fix, the arc the boat actually swung, and exports the night as GPX.",
  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
  "author":{"@type":"Person","name":"Berke Kahraman"},
- "featureList":["Anchor drag alarm","Swing map","Scope helper","Race start sequence","Man overboard","Night Report with blind-minute count","GPX export","Fully offline — no networking code"]}
+ "featureList":["Anchor drag alarm","Swing map","Scope helper","Race start sequence","Man overboard","Night Report with blind-minute count","GPX export","Optional wind forecast: tonight's strongest gust and wind shifts (Apple Weather)","Anchor alarm works fully offline"]}
 </script>
 <style>
 :root{--bg:#0b0b14;--ink:#f3f0ea;--dim:#b9b5c8;--acc:#3ee0f8;--line:#23203a;--card:#14131f}
@@ -99,6 +99,7 @@ sell.</p>
 <tr><td>Scope helper</td><td class="y">✓</td><td></td></tr>
 <tr><td>Race start (5-3-1, haptic, sync-to-minute)</td><td class="y">✓</td><td></td></tr>
 <tr><td>Man overboard — bearing and distance back</td><td class="y">✓</td><td></td></tr>
+<tr><td>Wind tonight — strongest gust, when, and wind shifts (optional)</td><td class="y">✓</td><td></td></tr>
 <tr><td>Morning summary: furthest, average, alarms, duration</td><td class="y">✓</td><td></td></tr>
 <tr><td>Minutes the watch was blind</td><td></td><td class="y">Pro</td></tr>
 <tr><td>True swung arc and circle usage</td><td></td><td class="y">Pro</td></tr>
@@ -107,11 +108,15 @@ sell.</p>
 <p>The alarm is a safety feature. Putting a safety feature behind a paywall is a
 decision we were not willing to make, so we didn’t.</p>
 
-<h2>Private because there is no code to send anything</h2>
-<p>Rodewatch contains <strong>no networking code of any kind</strong>. Not “we
-don’t sell your data” — there is no HTTP client, no socket, no analytics, no
-third-party SDK, no AIS or fleet-tracking feature. Your position cannot leave the
-watch, because nothing in the app can transmit it. No account, no sign-in.</p>
+<h2>Private by default</h2>
+<p>The anchor alarm, swing map, race timer and man-overboard <strong>never use
+the network</strong>. There is no HTTP client of our own, no analytics, no
+third-party SDK, no AIS or fleet-tracking feature, no account and no sign-in.
+Nothing leaves the watch on its own.</p>
+<p>The one exception is a switch you have to turn on: the <strong>wind
+forecast</strong> (version 1.7). When it is on and the app is open, the watch asks
+Apple Weather for the forecast at your position — at most once an hour. The
+request goes to Apple, never to us; your track and anchor position are not sent.</p>
 <p><a href="privacy.html">Full privacy policy</a></p>
 
 <h2>Honest limits</h2>
