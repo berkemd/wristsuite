@@ -133,8 +133,13 @@
           system-ui;
         color: var(--sis);
       }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1.3rem;
+      }
       nav a {
-        margin-right: 1.3rem;
+        margin: 0;
       }
       small {
         color: var(--sis);
@@ -156,27 +161,28 @@
           Write to
           <a href="mailto:brkekahraman@icloud.com?subject=Support%3A%20Stemmata"
             >brkekahraman@icloud.com</a
-          >. Every message gets an answer, usually within two business days.
+          >
+          for help with Stemmata.
         </p>
         <p>
-          To make the answer useful, please include your device model, the iOS
-          version, the app version, and — if it is about a particular work — its
-          DOI.
+          To make the answer useful, please include your device model, the
+          operating system version, the app version, and — if it is about a
+          particular work — its DOI.
         </p>
       </div>
 
       <h2>Why does a paper say “metadata only” when I can read it online?</h2>
       <p>
-        Readable and mineable are different permissions. A paper can be free to
-        read while its publisher has reserved text-and-data-mining rights.
-        Stemmata reports the second, and shows the licence or opt-out clause the
-        decision came from.
+        The label reflects the licence and access information in the source
+        record imported into Stemmata. It is not a check of the publisher's
+        current website or proof of what you are allowed to do with a paper.
+        Open the DOI link to check the original source and its current terms.
       </p>
 
       <h2>What does “the reservation set is stale” mean?</h2>
       <p>
-        Permission decisions rest on publisher opt-out data that has a date.
-        When that data is more than 180 days old, the card says so rather than
+        Access classifications use publisher opt-out data that has a date. When
+        that data is more than 180 days old, the card says so rather than
         presenting an old answer as a current one. The decision remains visible,
         together with the age of the underlying data.
       </p>
@@ -187,28 +193,28 @@
       <p>
         Local library search runs entirely on your device and covers the
         metadata and any text you have imported. It cannot search a full text
-        you do not have. For inflected languages, try a shorter stem — the
-        trigram leg is built for exactly that case.
+        you have not imported. Try a shorter query if you cannot find a source.
       </p>
 
-      <h2>Do my notes synchronize between devices?</h2>
+      <h2>Where are my notes stored?</h2>
       <p>
-        Notes stay on this device in the current release. The app contains a
-        conflict-free merge engine, but it does not provide a service that
-        transfers or synchronizes notes between devices.
+        Notes are stored locally or in Apple iCloud Drive when its app container
+        is available. Cross-device synchronization is not guaranteed. See the
+        <a href="privacy.html">privacy policy</a> for storage details.
       </p>
 
       <h2>A work is missing from my export</h2>
       <p>
-        Works whose permission is <i>closed</i> are excluded from export by
-        design. The export summary lists what was left out and why.
+        Sources whose recorded access label is <i>closed</i> are excluded from
+        export by design. The export summary lists what was left out and why.
       </p>
 
       <h2>Data, deletion, refunds</h2>
       <p>
-        Stemmata stores nothing on a server, so there is no account to close.
-        Deleting the app removes the library. Purchases and refunds are handled
-        by Apple:
+        There is no Stemmata account to close. Removing the app may leave Mac
+        application data, iCloud notes, device backups and exported files;
+        manage those copies separately. Purchases and refunds are handled by
+        Apple:
         <a href="https://support.apple.com/HT204084">report a problem</a>.
       </p>
 

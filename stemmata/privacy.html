@@ -6,7 +6,7 @@
     <title>Privacy — Stemmata</title>
     <meta
       name="description"
-      content="Stemmata has no server, no account and no telemetry. Your library, notes and local search index stay on your device. Optional online catalogue actions send the query you enter. Details are listed here."
+      content="How Stemmata stores your library and notes, when Crossref searches send information, and how Apple storage and exports are handled."
     />
     <link
       rel="canonical"
@@ -22,13 +22,13 @@
     />
     <meta
       property="og:description"
-      content="Stemmata has no server, no account and no telemetry. Your library, notes and local search index stay on your device. Optional online catalogue actions send the query you enter. Details are listed here."
+      content="How Stemmata stores your library and notes, when Crossref searches send information, and how Apple storage and exports are handled."
     />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Privacy — Stemmata" />
     <meta
       name="twitter:description"
-      content="Stemmata has no server, no account and no telemetry. Your library, notes and local search index stay on your device. Optional online catalogue actions send the query you enter. Details are listed here."
+      content="How Stemmata stores your library and notes, when Crossref searches send information, and how Apple storage and exports are handled."
     />
     <style>
       :root {
@@ -133,8 +133,13 @@
           system-ui;
         color: var(--sis);
       }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem 1.3rem;
+      }
       nav a {
-        margin-right: 1.3rem;
+        margin: 0;
       }
       small {
         color: var(--sis);
@@ -148,7 +153,7 @@
   <body>
     <main>
       <h1>Privacy</h1>
-      <p class="lede">Stemmata — last updated 13 September 2026</p>
+      <p class="lede">Stemmata — last updated 25 September 2026</p>
 
       <h2>The short version</h2>
       <div class="kart">
@@ -161,23 +166,21 @@
         </p>
       </div>
 
-      <h2>What stays on your device</h2>
+      <h2>Where your data is stored</h2>
       <ul>
         <li>
-          Your library: works, permissions, licences and the reasons behind
-          them.
+          Your saved library: sources and their recorded access information.
         </li>
-        <li>Your notes and highlights.</li>
-        <li>
-          Your local search index and any search history saved by the app.
-        </li>
+        <li>Your notes.</li>
+        <li>Your local search index.</li>
         <li>App settings.</li>
       </ul>
       <p>
-        These are stored in the app's own container. If you include the app in
-        iCloud Backup or place exported files in iCloud Drive, Apple's terms
-        apply. This does not provide Stemmata note synchronization between
-        devices.
+        Your library and search index use local app storage. Notes are stored
+        locally or in Apple iCloud Drive when its app container is available.
+        Cross-device synchronization is not guaranteed. Apple's terms apply to
+        iCloud files and device backups; exported files use the location you
+        choose.
       </p>
 
       <h2>What leaves your device, and when</h2>
@@ -189,9 +192,7 @@
           does not request abstracts or full text. A search sends a query even
           if you do not save any result. Your other library records and notes
           are not attached. Stemmata does not attach an account or advertising
-          identifier. Crossref states that it logs request contents and IP
-          addresses even for anonymous access, and deletes those logs after
-          three months. See
+          identifier. Crossref receives your query and IP address. See
           <a href="https://www.crossref.org/documentation/retrieve-metadata/"
             >Crossref's metadata access documentation</a
           >. Crossref handles those requests under its own privacy policy.
@@ -203,8 +204,8 @@
       </ul>
       <p>
         If you do not use an online catalogue action or open an external link,
-        Stemmata does not contact those external services. Searching a library
-        already saved on your device works offline.
+        Stemmata does not contact Crossref or those publishers. Searching a
+        library already saved on your device works offline.
       </p>
 
       <h2>What we do not do</h2>
@@ -230,10 +231,11 @@
       <h2>Your rights</h2>
       <p>
         There is no Stemmata account to delete and no library export to request
-        from us. Your library is managed on your device. Deleting the app
-        removes its local data; files you exported or backed up separately are
-        not deleted by that action. For information sent to an external
-        catalogue or website, consult that service's privacy policy.
+        from us. Deletion depends on your platform and storage location.
+        Removing the app may leave Mac application data, iCloud notes, device
+        backups and exported files. Those copies must be managed separately. For
+        information sent to an external catalogue or website, consult that
+        service's privacy policy.
       </p>
 
       <h2>Changes and contact</h2>
