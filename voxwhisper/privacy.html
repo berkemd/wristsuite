@@ -36,7 +36,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
 <div class="wrap">
   <p class="back"><a href="index.html">← VoxWhisper</a></p>
   <h1>Privacy Policy / Gizlilik Politikası</h1>
-  <p class="lang"><em>Last updated / Son güncelleme: September 23, 2026 · 23 Eylül 2026</em><br>
+  <p class="lang"><em>Last updated / Son güncelleme: September 29, 2026 · 29 Eylül 2026</em><br>
   English below, Türkçesi aşağıda, Deutsch weiter unten, 日本語は最後にあります。
   All four versions say the same thing; if they ever differ, the English text is
   the reference. /
@@ -67,16 +67,26 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <h3>2. Audio voice memos — never to iCloud, never to us</h3>
   <p>Voice recordings are written as files into the app's own folder on the
   watch. They are <strong>never</strong> uploaded to iCloud, never sent to us,
-  never shared and never transcribed by anything of ours. If you also install the
+  never shared and never transcribed on any server. If you also install the
   VoxWhisper iPhone app (version 1.8 or later), each memo is copied
   <strong>directly from your watch to your paired iPhone</strong> over Apple's
   WatchConnectivity link, so you can listen to it on the phone. That copy goes
   device to device; no server of ours or anyone else's is involved. Deleting a
   memo on the iPhone removes only the iPhone copy. Without the iPhone app, memos
   stay on the watch until you delete them or delete the app.</p>
+  <h3>Turning a memo into text — on your iPhone (version 1.9 or later)</h3>
+  <p>From version 1.9, the iPhone app can turn a voice memo into text. This uses
+  Apple's Speech framework (<code>SpeechAnalyzer</code>) <strong>running on your
+  iPhone</strong>: iOS downloads the recognition model and the audio is processed
+  on the device. Neither the audio nor the text is sent to us or to any server of
+  ours. The text is saved next to the memo in the app's own folder on your iPhone
+  and is deleted together with the memo. It becomes part of your synced notes
+  only if you tap <em>Save as note</em>. Nothing is transcribed until you tap
+  <em>Transcribe</em> for the first time; that is also when iOS asks for Speech
+  Recognition permission. Requires iOS 26 or later and VoxWhisper Pro.</p>
   <h3>Dictation</h3>
   <p>Speech-to-text is performed by <strong>watchOS itself</strong>, through the
-  system text-input controller. VoxWhisper contains no speech-recognition code
+  system text-input controller. The watch app contains no speech-recognition code
   and never receives or stores the audio from dictation. How that system service
   handles your speech is described in
   <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>.</p>
@@ -86,6 +96,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     (<code>NSMicrophoneUsageDescription</code>), only when you record an audio
     memo. Dictated text notes do not need the app to have microphone access —
     the system controller handles that.</li>
+    <li><strong>Speech Recognition</strong>
+    (<code>NSSpeechRecognitionUsageDescription</code>), iPhone app 1.9 or later,
+    only when you tap <em>Transcribe</em> on a memo.</li>
     <li><strong>Nothing else.</strong> No location, no HealthKit, no motion, no
     contacts, no camera.</li>
   </ul>
@@ -125,6 +138,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     prompt, revocable at any time in Settings; consent, GDPR Art. 6(1)(a) /
     KVKK Art. 5(1). Recordings stay on your watch and, if you use the iPhone
     app, your iPhone, so we do not process them.</li>
+    <li><strong>Speech Recognition permission</strong> (iPhone app 1.9 or later)
+    — consent, granted and revocable the same way. Transcription runs on your
+    iPhone; we do not receive or process the audio or the text.</li>
     <li><strong>iCloud sync of text notes</strong> — this is your own iCloud
     storage under your own Apple Account, provided to you by Apple. Apple is the
     controller for that service; we are not, because we have no access to it and
@@ -243,17 +259,27 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <h3>2. Sesli notlar — asla iCloud'a, asla bize</h3>
   <p>Ses kayıtları saatteki kendi klasörüne dosya olarak yazılır.
   <strong>Asla</strong> iCloud'a yüklenmez, bize gönderilmez, paylaşılmaz ve
-  bize ait hiçbir şey tarafından metne çevrilmez. VoxWhisper iPhone uygulamasını
+  hiçbir sunucuda metne çevrilmez. VoxWhisper iPhone uygulamasını
   da (1.8 veya sonrası) kurarsan her sesli not, telefonda dinleyebilmen için
   Apple'ın WatchConnectivity bağlantısıyla <strong>doğrudan saatinden eşli
   iPhone'una</strong> kopyalanır. Bu kopya cihazdan cihaza gider; arada bizim ya
   da bir başkasının sunucusu yoktur. iPhone'da bir sesli notu silmek yalnızca
   iPhone'daki kopyayı siler. iPhone uygulaması yoksa sesli notlar, sen silene ya
   da uygulamayı kaldırana kadar saatte kalır.</p>
+  <h3>Sesli notu yazıya çevirmek — iPhone'unda (1.9 ve sonrası)</h3>
+  <p>1.9 sürümünden itibaren iPhone uygulaması bir sesli notu yazıya
+  çevirebilir. Bunun için Apple'ın Speech çatısı (<code>SpeechAnalyzer</code>)
+  <strong>iPhone'unda çalışır</strong>: tanıma modelini iOS indirir, ses cihazda
+  işlenir. Ne ses ne metin bize ya da bize ait bir sunucuya gönderilir. Metin,
+  iPhone'unda uygulamanın kendi klasöründe sesli notun yanına kaydedilir ve notla
+  birlikte silinir. Ancak <em>Not olarak kaydet</em>'e dokunursan eşitlenen
+  notlarının parçası olur. İlk kez <em>Yazıya çevir</em>'e dokunana kadar hiçbir
+  şey çevrilmez; iOS konuşma tanıma iznini de o an sorar. iOS 26 ve sonrası ile
+  VoxWhisper Pro gerekir.</p>
   <h3>Dikte</h3>
   <p>Konuşmayı metne çevirme işini sistem metin girişi denetleyicisi üzerinden
-  <strong>watchOS'un kendisi</strong> yapar. VoxWhisper'da konuşma tanıma kodu
-  yoktur; dikteden gelen sesi almaz ve saklamaz. O sistem servisinin konuşmanı
+  <strong>watchOS'un kendisi</strong> yapar. Saat uygulamasında konuşma tanıma
+  kodu yoktur; dikteden gelen sesi almaz ve saklamaz. O sistem servisinin konuşmanı
   nasıl işlediği <a href="https://www.apple.com/legal/privacy/">Apple'ın gizlilik
   politikasında</a> anlatılır.</p>
   <h3>VoxWhisper ne istiyor</h3>
@@ -261,6 +287,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     <li><strong>Mikrofon</strong> (<code>NSMicrophoneUsageDescription</code>) —
     yalnız sesli not kaydettiğinde. Dikte edilen metin notlar için uygulamanın
     mikrofon erişimine ihtiyacı yoktur; onu sistem denetleyicisi halleder.</li>
+    <li><strong>Konuşma tanıma</strong>
+    (<code>NSSpeechRecognitionUsageDescription</code>) — iPhone uygulaması 1.9
+    ve sonrası, yalnız bir sesli notta <em>Yazıya çevir</em>'e dokunduğunda.</li>
     <li><strong>Başka hiçbir şey.</strong> Konum yok, HealthKit yok, hareket
     yok, kişiler yok, kamera yok.</li>
   </ul>
@@ -298,6 +327,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     Ayarlar'dan istediğin an geri alırsın; bu rızadır (KVKK m.5/1, GDPR
     m.6(1)(a)). Kayıtlar saatinde ve iPhone uygulamasını kullanıyorsan
     iPhone'unda kalır, dolayısıyla onları biz işlemeyiz.</li>
+    <li><strong>Konuşma tanıma izni</strong> (iPhone uygulaması 1.9 ve sonrası)
+    — aynı şekilde verilen ve geri alınabilen rıza. Yazıya çevirme iPhone'unda
+    yapılır; sesi de metni de biz almayız, işlemeyiz.</li>
     <li><strong>Metin notların iCloud eşitlemesi</strong> — bu, kendi Apple
     Hesabın altındaki, Apple'ın sana sunduğu kendi iCloud alanındır. O servisin
     veri sorumlusu Apple'dır; biz değiliz, çünkü erişimimiz yok ve oradan bize
@@ -421,7 +453,7 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <h3>2. Sprachnotizen — nie in iCloud, nie zu uns</h3>
   <p>Sprachaufnahmen werden als Dateien im eigenen Ordner der App auf der Uhr
   abgelegt. Sie werden <strong>nie</strong> in iCloud hochgeladen, nie an uns
-  gesendet, nie geteilt und von nichts, was uns gehört, transkribiert. Wenn Sie
+  gesendet, nie geteilt und auf keinem Server transkribiert. Wenn Sie
   zusätzlich die VoxWhisper-App fürs iPhone (ab Version 1.8) installieren, wird
   jede Sprachnotiz über Apples WatchConnectivity-Verbindung <strong>direkt von
   Ihrer Uhr auf Ihr gekoppeltes iPhone</strong> kopiert, damit Sie sie dort
@@ -429,9 +461,20 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   von anderen ist beteiligt. Das Löschen auf dem iPhone entfernt nur die Kopie
   auf dem iPhone. Ohne die iPhone-App bleiben Sprachnotizen auf der Uhr, bis Sie
   sie löschen oder die App löschen.</p>
+  <h3>Sprachnotiz in Text umwandeln — auf Ihrem iPhone (ab Version 1.9)</h3>
+  <p>Ab Version 1.9 kann die iPhone-App eine Sprachnotiz in Text umwandeln. Dafür
+  läuft Apples Speech-Framework (<code>SpeechAnalyzer</code>) <strong>auf Ihrem
+  iPhone</strong>: iOS lädt das Erkennungsmodell, das Audio wird auf dem Gerät
+  verarbeitet. Weder Audio noch Text werden an uns oder an einen Server von uns
+  gesendet. Der Text wird neben der Sprachnotiz im eigenen Ordner der App auf
+  Ihrem iPhone gespeichert und mit ihr gelöscht. Teil Ihrer synchronisierten
+  Notizen wird er nur, wenn Sie <em>Als Notiz sichern</em> tippen. Nichts wird
+  transkribiert, bevor Sie zum ersten Mal <em>Transkribieren</em> tippen; dann
+  fragt iOS auch nach der Berechtigung zur Spracherkennung. Erfordert iOS 26
+  oder neuer und VoxWhisper Pro.</p>
   <h3>Diktat</h3>
   <p>Die Umwandlung von Sprache in Text übernimmt <strong>watchOS
-  selbst</strong>, über den Texteingabe-Controller des Systems. VoxWhisper
+  selbst</strong>, über den Texteingabe-Controller des Systems. Die Uhr-App
   enthält keinen Spracherkennungscode und erhält oder speichert das Audio des
   Diktats nie. Wie dieser Systemdienst mit Ihrer Sprache umgeht, beschreibt
   <a href="https://www.apple.com/legal/privacy/">Apples
@@ -442,6 +485,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     (<code>NSMicrophoneUsageDescription</code>), nur wenn Sie eine Sprachnotiz
     aufnehmen. Für diktierte Textnotizen braucht die App keinen
     Mikrofonzugriff — das übernimmt der Controller des Systems.</li>
+    <li><strong>Spracherkennung</strong>
+    (<code>NSSpeechRecognitionUsageDescription</code>), iPhone-App ab 1.9, nur
+    wenn Sie bei einer Sprachnotiz <em>Transkribieren</em> tippen.</li>
     <li><strong>Sonst nichts.</strong> Kein Standort, kein HealthKit, keine
     Bewegungsdaten, keine Kontakte, keine Kamera.</li>
   </ul>
@@ -484,6 +530,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     Art. 6 Abs. 1 lit. a DSGVO / KVKK Art. 5 Abs. 1. Die Aufnahmen bleiben auf
     Ihrer Uhr und, wenn Sie die iPhone-App nutzen, auf Ihrem iPhone; wir
     verarbeiten sie also nicht.</li>
+    <li><strong>Berechtigung zur Spracherkennung</strong> (iPhone-App ab 1.9) —
+    Einwilligung, ebenso erteilt und widerrufbar. Die Transkription läuft auf
+    Ihrem iPhone; wir erhalten und verarbeiten weder Audio noch Text.</li>
     <li><strong>iCloud-Synchronisierung der Textnotizen</strong> — das ist Ihr
     eigener iCloud-Speicher unter Ihrem eigenen Apple-Account, den Apple Ihnen
     bereitstellt. Für diesen Dienst ist Apple der Verantwortliche; wir sind es
@@ -617,15 +666,24 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
   <h3>2. ボイスメモ — iCloudにも当方にも送られません</h3>
   <p>録音は、時計上のアプリ自身のフォルダにファイルとして書き込まれます。iCloudに
   アップロードされることは<strong>決してなく</strong>、当方に送られることも、共有される
-  ことも、当方の何かによって文字起こしされることもありません。VoxWhisperのiPhoneアプリ
+  ことも、いかなるサーバーで文字起こしされることもありません。VoxWhisperのiPhoneアプリ
   （バージョン1.8以降）もインストールした場合、各ボイスメモはiPhoneで再生できるよう、
   AppleのWatchConnectivity接続を通じて<strong>時計からペアリング済みのiPhoneへ直接</strong>
   コピーされます。このコピーは端末から端末へ直接届き、当方や第三者のサーバーは介在しません。
   iPhoneでボイスメモを削除しても、消えるのはiPhone上のコピーだけです。iPhoneアプリが
   ない場合、ボイスメモはあなたが削除するか、アプリを削除するまで時計の中に留まります。</p>
+  <h3>ボイスメモの文字起こし — iPhone上で（バージョン1.9以降）</h3>
+  <p>バージョン1.9以降、iPhoneアプリはボイスメモをテキストにできます。これには
+  AppleのSpeechフレームワーク（<code>SpeechAnalyzer</code>）が<strong>お使いのiPhone上で</strong>
+  動作します。認識モデルはiOSがダウンロードし、音声は端末内で処理されます。音声もテキストも、
+  当方や当方のサーバーに送られることはありません。テキストはiPhone上のアプリ自身のフォルダに
+  ボイスメモと並べて保存され、ボイスメモと一緒に削除されます。「メモとして保存」をタップした
+  場合にのみ、同期されるメモの一部になります。初めて「文字起こし」をタップするまで何も
+  文字起こしされず、そのときにiOSが音声認識の許可を求めます。iOS 26以降と
+  VoxWhisper Proが必要です。</p>
   <h3>音声入力について</h3>
   <p>音声からテキストへの変換は、システムのテキスト入力コントローラを通じて
-  <strong>watchOS自身</strong>が行います。VoxWhisperには音声認識のコードがなく、
+  <strong>watchOS自身</strong>が行います。時計アプリには音声認識のコードがなく、
   音声入力の音声を受け取ることも保存することもありません。そのシステムサービスが
   あなたの音声をどのように取り扱うかは
   <a href="https://www.apple.com/legal/privacy/">Appleのプライバシーポリシー</a>に
@@ -636,6 +694,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     （<code>NSMicrophoneUsageDescription</code>）。ボイスメモを録音するときだけです。
     音声入力によるテキストメモには、アプリ側のマイクへのアクセスは必要ありません
     — システムのコントローラが処理します。</li>
+    <li><strong>音声認識</strong>
+    （<code>NSSpeechRecognitionUsageDescription</code>）。iPhoneアプリ1.9以降で、
+    ボイスメモの「文字起こし」をタップしたときだけです。</li>
     <li><strong>それ以外は何も求めません。</strong>位置情報も、HealthKitも、モーションも、
     連絡先も、カメラもです。</li>
   </ul>
@@ -675,6 +736,9 @@ code{background:#1b1a29;padding:1px 5px;border-radius:5px;font-size:.85em;color:
     「設定」からいつでも取り消せます。これは同意（GDPR第6条1項(a)／KVKK第5条1項）に
     当たります。録音はお客様の時計と、iPhoneアプリをお使いの場合はお客様のiPhoneに留まるため、
     当方がこれを取り扱うことはありません。</li>
+    <li><strong>音声認識の許可</strong>（iPhoneアプリ1.9以降） — 同じようにお客様が与え、
+    いつでも取り消せる同意です。文字起こしはお客様のiPhone上で行われ、当方は音声もテキストも
+    受け取らず、取り扱いません。</li>
     <li><strong>テキストメモのiCloud同期</strong> — これはお客様ご自身のApple Accountの
     もとでAppleがお客様に提供する、お客様ご自身のiCloudストレージです。このサービスに
     ついての管理者はAppleであって当方ではありません。当方はそこにアクセスできず、そこから
