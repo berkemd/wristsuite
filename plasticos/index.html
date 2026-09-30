@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PlasticOS — Surgical study, one question at a time</title>
+    <title>PlasticOS — Plastic surgery revision, between shifts</title>
     <meta
       name="description"
-      content="Review surgical topics with questions, explanations and spaced repetition. Explore the free review workflow in PlasticOS."
+      content="Study a plastic surgery topic, test your recall and find related source passages. Try free fundamentals and spaced review before choosing a paid plan."
     />
     <link
       rel="canonical"
@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="PlasticOS" />
     <meta
       property="og:title"
-      content="PlasticOS — Surgical study, one question at a time"
+      content="PlasticOS — Plastic surgery revision, between shifts"
     />
     <meta
       property="og:url"
@@ -25,7 +25,7 @@
     />
     <meta
       property="og:description"
-      content="Open a question, read the explanation and rate how well you recalled it. Explore spaced review in PlasticOS."
+      content="Read or listen. Test your recall. Revisit what needs work. A study companion for plastic surgery trainees, with free fundamentals to try first."
     />
     <meta name="twitter:card" content="summary" />
     <style>
@@ -145,6 +145,41 @@
       .hero-copy > .small {
         margin-top: 12px;
       }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 24px;
+        align-items: center;
+      }
+      .study-modes,
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin: 28px 0;
+      }
+      .study-modes article,
+      .plans article {
+        padding: 24px;
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+      }
+      .study-modes p,
+      .plans p {
+        color: var(--muted);
+        margin-bottom: 0;
+      }
+      .feedback {
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #eef3fd;
+        margin-bottom: 24px;
+      }
+      .feedback p {
+        max-width: 65ch;
+      }
       .section {
         padding-block: 40px;
         border-top: 1px solid var(--line);
@@ -243,6 +278,8 @@
           font-size: 1.05rem;
         }
         .steps,
+        .study-modes,
+        .plans,
         .split {
           grid-template-columns: 1fr;
           gap: 28px;
@@ -267,7 +304,8 @@
       <header>
         <a class="brand" href="./" aria-label="PlasticOS home">PlasticOS</a>
         <nav aria-label="Page navigation">
-          <a href="#review">How review works</a>
+          <a href="#study">Study workflows</a>
+          <a href="#plans">Free &amp; paid</a>
           <a href="#languages">TR / ES</a>
         </nav>
       </header>
@@ -275,19 +313,61 @@
         <section class="hero" aria-labelledby="headline">
           <div class="hero-copy">
             <p class="eyebrow">For plastic surgery trainees</p>
-            <h1 id="headline">Surgical study, one question at a time.</h1>
+            <h1 id="headline">Plastic surgery revision, between shifts.</h1>
             <p class="intro">
-              Open a study question, check the explanation and decide how well
-              you recalled it. PlasticOS keeps your review progress on your
-              device so you can return to it.
+              Choose a topic. Test your recall. Read the explanation and return
+              to what needs work. Keep your curriculum, procedure atlas and
+              study history together on your iPhone.
             </p>
             <a
               class="cta"
-              href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_srs_20260923&amp;mt=8"
-              >View on the App Store</a
+              href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_study_20261001&amp;mt=8"
+              >Try the free fundamentals</a
             >
-            <p class="small">Free study content. Optional paid plans.</p>
+            <p class="small">
+              On the App Store · No separate account · Optional paid plans
+            </p>
           </div>
+        </section>
+        <section class="section" id="study" aria-labelledby="study-title">
+          <h2 id="study-title">
+            One topic. Different ways to work through it.
+          </h2>
+          <div class="study-modes">
+            <article>
+              <span class="step-number" aria-hidden="true">READ / LISTEN</span>
+              <h3>Pick up a topic between sessions</h3>
+              <p>
+                Read a topic, or listen to supported topics with your iPhone's
+                voice. Adjust the pace to suit your study session.
+              </p>
+            </article>
+            <article>
+              <span class="step-number" aria-hidden="true">FIND / CHECK</span>
+              <h3>Find the passage behind a question</h3>
+              <p>
+                Search the procedure atlas in Consult. Read the matching passage
+                and, where available, its reference and related topic. Consult
+                searches existing material; it does not generate a
+                patient-specific answer.
+              </p>
+            </article>
+            <article>
+              <span class="step-number" aria-hidden="true"
+                >RECALL / RETURN</span
+              >
+              <h3>Work on what you could not recall</h3>
+              <p>
+                Try a quiz, review the explanation or run a timed mock exam. Use
+                spaced review to return to your study questions. Progress stays
+                on this device.
+              </p>
+            </article>
+          </div>
+          <p class="small">
+            Use the free content to try the workflow. Topic and procedure access
+            depend on your plan.
+          </p>
         </section>
         <section class="section" id="review" aria-labelledby="review-title">
           <h2 id="review-title">A review session, in three steps</h2>
@@ -319,33 +399,69 @@
             </li>
           </ol>
         </section>
-        <section
-          class="section split"
-          aria-label="About PlasticOS and its plans"
-        >
-          <div>
-            <h2>A study companion</h2>
-            <p>
-              PlasticOS brings surgical study topics, an atlas search and review
-              questions into one app. Use it for learning and revision alongside
-              your training.
-            </p>
-            <p>
-              It is an educational reference, not a tool for diagnosing or
-              treating patients. It does not replace supervision or your
-              institution’s protocols.
-            </p>
+        <section class="section" id="plans" aria-labelledby="plans-title">
+          <h2 id="plans-title">
+            Try the study workflow. Pay for the depth you need.
+          </h2>
+          <div class="plans">
+            <article>
+              <h3>Free fundamentals</h3>
+              <p>
+                PGY-1 fundamentals, three core procedure walkthroughs and spaced
+                repetition. No subscription needed to try this study workflow.
+              </p>
+            </article>
+            <article>
+              <h3>Resident</h3>
+              <p>
+                Expand your resident-level curriculum and core procedure access.
+                Choose a monthly or yearly subscription in the app.
+              </p>
+            </article>
+            <article>
+              <h3>Fellow</h3>
+              <p>
+                Everything in Resident, plus advanced topics and procedure
+                walkthroughs. Lifetime is a one-time purchase of Fellow access.
+              </p>
+            </article>
           </div>
-          <div>
-            <h2>Start with the free content</h2>
+          <p>
+            Spaced repetition remains available on the free plan. Current
+            prices, billing periods and any trial eligibility are shown before
+            purchase. See the <a href="terms.html">subscription terms</a>.
+          </p>
+          <p class="small">
+            PlasticOS is a study aid for surgical trainees. It does not
+            diagnose, treat or guide the care of a real patient, replace
+            supervision, or guarantee exam results. Your progress is stored on
+            this device and does not sync between devices.
+          </p>
+        </section>
+        <section class="section" aria-labelledby="feedback-title">
+          <div class="feedback">
+            <h2 id="feedback-title">
+              Does it help with your next study session?
+            </h2>
             <p>
-              Selected PGY-1 study topics are available for free. Resident and
-              Fellow subscriptions expand access.
+              Try one free topic, then tell us what was useful or what blocked
+              you. A specific study task helps us improve the part that matters.
+              Please do not send patient information.
             </p>
-            <p>
-              See the current prices and plan details in the app. Review the
-              <a href="terms.html">subscription terms</a> before choosing a
-              plan.
+            <div class="actions">
+              <a
+                class="cta"
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_study_20261001&amp;mt=8"
+                >Open on the App Store</a
+              >
+              <a
+                href="mailto:brkekahraman@icloud.com?subject=PlasticOS%20study%20feedback&amp;body=Study%20topic%20or%20task%3A%0AWhat%20I%20tried%3A%0AWhat%20helped%20or%20blocked%20me%3A%0AWould%20I%20use%20it%20again%2C%20and%20why%3A%0A%0APlease%20do%20not%20include%20patient%20information."
+                >Send study feedback</a
+              >
+            </div>
+            <p class="small">
+              The feedback link opens your email app. Nothing is sent until you
+              choose to send it.
             </p>
           </div>
         </section>
@@ -356,12 +472,12 @@
         >
           <details lang="tr">
             <summary>
-              Türkçe — Her seferinde bir soruyla cerrahi çalışın
+              Türkçe — Yoğun mesainin arasında plastik cerrahi tekrarı
             </summary>
             <p>
-              Bir çalışma sorusunu açın, cevabın açıklamasını okuyun ve ne kadar
-              iyi hatırladığınızı seçin. PlasticOS tekrar ilerlemenizi
-              cihazınızda saklar.
+              Bir konu seçin, hatırladıklarınızı sınayın ve açıklamayı okuyun.
+              Prosedür atlasında ilgili pasajı bulun veya desteklenen konuları
+              iPhone'unuzdan dinleyin. Çalışma ilerlemeniz bu cihazda saklanır.
             </p>
             <p>Ücretsiz aralıklı tekrar akışına kısa bir bakış.</p>
             <ol>
@@ -376,8 +492,12 @@
               </li>
             </ol>
             <p>
-              Seçili PGY-1 çalışma konuları ücretsizdir. Resident ve Fellow
-              abonelikleri erişimi genişletir. Güncel fiyatlar uygulamadadır.
+              PGY-1 temel konuları, üç temel prosedür anlatımı ve aralıklı
+              tekrar ücretsizdir. Resident, asistan düzeyindeki müfredat ve
+              temel prosedür erişimini genişletir. Fellow ileri konuları ve
+              prosedürleri ekler. Lifetime, Fellow erişimi için tek seferlik
+              satın almadır. Güncel fiyat, dönem ve varsa deneme uygunluğu satın
+              almadan önce uygulamada gösterilir.
             </p>
             <p>
               PlasticOS eğitim ve tekrar içindir; hasta tanı veya tedavisinde
@@ -385,7 +505,7 @@
             </p>
             <p>
               <a
-                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_srs_20260923&amp;mt=8"
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_study_20261001&amp;mt=8"
                 lang="tr"
                 >App Store’da inceleyin</a
               >
@@ -394,11 +514,12 @@
             </p>
           </details>
           <details lang="es">
-            <summary>Español — Estudia cirugía, una pregunta a la vez</summary>
+            <summary>Español — Repaso de cirugía plástica entre turnos</summary>
             <p>
-              Abre una pregunta de estudio, lee la explicación y elige cuánto
-              recordabas. PlasticOS guarda tu progreso de repaso en el
-              dispositivo.
+              Elige un tema, pon a prueba tu memoria y lee la explicación.
+              Consulta los pasajes relacionados en el atlas de procedimientos o
+              escucha los temas compatibles en tu iPhone. Tu progreso de estudio
+              permanece en este dispositivo.
             </p>
             <p>Un vistazo al flujo gratuito de repetición espaciada.</p>
             <ol>
@@ -413,8 +534,14 @@
               </li>
             </ol>
             <p>
-              Algunos temas de PGY-1 son gratuitos. Las suscripciones Resident y
-              Fellow amplían el acceso. Consulta los precios actuales en la app.
+              Empieza con los fundamentos gratuitos de PGY-1, tres guías de
+              procedimientos básicos y la repetición espaciada. No necesitas
+              suscribirte para probar este flujo de estudio. Resident amplía el
+              currículo y el acceso a procedimientos de nivel residente. Fellow
+              añade temas y procedimientos avanzados. Lifetime es una compra
+              única que da acceso a Fellow. Los precios, los periodos de
+              facturación y la elegibilidad para una prueba se muestran antes de
+              comprar.
             </p>
             <p>
               PlasticOS es una ayuda de estudio. No sirve para diagnosticar o
@@ -423,7 +550,7 @@
             </p>
             <p>
               <a
-                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_srs_20260923&amp;mt=8"
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_study_20261001&amp;mt=8"
                 lang="es"
                 >Ver en el App Store</a
               >
@@ -441,8 +568,8 @@
           <a href="mailto:brkekahraman@icloud.com">Contact the developer</a>
         </nav>
         <p>
-          PlasticOS · Berke Kahraman<br />Updated / Güncellendi / Actualizado:
-          23 September 2026
+          PlasticOS · Berke Kahraman<br />Updated / Güncellendi / Actualizado: 1
+          October 2026
         </p>
       </footer>
     </div>
