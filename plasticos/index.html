@@ -55,6 +55,8 @@
         text-decoration-thickness: 2px;
       }
       a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
       summary:focus-visible {
         outline: 3px solid var(--blue);
         outline-offset: 5px;
@@ -180,6 +182,75 @@
       .feedback p {
         max-width: 65ch;
       }
+      [hidden] {
+        display: none !important;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+      }
+      button.cta {
+        border: 0;
+      }
+      .sample-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: 40px;
+        align-items: start;
+      }
+      .sample-card {
+        padding: clamp(20px, 4vw, 32px);
+        background: white;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        box-shadow: 0 12px 36px #18223608;
+      }
+      .sample-card fieldset {
+        min-width: 0;
+        border: 0;
+        padding: 0;
+        margin: 0 0 20px;
+      }
+      .sample-card legend {
+        font-weight: 650;
+        padding: 0 0 12px;
+      }
+      .sample-option {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        min-height: 48px;
+        padding: 10px 14px;
+        margin-top: 8px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .sample-option:has(input:checked) {
+        border-color: var(--blue);
+        background: #eef3fd;
+      }
+      .sample-option input {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        accent-color: var(--blue);
+      }
+      .sample-card .small {
+        margin-bottom: 0;
+      }
+      .sample-result {
+        border-left: 3px solid var(--blue);
+        padding-left: 20px;
+      }
+      .sample-retry {
+        color: var(--blue);
+        border: 1px solid var(--line);
+        background: white;
+        border-radius: 10px;
+        padding: 10px 16px;
+        min-height: 44px;
+      }
       .section {
         padding-block: 40px;
         border-top: 1px solid var(--line);
@@ -280,6 +351,7 @@
         .steps,
         .study-modes,
         .plans,
+        .sample-grid,
         .split {
           grid-template-columns: 1fr;
           gap: 28px;
@@ -304,6 +376,7 @@
       <header>
         <a class="brand" href="./" aria-label="PlasticOS home">PlasticOS</a>
         <nav aria-label="Page navigation">
+          <a href="#sample">Try a question</a>
           <a href="#study">Study workflows</a>
           <a href="#plans">Free &amp; paid</a>
           <a href="#languages">TR / ES</a>
@@ -319,14 +392,148 @@
               to what needs work. Keep your curriculum, procedure atlas and
               study history together on your iPhone.
             </p>
-            <a
-              class="cta"
-              href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_study_20261001&amp;mt=8"
-              >Try the free fundamentals</a
-            >
+            <div class="actions">
+              <a class="cta" href="#sample">Try one question here</a>
+              <a
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_study_20261001&amp;mt=8"
+                >Get the free iPhone app</a
+              >
+            </div>
             <p class="small">
               On the App Store · No separate account · Optional paid plans
             </p>
+          </div>
+        </section>
+        <section
+          class="section sample-grid"
+          id="sample"
+          aria-labelledby="sample-title"
+        >
+          <div>
+            <p class="eyebrow">Try the study format</p>
+            <h2 id="sample-title">Recall first.<br />Then understand why.</h2>
+            <p>
+              Work through one wound-healing question, read the explanation and
+              check its source. No download or payment needed for this example.
+            </p>
+            <p class="small">
+              English teaching example. For education, not patient-care
+              decisions.
+            </p>
+          </div>
+          <div class="sample-card">
+            <p class="step-number">CORE PRINCIPLES · WOUND HEALING</p>
+            <p id="sample-stem">
+              In an experimental mouse skin-wound model, early depletion of one
+              cell population reduces vascularised granulation tissue and
+              impairs epithelialisation. Which cell best fits this role?
+            </p>
+            <form id="sample-question" aria-describedby="sample-stem" hidden>
+              <fieldset>
+                <legend>Choose one answer</legend>
+                <label class="sample-option"
+                  ><input
+                    type="radio"
+                    name="sample-answer"
+                    value="neutrophils"
+                    required
+                  />Neutrophils</label
+                >
+                <label class="sample-option"
+                  ><input
+                    type="radio"
+                    name="sample-answer"
+                    value="platelets"
+                  />Platelets</label
+                >
+                <label class="sample-option"
+                  ><input type="radio" name="sample-answer" value="mast" />Mast
+                  cells</label
+                >
+                <label class="sample-option"
+                  ><input
+                    type="radio"
+                    name="sample-answer"
+                    value="macrophages"
+                  />Macrophages</label
+                >
+                <label class="sample-option"
+                  ><input
+                    type="radio"
+                    name="sample-answer"
+                    value="lymphocytes"
+                  />T lymphocytes</label
+                >
+              </fieldset>
+              <button class="cta" type="submit">Check my answer</button>
+              <p class="small">
+                Your answer stays on this page. It is not sent or saved.
+              </p>
+            </form>
+            <section
+              class="sample-result"
+              id="sample-feedback"
+              tabindex="-1"
+              aria-labelledby="sample-answer-status"
+              hidden
+            >
+              <h3 id="sample-answer-status">Best answer: macrophages.</h3>
+              <p>
+                Macrophages help coordinate the shift from inflammation to
+                repair. In this mouse experiment, removing them during the early
+                phase reduced vascularised granulation tissue and impaired
+                epithelialisation.
+              </p>
+              <p>
+                <strong>The useful distinction:</strong> the effect depends on
+                timing. No statistically significant repair effect was detected
+                after late-phase depletion in that model. This does not
+                establish a treatment rule for a human wound.
+              </p>
+              <p>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/20176743/"
+                  >Read the study: Lucas et al., 2010</a
+                >
+                ·
+                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4973620/"
+                  >Review: Eming et al., 2014</a
+                >
+              </p>
+              <div class="actions">
+                <a
+                  class="cta"
+                  href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_preview_20261002&amp;mt=8"
+                  >Continue with free topics on iPhone</a
+                >
+                <button class="sample-retry" id="sample-retry" type="button">
+                  Try this question again
+                </button>
+              </div>
+              <p class="small">
+                In the app: open Learn, choose a topic available without payment
+                and try its quiz. Compare paid plans only if you need more topic
+                or procedure access.
+              </p>
+            </section>
+            <details id="sample-static-answer">
+              <summary>Reveal the answer and explanation</summary>
+              <p>
+                <strong>Macrophages.</strong> In the cited mouse model, early
+                depletion impaired granulation tissue and epithelialisation; the
+                study did not detect a significant effect of late depletion. The
+                timing matters. This is an educational experimental result, not
+                a patient-treatment rule.
+              </p>
+              <p>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/20176743/"
+                  >Read Lucas et al., 2010</a
+                >
+              </p>
+              <a
+                href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_preview_20261002&amp;mt=8"
+                >Try free topics on iPhone</a
+              >
+            </details>
           </div>
         </section>
         <section class="section" id="study" aria-labelledby="study-title">
@@ -403,6 +610,11 @@
           <h2 id="plans-title">
             Try the study workflow. Pay for the depth you need.
           </h2>
+          <p class="small">
+            Topic text is available in English, with Turkish translations.
+            Spanish topic headings are translated; the lesson bodies currently
+            use English. Try a topic in your preferred language before buying.
+          </p>
           <div class="plans">
             <article>
               <h3>Free fundamentals</h3>
@@ -544,6 +756,10 @@
               comprar.
             </p>
             <p>
+              Los títulos de los temas están traducidos al español; el contenido
+              de las lecciones sigue en inglés. Prueba un tema antes de comprar.
+            </p>
+            <p>
               PlasticOS es una ayuda de estudio. No sirve para diagnosticar o
               tratar pacientes ni sustituye la supervisión o los protocolos de
               tu institución.
@@ -568,10 +784,11 @@
           <a href="mailto:brkekahraman@icloud.com">Contact the developer</a>
         </nav>
         <p>
-          PlasticOS · Berke Kahraman<br />Updated / Güncellendi / Actualizado: 1
+          PlasticOS · Berke Kahraman<br />Updated / Güncellendi / Actualizado: 2
           October 2026
         </p>
       </footer>
     </div>
+    <script src="sample.js" defer></script>
   </body>
 </html>
