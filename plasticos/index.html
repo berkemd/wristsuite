@@ -244,12 +244,22 @@
         padding-left: 20px;
       }
       .sample-retry {
-        color: var(--blue);
-        border: 1px solid var(--line);
-        background: white;
-        border-radius: 10px;
-        padding: 10px 16px;
-        min-height: 44px;
+        display: block;
+        width: 100%;
+        min-height: 48px;
+        color: white;
+        background: var(--blue);
+        border: 0;
+        border-radius: 12px;
+        padding: 14px 18px;
+        font-weight: 650;
+        text-align: center;
+        white-space: normal;
+      }
+      .sample-next {
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
       }
       .section {
         padding-block: 40px;
@@ -499,21 +509,20 @@
                   >Review: Eming et al., 2014</a
                 >
               </p>
-              <div class="actions">
+              <button class="sample-retry" id="sample-retry" type="button">
+                Try this question again
+              </button>
+              <div class="sample-next">
+                <p class="small">
+                  In the app: open Learn, choose a topic available without
+                  payment and try its quiz. Compare paid plans only if you need
+                  more topic or procedure access.
+                </p>
                 <a
-                  class="cta"
                   href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_preview_20261002&amp;mt=8"
                   >Continue with free topics on iPhone</a
                 >
-                <button class="sample-retry" id="sample-retry" type="button">
-                  Try this question again
-                </button>
               </div>
-              <p class="small">
-                In the app: open Learn, choose a topic available without payment
-                and try its quiz. Compare paid plans only if you need more topic
-                or procedure access.
-              </p>
             </section>
             <details id="sample-static-answer">
               <summary>Reveal the answer and explanation</summary>
