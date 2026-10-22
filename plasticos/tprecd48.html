@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlasticOS - Bilgiyi derinleştir. Kaynağına dön.</title>
+    <meta
+      name="description"
+      content="Asistanlar, uzmanlar ve akademisyenler için konu, prosedür atlası ve soru pratiği."
+    />
+    <style>
+      :root {
+        --bg-ivory: #f5f2ea;
+        --text-navy: #142b3b;
+        --accent-copper: #99694b;
+        --white: #ffffff;
+        --gray-light: #e8e4db;
+        --gray-medium: #605b53;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        background-color: var(--bg-ivory);
+        color: var(--text-navy);
+        line-height: 1.6;
+        padding: 0;
+        margin: 0;
+      }
+
+      .container {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--accent-copper);
+        outline-offset: 4px;
+      }
+      .wordmark {
+        font-family: Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+      }
+      .skip-link {
+        position: absolute;
+        top: -100px;
+        left: 16px;
+        background: white;
+        padding: 12px;
+      }
+      .skip-link:focus {
+        top: 8px;
+      }
+      /* Header */
+      header {
+        background-color: var(--white);
+        border-bottom: 1px solid var(--gray-light);
+        padding: 24px 0;
+      }
+
+      .eyebrow {
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--accent-copper);
+        margin-bottom: 12px;
+      }
+
+      h1 {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 2.25rem;
+        line-height: 1.2;
+        font-weight: 700;
+        margin-bottom: 16px;
+        color: var(--text-navy);
+      }
+
+      .subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-medium);
+        margin-bottom: 24px;
+      }
+
+      .cta-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+
+      .app-store-link {
+        display: inline-block;
+        background-color: var(--text-navy);
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 16px 24px;
+        border-radius: 12px;
+        font-size: 1.125rem;
+        text-align: center;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .app-store-link:hover {
+        background-color: #1a364d;
+      }
+
+      .app-store-note {
+        font-size: 0.875rem;
+        color: var(--gray-medium);
+        margin-top: 8px;
+      }
+
+      /* Main */
+      main {
+        padding: 40px 0;
+      }
+
+      .section-title {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 24px;
+        color: var(--text-navy);
+      }
+
+      .cards {
+        display: grid;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .card {
+        background-color: var(--white);
+        border: 1px solid var(--gray-light);
+        border-radius: 12px;
+        padding: 24px;
+      }
+
+      .card h3 {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--text-navy);
+      }
+
+      .card p {
+        font-size: 1rem;
+        color: var(--gray-medium);
+      }
+
+      .process-section {
+        background-color: var(--white);
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 48px;
+        border: 1px solid var(--gray-light);
+      }
+
+      .numbered-list {
+        list-style: none;
+        counter-reset: step-counter;
+        margin: 24px 0;
+      }
+
+      .numbered-list li {
+        position: relative;
+        padding-left: 48px;
+        margin-bottom: 16px;
+      }
+
+      .numbered-list li::before {
+        content: counter(step-counter);
+        counter-increment: step-counter;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 32px;
+        height: 32px;
+        background-color: var(--accent-copper);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .process-note {
+        font-size: 0.875rem;
+        color: var(--gray-medium);
+        margin-top: 16px;
+        font-style: italic;
+      }
+
+      .stats {
+        background-color: var(--white);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 48px;
+        border: 1px solid var(--gray-light);
+      }
+
+      .stats-label {
+        font-size: 0.875rem;
+        color: var(--gray-medium);
+        margin-top: 8px;
+      }
+
+      .pricing-section {
+        margin-bottom: 48px;
+      }
+
+      .pricing-cards {
+        display: grid;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+      .pricing-card {
+        background-color: var(--white);
+        border: 1px solid var(--gray-light);
+        border-radius: 12px;
+        padding: 24px;
+      }
+
+      .pricing-card h3 {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--text-navy);
+      }
+
+      .pricing-card p {
+        font-size: 1rem;
+        color: var(--gray-medium);
+        margin-bottom: 16px;
+      }
+
+      .price-disclosure {
+        font-size: 0.875rem;
+        color: var(--gray-medium);
+        font-style: italic;
+      }
+
+      .secondary-cta {
+        display: inline-block;
+        background-color: transparent;
+        border: 2px solid var(--text-navy);
+        color: var(--text-navy);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 14px 24px;
+        border-radius: 12px;
+        font-size: 1rem;
+        text-align: center;
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .secondary-cta:hover {
+        background-color: var(--white);
+      }
+
+      .disclosures {
+        background-color: var(--white);
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 48px;
+        border: 1px solid var(--gray-light);
+      }
+
+      .disclosures p {
+        font-size: 0.875rem;
+        color: var(--gray-medium);
+        margin-bottom: 12px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--white);
+        border-top: 1px solid var(--gray-light);
+        padding: 32px 0;
+        margin-top: 48px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+      }
+
+      .footer-link {
+        color: var(--text-navy);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+
+      .footer-link:hover {
+        text-decoration: underline;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .footer-logo .logo-icon {
+        width: 32px;
+        height: 32px;
+        background-color: var(--text-navy);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Georgia", serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-right: 8px;
+      }
+
+      /* Responsive */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        .app-store-link {
+          font-size: 1rem;
+          padding: 14px 20px;
+        }
+
+        .cards,
+        .pricing-cards {
+          grid-template-columns: 1fr;
+        }
+
+        .process-section,
+        .stats,
+        .disclosures {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+    <header>
+      <div class="container">
+        <p class="wordmark">PlasticOS</p>
+        <div class="eyebrow">PLASTİK CERRAHİ • KAYNAKLI ÖĞRENME</div>
+        <h1>Bilgiyi derinleştir. Kaynağına dön.</h1>
+        <p class="subtitle">
+          Asistanlar, uzmanlar ve akademisyenler için konu, prosedür atlası ve
+          soru pratiği. Önce ücretsiz içeriği inceleyin; ihtiyacınıza uygun
+          kapsamı uygulamada seçin.
+        </p>
+
+        <div class="cta-group">
+          <a
+            class="app-store-link"
+            data-app-store
+            href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_tprecd48_20261022&amp;mt=8"
+            >App Store’da ücretsiz keşfet</a
+          >
+          <p class="app-store-note">
+            iPhone • Ayrı hesap gerekmez • Tam içerik uygulama içi satın alma
+            gerektirir
+          </p>
+          <p class="app-store-note">
+            Eğitim amaçlıdır; hasta bakımında kullanılmaz.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="container">
+        <section aria-labelledby="audience-title">
+          <h2 id="audience-title" class="section-title">
+            Çalışma akışınıza uygun derinlik
+          </h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Asistanlar için</h3>
+              <p>
+                Konu tekrarı, açıklamalı sorular ve aralıklı tekrar ile çalışma
+                oturumunuza dönün.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Uzmanlar için</h3>
+              <p>
+                Prosedür atlasında ilgili pasajı bulun; mevcut referanslarla
+                bilgiyi yeniden inceleyin.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Akademisyenler için</h3>
+              <p>
+                Ders ve tartışma hazırlığında mevcut konu, atlas ve sorular
+                arasında çalışın.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="process-section">
+          <h2 class="section-title">Önce soruyu ve kaynağı netleştirin</h2>
+          <ol class="numbered-list">
+            <li>Konuyu veya prosedürü seçin.</li>
+            <li>Consult’ta mevcut pasajları ve varsa referanslarını bulun.</li>
+            <li>
+              İlgili sorularla bilginizi sınayın; aralıklı tekrarla geri dönün.
+            </li>
+          </ol>
+          <p class="process-note">
+            Consult mevcut uygulama içeriğinde arar; hastaya özel yanıt üretmez
+            ve canlı literatür taraması değildir.
+          </p>
+        </section>
+
+        <section class="stats">
+          <h2 class="section-title">Tam içerik kataloğu</h2>
+          <p>146 konu · 86 prosedür · 2.207 soru</p>
+          <p class="stats-label">Erişim seçtiğiniz plana bağlıdır.</p>
+        </section>
+
+        <section class="pricing-section">
+          <h2 class="section-title">
+            Ücretsiz başlayın. Kapsamı uygulamada seçin.
+          </h2>
+
+          <div class="pricing-cards">
+            <article class="pricing-card">
+              <h3>Ücretsiz</h3>
+              <p>
+                PGY-1 temel içerikleri, üç temel prosedür ve aralıklı tekrar ile
+                iş akışını deneyin.
+              </p>
+            </article>
+            <article class="pricing-card">
+              <h3>Resident</h3>
+              <p>
+                Aylık veya yıllık abonelikle daha geniş konu ve prosedür
+                kapsamı.
+              </p>
+            </article>
+            <article class="pricing-card">
+              <h3>Fellow</h3>
+              <p>Resident kapsamına ek ileri konular ve prosedürler.</p>
+            </article>
+            <article class="pricing-card">
+              <h3>Lifetime</h3>
+              <p>Fellow erişimi için tek seferlik satın alma.</p>
+            </article>
+          </div>
+
+          <p class="price-disclosure">
+            Güncel fiyat, dönem, yenileme koşulları ve varsa deneme uygunluğu
+            Apple satın alma ekranında, onaydan önce gösterilir.
+          </p>
+
+          <div class="cta-group" style="margin-top: 24px">
+            <a
+              class="secondary-cta"
+              data-app-store
+              href="https://apps.apple.com/app/apple-store/id6799756600?pt=127358997&amp;ct=plasticos_tprecd48_20261022&amp;mt=8"
+              >Ücretsiz içeriği uygulamada incele</a
+            >
+          </div>
+        </section>
+
+        <section class="disclosures">
+          <h2 class="section-title" style="display: none">Açıklamalar</h2>
+          <p>
+            Eğitim amaçlıdır. Hasta bakımında karar vermek için kullanılmaz;
+            klinik değerlendirme veya uzman gözetiminin yerini almaz.
+          </p>
+          <p>
+            Türkçe konu çevirileri bulunur; tercih ettiğiniz dilde bir konuyu
+            satın almadan önce deneyin.
+          </p>
+          <p>
+            TPRECD48 dönemi için bağımsız ürün tanıtımıdır. Kurultay, dernek
+            veya otelle resmî ortaklık ya da onay iddiası yoktur.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-logo">
+          <div class="logo-icon">P</div>
+          <span
+            style="
+              font-family: &quot;Georgia&quot;, serif;
+              font-weight: 700;
+              font-size: 1.5rem;
+            "
+            >PlasticOS</span
+          >
+        </div>
+        <nav class="footer-links">
+          <a class="footer-link" href="./privacy.html">Gizlilik</a>
+          <a class="footer-link" href="./terms.html">Abonelik koşulları</a>
+          <a class="footer-link" href="./support.html">Destek</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="tprecd48.js" defer></script>
+  </body>
+</html>
