@@ -15,7 +15,12 @@
       "https://apps.apple.com/app/apple-store/id6799756600",
     );
     destination.searchParams.set("pt", "127358997");
-    destination.searchParams.set("ct", `plasticos_tprecd48_${source}_20261022`);
+    destination.searchParams.set(
+      "ct",
+      source === "meta"
+        ? "plasticos_tprecd48_20261022"
+        : `plasticos_tprecd48_${source}_20261022`,
+    );
     destination.searchParams.set("mt", "8");
     return destination.href;
   }

@@ -48,7 +48,7 @@ test("untrusted query input cannot redirect or leak personal/ad data", () => {
     assert.equal(destination.origin, "https://apps.apple.com");
     assert.equal(
       destination.searchParams.get("ct"),
-      "plasticos_tprecd48_meta_20261022",
+      "plasticos_tprecd48_20261022",
     );
     assert.equal([...destination.searchParams].length, 3);
   }
@@ -92,5 +92,23 @@ test("page preserves free/paid and education boundaries with working fallback li
   );
   for (const file of ["privacy.html", "terms.html", "support.html"]) {
     assert.ok(fs.existsSync(path.join(__dirname, "../plasticos", file)));
+  }
+});
+
+// Apple requires campaign tokens of at most 30 characters, including fallbacks.
+test("Apple campaign length contract includes unlabelled and malformed links", () => {
+  for (const input of [
+    base,
+    `${base}?utm_source=fb`,
+    `${base}?utm_source=ig`,
+    `${base}?utm_source=unknown`,
+    "not a URL",
+  ]) {
+    const destination = new URL(appStoreURL(input));
+    const token = destination.searchParams.get("ct");
+    assert.ok(
+      token && token.length <= 30,
+      `Invalid Apple campaign length: ${token}`,
+    );
   }
 });
