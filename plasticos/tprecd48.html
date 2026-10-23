@@ -131,6 +131,48 @@
         margin-top: 8px;
       }
 
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(220px, 1fr));
+        gap: 16px;
+        overflow-x: auto;
+        padding: 4px 2px 16px;
+        scroll-snap-type: x proximity;
+      }
+      .product-grid:focus-visible {
+        outline: 3px solid var(--accent-copper);
+        outline-offset: 4px;
+      }
+      .product-shot {
+        min-width: 0;
+        padding: 16px;
+        background: var(--white);
+        border: 1px solid var(--gray-light);
+        border-radius: 12px;
+        scroll-snap-align: start;
+      }
+      .product-shot img {
+        display: block;
+        width: 100%;
+        max-width: 221px;
+        height: auto;
+        margin: 0 auto 16px;
+        border-radius: 10px;
+      }
+      .product-shot h3 {
+        font-size: 1.05rem;
+        line-height: 1.35;
+        margin-bottom: 8px;
+      }
+      .product-shot p,
+      .product-proof-note {
+        color: var(--gray-medium);
+        font-size: 0.9rem;
+      }
+      .product-proof-note {
+        margin: 12px 0 32px;
+      }
+
       /* Main */
       main {
         padding: 40px 0;
@@ -411,6 +453,76 @@
 
     <main id="main">
       <div class="container">
+        <section aria-labelledby="product-proof-title">
+          <h2 id="product-proof-title" class="section-title">
+            Uygulamanın içinden üç ekran
+          </h2>
+          <div
+            class="product-grid"
+            tabindex="0"
+            role="region"
+            aria-label="PlasticOS gerçek ürün ekranları; dar ekranda yana kaydırın"
+          >
+            <figure class="product-shot">
+              <img
+                src="assets/tprecd48/consult.jpg"
+                alt="PlasticOS Consult: atlas pasajları, kaynaklar ve Resident/Fellow erişim kilitleri."
+                width="221"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <h3>Kaynaklı pasajı bulun</h3>
+                <p>
+                  Consult, mevcut atlas içeriğinde arar. Resident ve Fellow
+                  işaretleri içerik erişimini gösterir.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="product-shot">
+              <img
+                src="assets/tprecd48/listen.jpg"
+                alt="PlasticOS sesli çalışma ekranında konu listesi."
+                width="221"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <h3>Konuya sesle geri dönün</h3>
+                <p>
+                  Konu listesinden uygulama içindeki sesli çalışma akışını açın.
+                  Görselde İngilizce içerik gösterilir.
+                </p>
+              </figcaption>
+            </figure>
+            <figure class="product-shot">
+              <img
+                src="assets/tprecd48/topic.jpg"
+                alt="PlasticOS konu ekranı: anahtar noktalar, referans sekmesi ve ses kontrolleri."
+                width="221"
+                height="480"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <h3>Konu ve referansı birlikte inceleyin</h3>
+                <p>
+                  Özet, referans ve ses kontrolleri aynı çalışma akışındadır.
+                  Eğitim içindir; hasta bakımına yönelik karar aracı değildir.
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+          <p class="product-proof-note">
+            App Store’da yayımlı 1.5.4 sürümünün İngilizce örnek ekranlarıdır.
+            Mobilde yana kaydırabilirsiniz. Ücretli içerik kilitleri gösterilir;
+            tüm içerik ücretsiz değildir. Tercih ettiğiniz dilde bir konuyu
+            satın almadan önce uygulamada inceleyin.
+          </p>
+        </section>
+
         <section aria-labelledby="audience-title">
           <h2 id="audience-title" class="section-title">
             Çalışma akışınıza uygun derinlik
@@ -442,6 +554,11 @@
 
         <section class="process-section">
           <h2 class="section-title">Önce soruyu ve kaynağı netleştirin</h2>
+          <p>
+            İlk adım: ücretsiz PGY-1 temel konularından birini açın. Daha geniş
+            konu ve prosedür kapsamına ihtiyaç duyduğunuzda planları
+            karşılaştırın.
+          </p>
           <ol class="numbered-list">
             <li>Konuyu veya prosedürü seçin.</li>
             <li>Consult’ta mevcut pasajları ve varsa referanslarını bulun.</li>

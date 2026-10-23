@@ -1,0 +1,39 @@
+{
+  "appId": 6799756600,
+  "publicVersion": "1.5.4",
+  "publicReleaseDate": "2026-10-05T18:35:55Z",
+  "observedAtUTC": "2026-10-23T04:49:51.563213+00:00",
+  "lookup": "https://itunes.apple.com/lookup?id=6799756600&country=tr",
+  "images": [
+    {
+      "file": "consult.jpg",
+      "originalSourceURL": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/9d/3c/83/9d3c832c-b56e-f664-fd37-5e184643c18f/en-US_69_01.png/320x480bb.jpg",
+      "sha256": "75442da1eb50e0f4c3b4e73db9a3ac3bbbc07231f4367966a64d02163ba880f7",
+      "bytes": 32403,
+      "width": 221,
+      "height": 480,
+      "format": "JPEG",
+      "transformed": false
+    },
+    {
+      "file": "listen.jpg",
+      "originalSourceURL": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/de/a7/f4/dea7f450-5204-1d01-88f3-54cdda6cd2d2/en-US_69_02.png/320x480bb.jpg",
+      "sha256": "fad4798b8a4f89bde6b1e81221fb389b35e47d59867aedc4c163228daaff5dac",
+      "bytes": 28339,
+      "width": 221,
+      "height": 480,
+      "format": "JPEG",
+      "transformed": false
+    },
+    {
+      "file": "topic.jpg",
+      "originalSourceURL": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/40/1d/ae/401dae18-efe0-c7a9-6960-eaeb7c7b41f1/en-US_69_03.png/320x480bb.jpg",
+      "sha256": "5abc62c90a8a58c31367d1e8fd72e389d7fe5d0716eed55bb45416e1e83c00ea",
+      "bytes": 34231,
+      "width": 221,
+      "height": 480,
+      "format": "JPEG",
+      "transformed": false
+    }
+  ]
+}
